@@ -11,11 +11,11 @@ public abstract class StatSR4 {
 	
 	/**
 	 * http://fr.wikipedia.org/wiki/Loi_Binomiale
-	 * Lancer 8 dés revient à renouveler 8 fois de manière indépendante une épreuve de Bernouilli. 
+	 * Lancer 8 dÃ©s revient Ã  renouveler 8 fois de maniÃ¨re indÃ©pendante une Ã©preuve de Bernouilli. 
 	 * Le calcul est donc le suivant :
-	 * A : « Obtenir au moins 4 dés supérieur ou égal à 5 »
-	 * X, la variable aléatoire
-	 * P(A) = P(X >= 4) = P(X = 4) + P(X = 5) + … + P(X=8)
+	 * A : ï¿½ Obtenir au moins 4 dï¿½s supï¿½rieur ou ï¿½gal ï¿½ 5 ï¿½
+	 * X, la variable alï¿½atoire
+	 * P(A) = P(X >= 4) = P(X = 4) + P(X = 5) + ï¿½ + P(X=8)
 	 * P(X = k) = (n k)p^kq^n-k
 	 * n = 8
 	 * p = 1/3
@@ -38,7 +38,7 @@ public abstract class StatSR4 {
 	
 	
 	/**
-	 * Chance d'avoir la moitié de ses dés à 6 pour un critical success 
+	 * Chance d'avoir la moitiï¿½ de ses dï¿½s ï¿½ 6 pour un critical success 
 	 * @param poolSize
 	 * @return
 	 */
@@ -56,7 +56,7 @@ public abstract class StatSR4 {
 	}
 	
 	/**
-	 * Chance d'avoir la moitié de ses dés (moins gremlin) à 1
+	 * Chance d'avoir la moitiï¿½ de ses dï¿½s (moins gremlin) ï¿½ 1
 	 *  
 	 * @param poolSize
 	 * @param gremlin

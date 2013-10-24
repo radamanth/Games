@@ -26,7 +26,7 @@ public interface IRadaDice {
 	 * @throws IllegalArgumentException
 	 * @throws WebServiceException
 	 */
-	@WSDLDocumentation("Retourne le résultat d'un lancement de dés resptant un pattern "
+	@WSDLDocumentation("Retourne le rÃ©sultat d'un lancement de dÃ©s resptant un pattern "
 			+ DiceRoller.DICE_PATTERN
 			+ ". Exemple : Une chaine du type 3D6+12R1")
 	@WebMethod
@@ -34,7 +34,7 @@ public interface IRadaDice {
 	int rollTheDice(@WebParam(name = "dicePattern") String dicePattern)
 			throws IllegalArgumentException, WebServiceException;
 
-	@WSDLDocumentation("Lance une session de dé et retourne le résultat")
+	@WSDLDocumentation("Lance une session de dÃ© et retourne le rÃ©sultat")
 	@WebMethod
 	@POST
 	public @WebResult(name = "diceSessionResult")

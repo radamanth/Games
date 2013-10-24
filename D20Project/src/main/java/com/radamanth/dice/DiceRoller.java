@@ -95,7 +95,7 @@ public abstract class DiceRoller {
 	 * 
 	 * @param diceStr
 	 *            - Un chaine du type 3D6+12R1
-	 * @return - Le resultat du jet de dés ou renvoit une erreur
+	 * @return - Le resultat du jet de dÃ©s ou renvoit une erreur
 	 */
 	public static int rollDice(String diceStr) throws IllegalArgumentException {
 		if (diceStr != null) {
@@ -156,9 +156,9 @@ public abstract class DiceRoller {
 
 		pw.println("Mauvais format (" + diceStr + ").");
 		pw.println("Cela doit etre de la forme  3D6P4R2B1 ");
-		pw.println("3D6 est obligatoire et lance donc 3 dés à 6 faces. 1D20 lance 1D20 ");
+		pw.println("3D6 est obligatoire et lance donc 3 dÃ©s Ã  6 faces. 1D20 lance 1D20 ");
 		pw.println("P4 ou M4 cette partie ajoute un bonus/malus P pour + M pour -");
-		pw.println("R2  Reroll 2 : indique donc les valeurs en dessous de laquelle on relance le dés (valeur comprise) pour ne pas reroller ne pas mettre de valeur ou mettre R0");
+		pw.println("R2  Reroll 2 : indique donc les valeurs en dessous de laquelle on relance le dÃ©s (valeur comprise) pour ne pas reroller ne pas mettre de valeur ou mettre R0");
 		pw.println("B1 pour Best 1  ");
 		pw.println("on peut mettre des minuscule au lieux des majuscules.");
 		pw.println("La seule partie obligatoire est celle des 3D6. Vous pouvez omettres des partie mais ppas les mettres dans le mauvais ordre.");

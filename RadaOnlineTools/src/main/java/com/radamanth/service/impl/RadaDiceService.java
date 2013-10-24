@@ -24,7 +24,7 @@ public class RadaDiceService implements IRadaDiceService {
 			throws IllegalArgumentException {
 		if (request == null)
 			throw new IllegalArgumentException(
-					"les données d'entrée ne peuvent être nulle.");
+					"les donnÃ©es d'entrÃ©e ne peuvent Ãªtre nulle.");
 		RollTheDiceFormResultBean results = new RollTheDiceFormResultBean();
 		results.setRequest(request);
 		

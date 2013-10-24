@@ -6,7 +6,7 @@ public class Computer  extends ComputerDevice{
 	
 	
 	/**
-	 * niveau de securtié
+	 * niveau de securitÃ©
 	 */
 	private int securityLevel;
 	/**
@@ -18,11 +18,11 @@ public class Computer  extends ComputerDevice{
 	 */
 	private int maxNodeDepth;
 	/**
-	 *  nombre d'alerte déclenchant la surveillance
+	 *  nombre d'alerte dÃ©clenchant la surveillance
 	 */
 	private int alertThreshold;
 	/**
-	 *  Les fichiers trouvés sont ils cryptés!
+	 *  Les fichiers trouvÃ©s sont ils cryptÃ©s!
 	 */
 	private boolean crypted;
 	/**
@@ -44,7 +44,7 @@ public class Computer  extends ComputerDevice{
 	 */
 	private List<ComputerFile> listOfFile ;
 	/**
-	 * Liste des device controlés par un computer : autrec computer, camera, porte, tourelles, climatisations, electricité etc...
+	 * Liste des device controlÃ©s par un computer : autrec computer, camera, porte, tourelles, climatisations, electricitÃ© etc...
 	 * 
 	 */
 	private List<ComputerDevice> listOfDevice;

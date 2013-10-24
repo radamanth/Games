@@ -14,7 +14,7 @@ public class Cryptotron {
 	public final static int MODE_DECRYPT = 2;
 	/**
 	 * Liste de clefs de Caesar pour les shift. si null ou vide alors on utilise
-	 * uniquement le Caesar par défaut !
+	 * uniquement le Caesar par dÃ©faut !
 	 */
 	private ArrayList<Integer> keyList = new ArrayList<Integer>();
 	private TreeSet<Integer> notCryptedIndex = null;
@@ -32,7 +32,7 @@ public class Cryptotron {
 	}
 
 	public String cypher() {
-		// resultats crypté
+		// resultats crypte
 		String crypted = new String();
 		// Le tableau des mots
 		String[] srcTab = src.split(" ");
@@ -41,13 +41,13 @@ public class Cryptotron {
 		}
 		// Nbre de mots
 		int nbWord = srcTab.length;
-		// Le tableau des mots crypté (ou pas :p )
+		// Le tableau des mots crypte (ou pas :p )
 		String[] retTab = new String[nbWord];
 
-		// Nombre de mot à ne pas crypter ou decrypter
+		// Nombre de mot Ã  ne pas crypter ou decrypter
 		int nbWordNotCrypted = nbWord * (100 - centage) / 100;
 		TreeSet<Integer> notCryptedIndex = new TreeSet<Integer>();
-		// selection des mots non cryptés
+		// selection des mots non cryptÃ©s
 		for (int i = 0; i < nbWordNotCrypted;) {
 			// Random entre 0 et nbWord -1
 			int tmpIndex = (int) (Math.random() * (nbWord));
@@ -58,7 +58,7 @@ public class Cryptotron {
 		}
 		this.notCryptedIndex = notCryptedIndex;
 
-		// sur tout les mots à crypter
+		// sur tout les mots Ã  crypter
 		for (int i = 0; i < nbWord; i++) {
 			if (notCryptedIndex.contains(new Integer(i)))
 				retTab[i] = srcTab[i].trim();
@@ -174,7 +174,7 @@ public class Cryptotron {
 	
 	
 	public static void main(String[] args) {
-		String src = "Test de cryptage à la con juste pour voir.";
+		String src = "Test de cryptage ï¿½ la con juste pour voir.";
 		ArrayList<Integer> ckey = new ArrayList<Integer>();
 		ckey.add(1);
 		ckey.add(15);

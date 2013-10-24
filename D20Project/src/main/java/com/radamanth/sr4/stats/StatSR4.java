@@ -10,21 +10,21 @@ public abstract class StatSR4 {
 	
 	
 	/**
-	 * http://fr.wikipedia.org/wiki/Loi_Binomiale
-	 * Lancer 8 dés revient à renouveler 8 fois de manière indépendante une épreuve de Bernouilli. 
-	 * Le calcul est donc le suivant :
-	 * A : � Obtenir au moins 4 d�s sup�rieur ou �gal � 5 �
-	 * X, la variable al�atoire
-	 * P(A) = P(X >= 4) = P(X = 4) + P(X = 5) + � + P(X=8)
-	 * P(X = k) = (n k)p^kq^n-k
-	 * n = 8
-	 * p = 1/3
-	 * q = 2/3
-	 *
-	 * @param poolSize
-	 * @param nbSuccessCible
-	 * @return
-	 */
+         * http://fr.wikipedia.org/wiki/Loi_Binomiale
+         * Lancer 8 dés revient à renouveler 8 fois de manière indépendante une épreuve de Bernouilli.
+         * Le calcul est donc le suivant :
+         * A : « Obtenir au moins 4 dés supérieur ou égal à 5 »
+         * X, la variable aléatoire
+         * P(A) = P(X >= 4) = P(X = 4) + P(X = 5) + ^Å + P(X=8)
+         * P(X = k) = (n k)p^kq^n-k
+         * n = 8
+         * p = 1/3
+         * q = 2/3
+         *
+         * @param poolSize
+         * @param nbSuccessCible
+         * @return
+         */
 	public final static  Double getMyChanceToHaveNbHitByPool(int poolSize, int nbSuccessCible) {
 		Double res = new Double(0);
 		for (int i = nbSuccessCible; i <= poolSize; i++) {
@@ -37,11 +37,11 @@ public abstract class StatSR4 {
 	
 	
 	
-	/**
-	 * Chance d'avoir la moiti� de ses d�s � 6 pour un critical success 
-	 * @param poolSize
-	 * @return
-	 */
+ 	/**
+         * Chance d'avoir la moitié de ses dés à 6 pour un critical success
+         * @param poolSize
+         * @return
+         */
 	public final static Double getMyChanceToCritByPool(int poolSize) {
 		Double res = new Double(0);
 		int nbSuccessCible = poolSize / 2;
@@ -56,12 +56,12 @@ public abstract class StatSR4 {
 	}
 	
 	/**
-	 * Chance d'avoir la moiti� de ses d�s (moins gremlin) � 1
-	 *  
-	 * @param poolSize
-	 * @param gremlin
-	 * @return
-	 */
+         * Chance d'avoir la moitié de ses dés (moins gremlin) à 1
+         *
+         * @param poolSize
+         * @param gremlin
+         * @return
+         */
 	public final static Double getMyChanceToCritFailByPool(int poolSize, int gremlin) {
 		Double res = new Double(0);
 		int nbCritFailCible = poolSize / 2; 

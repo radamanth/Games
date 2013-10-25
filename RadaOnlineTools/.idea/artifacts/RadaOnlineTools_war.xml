@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="RadaOnlineTools:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="RadaOnlineTools.war">
+      <element id="artifact" artifact-name="RadaOnlineTools:war exploded" />
+    </root>
+  </artifact>
+</component>

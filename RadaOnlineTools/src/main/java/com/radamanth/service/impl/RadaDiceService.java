@@ -3,6 +3,7 @@ package com.radamanth.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.radamanth.model.OneRoll;
 import org.apache.cxf.common.util.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,17 @@ import com.radamanth.model.RollTheDiceFormBean;
 import com.radamanth.model.RollTheDiceFormResultBean;
 import com.radamanth.service.IRadaDiceService;
 
+/**
+ * Classe de service de lancement de dés
+ */
 @Service
 public class RadaDiceService implements IRadaDiceService {
-
+    /**
+     *
+     * @param dicePattern
+     * @return
+     * @throws IllegalArgumentException
+     */
 	@Override
 	public int rollTheDice(String dicePattern) throws IllegalArgumentException {
 		return DiceRoller.rollDice(dicePattern);
@@ -28,36 +37,22 @@ public class RadaDiceService implements IRadaDiceService {
 		RollTheDiceFormResultBean results = new RollTheDiceFormResultBean();
 		results.setRequest(request);
 		
-		Integer nbRoll = request.getNbRoll1();
-		List<Integer> resDice = new ArrayList<Integer>();
-		String diceStr = request.getDice1();
-		
-		if (StringUtils.isEmpty(diceStr)) {
-			if (nbRoll == null)
-				nbRoll = 1;
-			resDice = new ArrayList<Integer>();
-			for (int i= 0; i< nbRoll; i++) {
-				
-			}
-			
-		}
-		
-		
-		
-		if (StringUtils.isEmpty(request.getDice2())) {
-
-		}
-		if (StringUtils.isEmpty(request.getDice3())) {
-
-		}
-		if (StringUtils.isEmpty(request.getDice4())) {
-
-		}
-		if (StringUtils.isEmpty(request.getDice5())) {
-
-		}
-		return null;
+        for (OneRoll one:request.getRequestedRoll()) {
+            String dice = one.getDice();
+            Integer nb = one.getNbRoll();
+            List<Integer> res = one.getResults();
+            if (nb == null )
+                nb = 1;
+            if (DiceRoller.DICE_PATTERN.matches(dice)) {
+                for (int i = 0; i < nb; i++) {
+                    res.add(DiceRoller.rollDice(dice));
+                }
+            }
+        }
+		return results;
 	}
+
+
 
 	@Override
 	public String usage() {

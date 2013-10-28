@@ -16,9 +16,13 @@ public abstract class DiceRoller {
 	/**
 	 * PAttern : ^[0-9]+[dD][0-9]+([pPMm][0-9]*)?([rR][0-9]+)?([bB][0-9]+)?$
 	 */
-	public static final String DICE_PATTERN = "^[0-9]+[dD][0-9]+([pPMm][0-9]*)?([rR][0-9]+)?([bB][0-9]+)?$";
+	public static final String DICE_PATTERN = "^[0-9]+[dD][0-9]+([\\-\\+][0-9]*)?([rR][0-9]+)?([bB][0-9]+)?$";
+    public static final String MINUS = "m";
+    public static final String PLUS = "p";
+    public static final String REROLL = "r";
+    public static final String BEST = "b";
 
-	/**
+    /**
 	 * 
 	 * @param diceStr
 	 *            -
@@ -44,13 +48,13 @@ public abstract class DiceRoller {
 	private static Integer[] getTabIntFromDiceStr(String diceStr, int signeAddon) {
 		diceStr = diceStr.toLowerCase();
 
-		int indexM = diceStr.indexOf("m");
-		int indexP = diceStr.indexOf("p");
-		int indexR = diceStr.indexOf("r");
-		int indexB = diceStr.indexOf("b");
+		int indexM = diceStr.indexOf(MINUS);
+		int indexP = diceStr.indexOf(PLUS);
+		int indexR = diceStr.indexOf(REROLL);
+		int indexB = diceStr.indexOf(BEST);
 
 		String resString[] = new String[5];
-		String splitStr[] = diceStr.split("[dmprb]");
+		String splitStr[] = diceStr.split("[d\\-\\+rb]");
 		// NbDice
 		resString[0] = splitStr[0];
 		// diceType
@@ -155,8 +159,8 @@ public abstract class DiceRoller {
 		PrintWriter pw = new PrintWriter(sw);
 
 		pw.println("Mauvais format (" + diceStr + ").");
-		pw.println("Cela doit etre de la forme  3D6P4R2B1 ");
-		pw.println("3D6 est obligatoire et lance donc 3 dés à 6 faces. 1D20 lance 1D20 ");
+		pw.println("Cela doit etre de la forme  3D6+4R2B1 ");
+		pw.println("3D6 fait partie de la partie obligatoire et lance donc 3 dés à 6 faces. 1D20 lance 1D20 ");
 		pw.println("P4 ou M4 cette partie ajoute un bonus/malus P pour + M pour -");
 		pw.println("R2  Reroll 2 : indique donc les valeurs en dessous de laquelle on relance le dés (valeur comprise) pour ne pas reroller ne pas mettre de valeur ou mettre R0");
 		pw.println("B1 pour Best 1  ");
@@ -168,7 +172,12 @@ public abstract class DiceRoller {
 
 	public static void main(String[] a) {
 
-		System.out.println(DiceRoller.rollDice("1D20P15"));
+        System.out.println(DiceRoller.rollDice("1D20-15"));
+        System.out.println(DiceRoller.rollDice("1D20-15"));
+        System.out.println(DiceRoller.rollDice("1D20-15"));
+        System.out.println(DiceRoller.rollDice("1D20-15"));
+        System.out.println(DiceRoller.rollDice("1D20-15"));
+
 
 	}
 }

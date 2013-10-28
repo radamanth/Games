@@ -12,6 +12,8 @@ import com.radamanth.model.RollTheDiceFormBean;
 import com.radamanth.model.RollTheDiceFormResultBean;
 import com.radamanth.service.IRadaDiceService;
 
+import javax.ws.rs.Produces;
+
 /**
  * Classe de service de lancement de dés
  */
@@ -55,7 +57,8 @@ public class RadaDiceService implements IRadaDiceService {
 
 
 	@Override
-	public String usage() {
+    @Produces("text/plain; charset=UTF-8")
+    public String usage() {
 		
 		return DiceRoller.usage("");
 	}

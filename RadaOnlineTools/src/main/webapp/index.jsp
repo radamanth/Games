@@ -11,12 +11,26 @@
 	src="../scripts/jquery.mobile-1.3.2.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+		
     })  ;
 
 
 	
 	
 </script>
+
+<script id="tdeTmpl" type="text/x-jquery-tmpl">
+        
+        <div class="dcell">
+            <label>${runner_id}</label><br />
+            <label>${first_name}</label><br />
+            <label>${last_name}</label><br />
+            <label>${gender}</label><br />
+            <label>${finish_time}</label><br />
+
+        </div>
+
+    </script>
 </head>
 
 <body>
@@ -28,8 +42,8 @@
 		</div>
 		<!-- /header -->
 
-		<form action="/spring/DiceRoller/rollTheDice" method="post">
-			<div data-role="collapsible-set">
+		<form id="diceRollForm" name="diceRollForm" method="post">
+			<div id="collapseSet" data-role="collapsible-set">
 
 				<div data-role="collapsible" data-collapsed="false" data-theme="a">
 					<h3>Roll 1</h3>
@@ -47,69 +61,7 @@
 					</fieldset>
 				</div>
 
-				<div data-role="collapsible" data-collapsed="true" data-theme="a">
-					<h3>Roll 2</h3>
-					<fieldset>
-						<label for="nbRoll-2" data-theme="a">Nombre de roll :</label> <input
-							type="range" name="nbRoll-2" id="nbRoll-2" value="1" min="1"
-							max="50" data-theme="a" /> <label for="roll-2" data-theme="a">Roll
-							:</label> <input type="number" name="roll-2"
-							pattern="<%=com.radamanth.dice.DiceRoller.DICE_PATTERN%>"
-							id="roll-2" value="" placeholder="Dice Value"
-							class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"
-							data-theme="a"> <label for="comment-2" data-theme="a">Commentaire
-							:</label> <input type="text" name="comment-2" id="comment-2" value=""
-							data-theme="a" />
-					</fieldset>
-				</div>
-
-				<div data-role="collapsible" data-collapsed="true" data-theme="a">
-					<h3>Roll 3</h3>
-					<fieldset>
-						<label for="nbRoll-3" data-theme="a">Nombre de roll :</label> <input
-							type="range" name="nbRoll-3" id="nbRoll-3" value="1" min="1"
-							max="50" data-theme="a" /> <label for="roll-3" data-theme="a">Roll
-							:</label> <input type="number" name="roll-3"
-							pattern="<%=com.radamanth.dice.DiceRoller.DICE_PATTERN%>"
-							id="roll-3" value="" placeholder="Dice Value"
-							class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"
-							data-theme="a"> <label for="comment-3" data-theme="a">Commentaire
-							:</label> <input type="text" name="comment-3" id="comment-3" value=""
-							data-theme="a" />
-					</fieldset>
-				</div>
-
-				<div data-role="collapsible" data-collapsed="true" data-theme="a">
-					<h3>Roll 4</h3>
-					<fieldset>
-						<label for="nbRoll-4" data-theme="a">Nombre de roll :</label> <input
-							type="range" name="nbRoll-4" id="nbRoll-4" value="1" min="1"
-							max="50" data-theme="a" /> <label for="roll-4" data-theme="a">Roll
-							:</label> <input type="number" name="roll-4"
-							pattern="<%=com.radamanth.dice.DiceRoller.DICE_PATTERN%>"
-							id="roll-4" value="" placeholder="Dice Value"
-							class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"
-							data-theme="a"> <label for="comment-4" data-theme="a">Commentaire
-							:</label> <input type="text" name="comment-4" id="comment-4" value=""
-							data-theme="a" />
-					</fieldset>
-				</div>
-
-				<div data-role="collapsible" data-collapsed="true" data-theme="a">
-					<h3>Roll 5</h3>
-					<fieldset>
-						<label for="nbRoll-5" data-theme="a">Nombre de roll :</label> <input
-							type="range" name="nbRoll-5" id="nbRoll-5" value="1" min="1"
-							max="50" data-theme="a" /> <label for="roll-5" data-theme="a">Roll
-							:</label> <input type="number" name="roll-5"
-							pattern="<%=com.radamanth.dice.DiceRoller.DICE_PATTERN%>"
-							id="roll-5" value="" placeholder="Dice Value"
-							class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"
-							data-theme="a"> <label for="comment-5" data-theme="a">Commentaire
-							:</label> <input type="text" name="comment-5" id="comment-5" value=""
-							data-theme="a" />
-					</fieldset>
-				</div>
+				
 
 			</div>
 

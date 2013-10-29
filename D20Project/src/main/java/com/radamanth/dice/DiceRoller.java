@@ -17,10 +17,10 @@ public abstract class DiceRoller {
 	 * PAttern : ^[0-9]+[dD][0-9]+([pPMm][0-9]*)?([rR][0-9]+)?([bB][0-9]+)?$
 	 */
 	public static final String DICE_PATTERN = "^[0-9]+[dD][0-9]+([\\-\\+][0-9]*)?([rR][0-9]+)?([bB][0-9]+)?$";
-    public static final String MINUS = "m";
-    public static final String PLUS = "p";
-    public static final String REROLL = "r";
-    public static final String BEST = "b";
+    	public static final String MINUS = "-";
+    	public static final String PLUS = "+";
+    	public static final String REROLL = "r";
+    	public static final String BEST = "b";
 
     /**
 	 * 
@@ -172,11 +172,11 @@ public abstract class DiceRoller {
 
 	public static void main(String[] a) {
 
-        System.out.println(DiceRoller.rollDice("1D20-15"));
-        System.out.println(DiceRoller.rollDice("1D20-15"));
-        System.out.println(DiceRoller.rollDice("1D20-15"));
-        System.out.println(DiceRoller.rollDice("1D20-15"));
-        System.out.println(DiceRoller.rollDice("1D20-15"));
+	        System.out.println(DiceRoller.rollDice("1D20-21"));
+	        System.out.println(DiceRoller.rollDice("1D20+1"));
+	        System.out.println(DiceRoller.rollDice("1D20-10"));
+	        System.out.println(DiceRoller.rollDice("1D20+10"));
+	        System.out.println(DiceRoller.rollDice("1D20+15"));
 
 
 	}

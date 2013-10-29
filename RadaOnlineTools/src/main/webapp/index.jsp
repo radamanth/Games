@@ -7,8 +7,8 @@
 <link rel="stylesheet"
 	href="../scripts/jquery.mobile-1.3.2.css" />
 <script src="../scripts/jquery-2.0.3.js"/>
-<script
-	src="../scripts/jquery.mobile-1.3.2.js"/>
+<script	src="../scripts/jquery.mobile-1.3.2.js"/>
+<!-- https://github.com/codepb/jquery-template -->
 <script src="../scritps/jquery.loadTemplate-1.2.6.js"/>
 
 
@@ -26,16 +26,31 @@
 		</fieldset>
 	</div>
 
-
-    <div data-content="author"></div>
-    <div data-content="date"></div>
-    <img data-src="authorPicture" data-alt="author"/>
-    <div data-content="post"></div>
 </script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
+	
+		var Roll = function(title, rollTitleName, rollTitleId, rollName, rollId,nbRollsName, nbRollsId) {
+			this.title = title;
+			this.rollTitleName = rollTitleName;
+			this.rollTitleId = rollTitleId;
+			this.rollName = rollName;
+			this.rollId = rollId;
+			this.nbRollsName = nbRollsName;
+			this.nbRollsId=nbRollsId;
+			
+		};
+		var rollsTab = new Array();
+	
+		var rollDefault = new Roll('Roll 1', 'roll1Title','roll1Title', 'roll1', 'roll1', 'nbRoll1', 'nbRoll1' );
+		rollsTab[0] =rollDefault;
+		$("#collapseSet").loadTemplate($("#template"),rollDefault);
 		
+		
+		function doAjaxPost(evt) {
+			
+		}
     })  ;
 
 </script>

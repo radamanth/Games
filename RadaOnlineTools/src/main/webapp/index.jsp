@@ -12,7 +12,7 @@
 <script src="../scritps/jquery.loadTemplate-1.2.6.js"/>
 
 
-<script type="text/html" id="template">
+<script type="text/html" id="diceTpl">
 	<div data-role="collapsible" data-collapsed="false" data-theme="a">
 		<h3 data-content="title"></h3>
 		<fieldset>
@@ -45,7 +45,7 @@
 	
 		var rollDefault = new Roll('Roll 1', 'roll1Title','roll1Title', 'roll1', 'roll1', 'nbRoll1', 'nbRoll1' );
 		rollsTab[0] =rollDefault;
-		$("#collapseSet").loadTemplate($("#template"),rollDefault);
+		$('#collapseSet').loadTemplate("#diceTpl",rollDefault);
 		
 		
 		function doAjaxPost(evt) {
@@ -63,7 +63,7 @@
 	<div data-role="page">
 
 		<div data-role="header">
-			<h1>RadaDiceProxy</h1>
+			<h1>RadaDice</h1>
 		</div>
 		<!-- /header -->
 

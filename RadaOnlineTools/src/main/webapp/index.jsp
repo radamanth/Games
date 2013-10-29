@@ -4,10 +4,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" ></link>
-<script src="scripts/jquery-2.0.3.min.js" ></script>
-<script src="scripts/jquery.mobile-1.3.2.min.js"></script>
-<script src="http://www.jsviews.com/download/jsrender.js"></script>
+<link rel="stylesheet" href="scripts/jquery.mobile-1.3.2.css" ></link>
+<script src="scripts/jquery-2.0.3.js" ></script>
+<script src="scripts/jquery.mobile-1.3.2.js"></script>
+<script src="scripts/jsrender.js"></script>
+<script src="scripts/jsviews.js"></script>
 <script src="scripts/diceRoller.js"></script>
 <script id="diceTpl" type="text/x-jsrender"> 
 	<div data-role="collapsible" data-collapsed="false" data-theme="a">
@@ -38,9 +39,13 @@
 
 		<form id="diceRollForm" name="diceRollForm" method="post">
 			<div id="diceSet" data-role="collapsible-set" data-theme="a" data-content-theme="a">
-			</div>			
-			<button  id="adddices" data-theme="a" >Ajouter un roll</button>
-			<button  id="btnRoll" data-theme="a" >Roll the Dice !</button>
+			</div>	
+			<div data-role="controlgroup">
+				<a href="#" id="adddices" data-theme="a" data-role="button" >Add Dice</a>
+				<a href="#" id="btnRoll" data-theme="a" data-role="button" >Roll the Dice !</a>
+			</div>
+			
+			
 			<!-- /content -->
 		</form>
 	</div>

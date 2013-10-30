@@ -1,7 +1,8 @@
 package com.radamanth.model;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
-
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,10 @@ public class OneRoll {
     private String comment = "";
 
     private List<Integer> results = new ArrayList<Integer>();
-
+	// produce a wrapper XML element around this collection
+	@XmlElementWrapper(name="resutlsList")
+	// map each member of this list to an XML element named appointment
+	@XmlElement(name="results")
     public List<Integer> getResults() {
         return results;
     }

@@ -50,6 +50,7 @@ public class RadaDiceService implements IRadaDiceService {
                     res.add(DiceRoller.rollDice(dice));
                 }
             }
+			one.setResults(res);
         }
 		return results;
 	}

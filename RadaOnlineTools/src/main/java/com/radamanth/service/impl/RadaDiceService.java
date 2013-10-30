@@ -54,7 +54,7 @@ public class RadaDiceService implements IRadaDiceService {
 			oneres.setResults(res);
 			oneres.setDice(dice);
 			oneres.setNbRoll(nb);
-			onres.setComment(one.getComment());
+			oneres.setComment(one.getComment());
 			results.getRequestedRoll().add(oneres);
         }
 		return results;

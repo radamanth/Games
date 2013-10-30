@@ -14,7 +14,6 @@ import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.RollTheDiceFormBean;
 import com.radamanth.model.RollTheDiceFormResultBean;
 
-@Path(value = "/dice")
 @WebService
 public interface IRadaDice {
 

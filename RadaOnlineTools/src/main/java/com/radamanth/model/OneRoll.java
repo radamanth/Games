@@ -12,6 +12,8 @@ import java.util.List;
  * Time: 21:15
  * To change this template use File | Settings | File Templates.
  */
+
+@XmlRootElement
 @JsonAutoDetect
 public class OneRoll {
     private Integer nbRoll = 1;

@@ -23,16 +23,16 @@ public class OneRoll {
 
     private String comment = "";
 
-    private List<Integer> results = new ArrayList<Integer>();
+    private ArrayList<Integer> results = new ArrayList<Integer>();
 	// produce a wrapper XML element around this collection
 	@XmlElementWrapper(name="resutlsList")
 	// map each member of this list to an XML element named appointment
 	@XmlElement(name="results")
-    public List<Integer> getResults() {
+    public ArrayList<Integer> getResults() {
         return results;
     }
 
-    public void setResults(List<Integer> results) {
+    public void setResults(ArrayList<Integer> results) {
         this.results = results;
     }
 

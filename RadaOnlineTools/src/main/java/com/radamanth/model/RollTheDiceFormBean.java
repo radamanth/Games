@@ -12,13 +12,13 @@ import java.util.List;
 @JsonAutoDetect
 public class RollTheDiceFormBean {
 
-    private List<OneRoll> requestedRoll= new ArrayList<OneRoll>();
+    private ArrayList<OneRoll> requestedRoll= new ArrayList<OneRoll>();
 
-    public List<OneRoll> getRequestedRoll() {
+    public ArrayList<OneRoll> getRequestedRoll() {
         return requestedRoll;
     }
 
-    public void setRequestedRoll(List<OneRoll> requestedRoll) {
+    public void setRequestedRoll(ArrayList<OneRoll> requestedRoll) {
         this.requestedRoll = requestedRoll;
     }
 }

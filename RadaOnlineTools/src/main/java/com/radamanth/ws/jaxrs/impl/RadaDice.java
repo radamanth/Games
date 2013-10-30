@@ -25,7 +25,7 @@ public class RadaDice implements IRadaDiceJaxrs{
 
 	@Override
 	@POST
-	public RollTheDiceFormResultBean rollTheDice(RollTheDiceFormBean request) {
+	public RollTheDiceFormBean rollTheDice(RollTheDiceFormBean request) {
 		return serviceDice.rollTheRoller(request);
 	}
 

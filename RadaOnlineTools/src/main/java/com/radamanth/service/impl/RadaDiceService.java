@@ -31,15 +31,16 @@ public class RadaDiceService implements IRadaDiceService {
 	}
 
 	@Override
-	public RollTheDiceFormResultBean rollTheRoller(RollTheDiceFormBean request)
+	public RollTheDiceFormBean rollTheRoller(RollTheDiceFormBean request)
 			throws IllegalArgumentException {
 		if (request == null)
 			throw new IllegalArgumentException(
 					"les données d'entrée ne peuvent être nulle.");
-		RollTheDiceFormResultBean results = new RollTheDiceFormResultBean();
-		results.setRequest(request);
-		
+		RollTheDiceFormBean results = new RollTheDiceFormBean();
+		results.setRequestedRoll(new ArrayList<OneRoll>());		
         for (OneRoll one:request.getRequestedRoll()) {
+			OneRoll oneres = new OneRoll();
+			
             String dice = one.getDice();
             Integer nb = one.getNbRoll();
             List<Integer> res = one.getResults();
@@ -50,7 +51,11 @@ public class RadaDiceService implements IRadaDiceService {
                     res.add(DiceRoller.rollDice(dice));
                 }
             }
-			one.setResults(res);
+			oneres.setResults(res);
+			oneres.setDice(dice);
+			oneres.setNbRoll(nb);
+			onres.setComment(one.getComment());
+			results.getRequestedRoll().add(oneres);
         }
 		return results;
 	}

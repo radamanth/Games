@@ -14,5 +14,5 @@ public interface IRadaDiceJaxrs {
 	public String usage();
 	
 	@POST
-	public RollTheDiceFormResultBean rollTheDice(RollTheDiceFormBean request);
+	public RollTheDiceFormBean rollTheDice(RollTheDiceFormBean request);
 }

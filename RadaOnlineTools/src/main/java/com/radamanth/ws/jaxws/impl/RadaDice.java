@@ -31,7 +31,7 @@ public class RadaDice implements IRadaDice {
 	@Override
 	@WebMethod
 	public @WebResult(name = "diceSessionResult")
-	RollTheDiceFormResultBean rollTheRoller(
+	RollTheDiceFormBean rollTheRoller(
 			@WebParam(name = "diceSessionRequest") RollTheDiceFormBean request)
 			throws IllegalArgumentException, WebServiceException {
 		return serviceDice.rollTheRoller(request);

@@ -37,7 +37,7 @@ public interface IRadaDice {
 	@WebMethod
 	@POST
 	public @WebResult(name = "diceSessionResult")
-	RollTheDiceFormResultBean rollTheRoller(
+	RollTheDiceFormBean rollTheRoller(
 			@WebParam(name = "diceSessionRequest") RollTheDiceFormBean request)
 			throws IllegalArgumentException, WebServiceException;
 }

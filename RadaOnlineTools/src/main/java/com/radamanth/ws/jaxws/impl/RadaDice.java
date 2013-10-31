@@ -12,7 +12,7 @@ import com.radamanth.model.RollTheDiceFormBean;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.ws.jaxws.IRadaDice;
 
-@WebService
+@WebService()
 public class RadaDice implements IRadaDice {
 
 	@Autowired

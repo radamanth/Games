@@ -4,7 +4,6 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.ws.rs.POST;
 import javax.xml.ws.WebServiceException;
 
 import org.apache.cxf.annotations.WSDLDocumentation;
@@ -12,10 +11,10 @@ import org.apache.cxf.annotations.WSDLDocumentation;
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.RollTheDiceFormBean;
 
-@WebService
+@WebService()
 public interface IRadaDice {
 
-	/**
+        /**
 	 * The Dice Pattern must respect {@link DiceRoller#DICE_PATTERN}
 	 * 
 	 * @param dicePattern
@@ -33,7 +32,6 @@ public interface IRadaDice {
 
 	@WSDLDocumentation("Lance une session de dé et retourne le résultat")
 	@WebMethod
-	@POST
 	public @WebResult(name = "diceSessionResult")
 	RollTheDiceFormBean rollTheRoller(
 			@WebParam(name = "diceSessionRequest") RollTheDiceFormBean request)

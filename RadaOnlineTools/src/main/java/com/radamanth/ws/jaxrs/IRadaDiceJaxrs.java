@@ -8,6 +8,7 @@ import com.radamanth.model.RollTheDiceFormBean;
 
 @Path(value="diceSession")
 public interface IRadaDiceJaxrs {
+    
 
 	@GET
 	public String usage();

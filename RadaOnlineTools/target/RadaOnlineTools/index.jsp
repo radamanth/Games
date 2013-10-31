@@ -1,120 +1,51 @@
 <html>
 <head>
-<title>RadaDiceProxy</title>
+<title>RadaDiceRoller</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="stylesheet"
-	href="../scripts/jquery.mobile-1.3.2.css" />
-<script src="../scripts/jquery-2.0.3.js"></script>
-<script
-	src="../scripts/jquery.mobile-1.3.2.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-    })  ;
-
-
-	
-	
+<link rel="stylesheet" href="scripts/jquery.mobile-1.3.2.css" ></link>
+<script src="scripts/jquery-2.0.3.js" ></script>
+<script src="scripts/jquery.mobile-1.3.2.js"></script>
+<script src="scripts/jsrender.js"></script>
+<script src="scripts/jsviews.js"></script>
+<script src="scripts/diceRoller.js"></script>
+<script id="diceTpl" type="text/x-jsrender"> 
+	<div data-role="collapsible" data-collapsed="false" data-theme="a">
+		<h3>{{:title}}</h3>
+		<fieldset>
+			<label for={{:nbRollsName}} data-theme="a" >Nombre de roll :</label> 
+			<input type="range" name={{:nbRollsName}} id={{:nbRollsId}} value="1" min="1" max="20" data-theme="a" /> 
+			<label for={{:rollName}} data-theme="a">Roll :</label> 
+			<input type="text" name={{:rollName}} 
+				id={{:rollId}} value="" placeholder="Ex : 3D6+12R1B2"   data-theme="a" /> 
+			<label for={{:rollTitleName}} data-theme="a">Titre du roll : </label> 
+			<input type="text" name={{:rollTitleName}} data-id={{:rollTitleId}} value="" data-theme="a" />
+		</fieldset>
+	</div>
 </script>
+
 </head>
 
 <body>
 
+
 	<div data-role="page">
 
 		<div data-role="header">
-			<h1>RadaDiceProxy</h1>
+			<h1>Rada Dice Roller</h1>
 		</div>
 		<!-- /header -->
 
-		<form action="/spring/DiceRoller/rollTheDice" method="post">
-			<div data-role="collapsible-set">
-
-				<div data-role="collapsible" data-collapsed="false" data-theme="a">
-					<h3>Roll 1</h3>
-					<fieldset>
-						<label for="nbRoll-1" data-theme="a">Nombre de roll :</label> <input
-							type="range" name="nbRoll-1" id="nbRoll-1" value="1" min="1"
-							max="50" data-theme="a" /> <label for="roll-1" data-theme="a">Roll
-							:</label> <input type="number" name="roll-1"
-							pattern="<%=com.radamanth.dice.DiceRoller.DICE_PATTERN%>"
-							id="roll-1" value="" placeholder="Dice Value"
-							class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"
-							data-theme="a"> <label for="comment-1" data-theme="a">Commentaire
-							:</label> <input type="text" name="comment-1" id="comment-1" value=""
-							data-theme="a" />
-					</fieldset>
-				</div>
-
-				<div data-role="collapsible" data-collapsed="true" data-theme="a">
-					<h3>Roll 2</h3>
-					<fieldset>
-						<label for="nbRoll-2" data-theme="a">Nombre de roll :</label> <input
-							type="range" name="nbRoll-2" id="nbRoll-2" value="1" min="1"
-							max="50" data-theme="a" /> <label for="roll-2" data-theme="a">Roll
-							:</label> <input type="number" name="roll-2"
-							pattern="<%=com.radamanth.dice.DiceRoller.DICE_PATTERN%>"
-							id="roll-2" value="" placeholder="Dice Value"
-							class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"
-							data-theme="a"> <label for="comment-2" data-theme="a">Commentaire
-							:</label> <input type="text" name="comment-2" id="comment-2" value=""
-							data-theme="a" />
-					</fieldset>
-				</div>
-
-				<div data-role="collapsible" data-collapsed="true" data-theme="a">
-					<h3>Roll 3</h3>
-					<fieldset>
-						<label for="nbRoll-3" data-theme="a">Nombre de roll :</label> <input
-							type="range" name="nbRoll-3" id="nbRoll-3" value="1" min="1"
-							max="50" data-theme="a" /> <label for="roll-3" data-theme="a">Roll
-							:</label> <input type="number" name="roll-3"
-							pattern="<%=com.radamanth.dice.DiceRoller.DICE_PATTERN%>"
-							id="roll-3" value="" placeholder="Dice Value"
-							class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"
-							data-theme="a"> <label for="comment-3" data-theme="a">Commentaire
-							:</label> <input type="text" name="comment-3" id="comment-3" value=""
-							data-theme="a" />
-					</fieldset>
-				</div>
-
-				<div data-role="collapsible" data-collapsed="true" data-theme="a">
-					<h3>Roll 4</h3>
-					<fieldset>
-						<label for="nbRoll-4" data-theme="a">Nombre de roll :</label> <input
-							type="range" name="nbRoll-4" id="nbRoll-4" value="1" min="1"
-							max="50" data-theme="a" /> <label for="roll-4" data-theme="a">Roll
-							:</label> <input type="number" name="roll-4"
-							pattern="<%=com.radamanth.dice.DiceRoller.DICE_PATTERN%>"
-							id="roll-4" value="" placeholder="Dice Value"
-							class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"
-							data-theme="a"> <label for="comment-4" data-theme="a">Commentaire
-							:</label> <input type="text" name="comment-4" id="comment-4" value=""
-							data-theme="a" />
-					</fieldset>
-				</div>
-
-				<div data-role="collapsible" data-collapsed="true" data-theme="a">
-					<h3>Roll 5</h3>
-					<fieldset>
-						<label for="nbRoll-5" data-theme="a">Nombre de roll :</label> <input
-							type="range" name="nbRoll-5" id="nbRoll-5" value="1" min="1"
-							max="50" data-theme="a" /> <label for="roll-5" data-theme="a">Roll
-							:</label> <input type="number" name="roll-5"
-							pattern="<%=com.radamanth.dice.DiceRoller.DICE_PATTERN%>"
-							id="roll-5" value="" placeholder="Dice Value"
-							class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"
-							data-theme="a"> <label for="comment-5" data-theme="a">Commentaire
-							:</label> <input type="text" name="comment-5" id="comment-5" value=""
-							data-theme="a" />
-					</fieldset>
-				</div>
-
+		<form id="diceRollForm" name="diceRollForm" method="post">
+			<div id="diceSet" data-role="collapsible-set" data-theme="a" data-content-theme="a">
+			</div>	
+			<div data-role="controlgroup">
+				<a href="#" id="adddices" data-theme="a" data-role="button" >Add Dice</a>
+				<a href="#" id="btnRoll" data-theme="a" data-role="button" >Roll the Dice !</a>
 			</div>
-
-			<button type="submit" name="submit" value="submit-value"
-				class="ui-btn-hidden" data-theme="a" click="doAjaxPost()" >Roll the Dice !</button>
+			
+			
 			<!-- /content -->
 		</form>
 	</div>

@@ -1,18 +1,15 @@
 package com.radamanth.service.impl;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import com.radamanth.model.OneRoll;
-import org.apache.cxf.common.util.StringUtils;
+import javax.ws.rs.Produces;
+
 import org.springframework.stereotype.Service;
 
 import com.radamanth.dice.DiceRoller;
+import com.radamanth.model.OneRoll;
 import com.radamanth.model.RollTheDiceFormBean;
-import com.radamanth.model.RollTheDiceFormResultBean;
 import com.radamanth.service.IRadaDiceService;
-
-import javax.ws.rs.Produces;
 
 /**
  * Classe de service de lancement de dés

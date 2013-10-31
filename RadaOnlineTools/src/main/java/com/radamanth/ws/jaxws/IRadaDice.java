@@ -5,14 +5,12 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.ws.rs.POST;
-import javax.ws.rs.Path;
 import javax.xml.ws.WebServiceException;
 
 import org.apache.cxf.annotations.WSDLDocumentation;
 
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.RollTheDiceFormBean;
-import com.radamanth.model.RollTheDiceFormResultBean;
 
 @WebService
 public interface IRadaDice {

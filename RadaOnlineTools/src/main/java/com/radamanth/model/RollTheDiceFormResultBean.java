@@ -1,7 +1,5 @@
 package com.radamanth.model;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;

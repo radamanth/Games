@@ -7,7 +7,6 @@ import javax.ws.rs.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.radamanth.model.RollTheDiceFormBean;
-import com.radamanth.model.RollTheDiceFormResultBean;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.ws.jaxrs.IRadaDiceJaxrs;
 

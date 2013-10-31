@@ -1,7 +1,6 @@
 package com.radamanth.service;
 
 import com.radamanth.model.RollTheDiceFormBean;
-import com.radamanth.model.RollTheDiceFormResultBean;
 
 public interface IRadaDiceService {
 

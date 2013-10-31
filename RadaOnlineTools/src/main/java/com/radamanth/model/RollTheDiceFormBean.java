@@ -1,11 +1,10 @@
 package com.radamanth.model;
 
+import java.util.ArrayList;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @XmlRootElement

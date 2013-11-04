@@ -18,12 +18,15 @@ import org.codehaus.jackson.annotate.JsonAutoDetect;
 public class OneRoll {
     private Integer nbRoll = 1;
 
-    private String dice = "";
 
+    private String dice = "";
+    
     private String comment = "";
+
 
     private ArrayList<Integer> results = new ArrayList<Integer>();
 
+    
     public ArrayList<Integer> getResults() {
         return results;
     }

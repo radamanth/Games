@@ -10,9 +10,12 @@ import com.radamanth.model.RollTheDiceFormBean;
 public interface IRadaDiceJaxrs {
     
 
+//	@GET
+//	public String usage();
+	
 	@GET
-	public String usage();
+	public RollTheDiceFormBean usage();
 	
 	@POST
-	public RollTheDiceFormBean rollTheDice(RollTheDiceFormBean request);
+	public RollTheDiceFormBean rollTheRoller(RollTheDiceFormBean request);
 }

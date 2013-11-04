@@ -31,7 +31,7 @@ public interface IRadaDice {
 	int rollTheDice(@WebParam(name = "dicePattern") String dicePattern)
 			throws IllegalArgumentException, WebServiceException;
 
-	@WSDLDocumentation("Lance une session de dé et retourne le résultat")
+	@WSDLDocumentation("Lance une session de dé et retourne les résultats")
 	@WebMethod
 	public @WebResult(name = "diceSessionResult")
 	RollTheDiceFormBean rollTheRoller(

@@ -1,8 +1,8 @@
 package com.radamanth.dice;
 
-import org.junit.Test;
-
 import junit.framework.Assert;
+
+import org.junit.Test;
 
 
 /**
@@ -48,6 +48,42 @@ public class DiceRollerTest {
 			Assert.assertEquals(11, res);
 		}
 
+	}
+	
+	/**
+	 * Test method for
+	 * {@link com.radamanth.dice.DiceRoller#DICE_PATTERN}.
+	 */
+	@Test
+	public void testPattern() {
+		String s= "1d20";
+		Assert.assertTrue(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "5d15";
+		Assert.assertTrue(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "1d20+10";
+		Assert.assertTrue(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "1d20-10";
+		Assert.assertTrue(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "5d20R1B2";
+		Assert.assertTrue(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "14d20R2";
+		Assert.assertTrue(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "5d20B2";
+		Assert.assertTrue(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "5d20R2B2";
+		Assert.assertTrue(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		
+		
+		
+		s= "01d20B2";
+		Assert.assertFalse(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "azeratretzertz";
+		Assert.assertFalse(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "1d20+01";
+		Assert.assertFalse(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		s= "1d20-01";
+		Assert.assertFalse(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		
 	}
 
 }

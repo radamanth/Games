@@ -10,8 +10,9 @@ import org.apache.cxf.annotations.WSDLDocumentation;
 
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.RollTheDiceFormBean;
+import com.radamanth.ws.WsNameSpace;
 
-@WebService()
+@WebService(targetNamespace=WsNameSpace.RADA_JAXWS_NS)
 public interface IRadaDice {
 
         /**
@@ -23,7 +24,7 @@ public interface IRadaDice {
 	 * @throws WebServiceException
 	 */
 	@WSDLDocumentation("Retourne le résultat d'un lancement de dés resptant un pattern "
-			+ DiceRoller.DICE_PATTERN
+			+ DiceRoller.S_DICE_PATTERN
 			+ ". Exemple : Une chaine du type 3D6+12R1")
 	@WebMethod
 	public @WebResult(name = "diceResult")

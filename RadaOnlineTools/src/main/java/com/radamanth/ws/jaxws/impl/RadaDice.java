@@ -10,9 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.radamanth.model.RollTheDiceFormBean;
 import com.radamanth.service.IRadaDiceService;
+import com.radamanth.ws.WsNameSpace;
 import com.radamanth.ws.jaxws.IRadaDice;
 
-@WebService()
+@WebService(targetNamespace=WsNameSpace.RADA_JAXWS_NS)
 public class RadaDice implements IRadaDice {
 
 	@Autowired

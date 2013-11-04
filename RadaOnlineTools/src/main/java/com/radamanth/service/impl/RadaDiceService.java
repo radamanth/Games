@@ -43,7 +43,7 @@ public class RadaDiceService implements IRadaDiceService {
             ArrayList<Integer> res = one.getResults();
             if (nb == null )
                 nb = 1;
-            if (DiceRoller.DICE_PATTERN.matches(dice)) {
+            if (DiceRoller.DICE_PATTERN.matcher(dice).matches()) {
                 for (int i = 0; i < nb; i++) {
                     res.add(DiceRoller.rollDice(dice));
                 }

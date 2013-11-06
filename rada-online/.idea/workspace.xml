@@ -2,13 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec15d6bc-2d6c-4165-93c8-c187d7c61638" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../D20Project/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../D20Project/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\WEB-INF\web.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\diceRoller.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\images\ajax-loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\images\icons-18-black.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\images\icons-18-white.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\images\icons-36-black.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\images\icons-36-white.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery-2.0.3.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery-2.0.3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery.loadTemplate-1.2.6.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery.loadTemplate-1.2.6.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery.mobile-1.3.2.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery.mobile-1.3.2.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery.mobile-1.3.2.min.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery.mobile-1.3.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery.mobile.structure-1.3.2.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jquery.mobile.structure-1.3.2.min.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jsrender.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jsrender.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jsviews.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\jsviews.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\knockout-3.0.0.debug.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-api\src\main\webapp\scripts\libs\knockout-3.0.0.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\java\com\radamanth\model\OneRoll.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\java\com\radamanth\model\RollTheDiceFormBean.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\java\com\radamanth\service\IRadaDiceService.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\java\com\radamanth\service\impl\RadaDiceService.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\java\com\radamanth\ws\WsNameSpace.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\java\com\radamanth\ws\jaxrs\IRadaDiceJaxrs.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\java\com\radamanth\ws\jaxrs\impl\RadaDice.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\java\com\radamanth\ws\jaxws\IRadaDice.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\java\com\radamanth\ws\jaxws\impl\RadaDice.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\resources\applicationContext.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\rada-online\rada-online-war\src\main\resources\cxf-services.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rada-online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="ec15d6bc-2d6c-4165-93c8-c187d7c61638" time="1383769325264" ignored="false" />
+    <file path="/Dummy.txt" changelist="ec15d6bc-2d6c-4165-93c8-c187d7c61638" time="1383769990899" ignored="false" />
     <file path="/pom.xml" changelist="ec15d6bc-2d6c-4165-93c8-c187d7c61638" time="1383769080116" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="ec15d6bc-2d6c-4165-93c8-c187d7c61638" time="1383769500466" ignored="false" />
     <file path="$PROJECT_DIR$/rada-online-api/src/main/resources/applicationContext.xml" changelist="ec15d6bc-2d6c-4165-93c8-c187d7c61638" time="1383769418538" ignored="false" />
     <file path="$PROJECT_DIR$/rada-online-api/src/main/resources/cxf-services.xml" changelist="ec15d6bc-2d6c-4165-93c8-c187d7c61638" time="1383769418538" ignored="false" />
     <file path="$PROJECT_DIR$/rada-online-war/src/main/java/com/radamanth/ws/jaxws/IRadaDice.java" changelist="ec15d6bc-2d6c-4165-93c8-c187d7c61638" time="1383769434175" ignored="false" />
@@ -78,7 +112,26 @@
     <favorites_list name="rada-online" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rada-online-war/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="36" selection-start="852" selection-end="867" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rada-online-api/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="41" selection-start="346" selection-end="379" vertical-scroll-proportion="0.18181819">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -102,6 +155,13 @@
         <option value="$PROJECT_DIR$/rada-online-war/pom.xml" />
       </list>
     </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -175,6 +235,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="rada-online-war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rada-online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rada-online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rada-online-war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rada-online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rada-online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="rada-online-api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -189,7 +289,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rada-api" />
+              <option name="myItemId" value="rada-online-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -203,7 +311,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RadaOnlineTools" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -214,7 +322,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RunManager" selected="Maven.rada-online clean install">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 6.0">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -307,6 +415,13 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -326,6 +441,26 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Tomcat 6.0 JavaScript" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" value="http://localhost:8080/" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
     <configuration default="false" name="rada-online clean install" type="MavenRunConfiguration" factoryName="Maven">
@@ -355,8 +490,87 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Maven.rada-online clean install" />
+    <configuration default="false" name="Tomcat 6.0" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 6.0">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="rada-online-war:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_rada-online" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51713" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="rada-online-war:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.Tomcat 6.0 JavaScript" />
+      <item index="1" class="java.lang.String" itemvalue="Maven.rada-online clean install" />
+      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 6.0" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -398,12 +612,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -411,14 +626,13 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18729989" sideWeight="0.6708428" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32915717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18729989" sideWeight="0.6708428" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -515,13 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rada-online-war/src/main/java/com/radamanth/ws/jaxrs/impl/RadaDice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="18" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="24" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
@@ -550,13 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rada-online-war/src/main/java/com/radamanth/ws/jaxrs/impl/RadaDice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="18" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://MODULES/mdl-rada-online">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -576,20 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rada-online-war/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="36" selection-start="852" selection-end="867" vertical-scroll-proportion="0.54">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rada-online-api/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="41" selection-start="346" selection-end="379" vertical-scroll-proportion="0.12">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rada-api/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="41" selection-start="379" selection-end="379" vertical-scroll-proportion="0.12">
@@ -604,9 +790,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rada-online-war/src/main/java/com/radamanth/ws/jaxrs/impl/RadaDice.java">
+    <entry file="file://$PROJECT_DIR$/rada-online-war/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="18" selection-start="85" selection-end="85" vertical-scroll-proportion="0.02">
+        <state line="27" column="36" selection-start="852" selection-end="867" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rada-online-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="41" selection-start="346" selection-end="379" vertical-scroll-proportion="0.18181819">
           <folding />
         </state>
       </provider>

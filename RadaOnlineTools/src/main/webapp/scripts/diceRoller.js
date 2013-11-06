@@ -6,7 +6,7 @@ $(document).ready(function () {
          this.dice= p_dice;
          this.comment = p_comment ;
          // devrait être une Array
-         if (p_results.isArray()) {
+         if (Array.isArray(p_results)) {
              this.results = p_results;
          } else
             this.results = [];
@@ -25,6 +25,10 @@ $(document).ready(function () {
 		this.rollId = rollId;
 		this.nbRollsName = nbRollsName;
 		this.nbRollsId=nbRollsId;
+		this.nbRoll =  1;
+        this.dice= '';
+        this.comment = '' ;
+        this.results = [];
 		
 	};
 	
@@ -42,10 +46,10 @@ $(document).ready(function () {
 	$('#adddices').bind("click", addDice);
 	
 	function rollTheDice(evt) {
-        rollsTab.forEach(function() {
-           console.log(this.nbRoll);
-           console.log(this.dice);
-           console.log(this.comment);
+        rollsTab.forEach(function(entry) {
+           console.log(entry.nbRoll);
+           console.log(entry.dice);
+           console.log(entry.comment);
         });
 
 		evt.preventDefault();

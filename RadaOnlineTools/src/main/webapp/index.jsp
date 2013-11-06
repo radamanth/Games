@@ -18,12 +18,12 @@
 		<h3>{{:title}}</h3>
 		<fieldset>
 			<label for={{:nbRollsName}} data-theme="a" >Nombre de roll :</label> 
-			<input type="range" name={{:nbRollsName}} id={{:nbRollsId}} data-link="nbRoll" value="1" min="1" max="20" data-theme="a" />
+			<input type="range" name={{:nbRollsName}} id={{:nbRollsId}} data-link="{:nbRoll:}" value="1" min="1" max="20" data-theme="a" />
 			<label for={{:rollName}} data-theme="a">Roll :</label> 
 			<input type="text" name={{:rollName}} 
-				id={{:rollId}} value="" placeholder="Ex : 3D6+12R1B2"   data-theme="a" data-link="dice"/>
+				id={{:rollId}} value="" placeholder="Ex : 3D6+12R1B2"   data-theme="a" data-link="{:dice:}"/>
 			<label for={{:rollTitleName}} data-theme="a">Titre du roll : </label> 
-			<input type="text" name={{:rollTitleName}} data-id={{:rollTitleId}} value="" data-theme="a" data-link="comment" />
+			<input type="text" name={{:rollTitleName}} data-id={{:rollTitleId}} value="" data-theme="a" data-link="{:comment:}" />
 		</fieldset>
 	</div>
 </script>

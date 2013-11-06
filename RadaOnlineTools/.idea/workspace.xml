@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="074ef13f-b8b7-4f1f-aa14-c47b86296231" name="Default" comment="" />
+    <list default="true" id="074ef13f-b8b7-4f1f-aa14-c47b86296231" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../D20Project/.idea/libraries/Maven__junit_junit_4_8_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_8_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../D20Project/.idea/qaplug_profiles.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/qaplug_profiles.xml" />
+      <change type="DELETED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\.idea\libraries\Maven__junit_junit_3_8_1.xml" afterPath="" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery-2.0.3.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery-2.0.3.js" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery-2.0.3.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery-2.0.3.min.js" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery.loadTemplate-1.2.6.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery.loadTemplate-1.2.6.js" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery.loadTemplate-1.2.6.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery.loadTemplate-1.2.6.min.js" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery.mobile-1.3.2.css" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery.mobile-1.3.2.css" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery.mobile-1.3.2.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery.mobile-1.3.2.js" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery.mobile-1.3.2.min.css" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery.mobile-1.3.2.min.css" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery.mobile-1.3.2.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery.mobile-1.3.2.min.js" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery.mobile.structure-1.3.2.css" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery.mobile.structure-1.3.2.css" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jquery.mobile.structure-1.3.2.min.css" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jquery.mobile.structure-1.3.2.min.css" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jsrender.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jsrender.js" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jsrender.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jsrender.min.js" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jsviews.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jsviews.js" />
+      <change type="MOVED" beforePath="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\jsviews.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/libs/jsviews.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxrs/IRadaDiceJaxrs.java" afterPath="$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxrs/IRadaDiceJaxrs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RadaOnlineTools.iml" afterPath="$PROJECT_DIR$/RadaOnlineTools.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/scripts/diceRoller.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/diceRoller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../D20Project/.idea/encodings.xml" afterPath="$PROJECT_DIR$/../D20Project/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../D20Project/jdrTools.iml" afterPath="$PROJECT_DIR$/../D20Project/jdrTools.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../D20Project/.idea/misc.xml" afterPath="$PROJECT_DIR$/../D20Project/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../D20Project/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../D20Project/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="RadaOnlineTools.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1383075728919" ignored="false" />
+    <file path="/Dummy.txt" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1383653828585" ignored="false" />
     <file path="/RadaDiceService.java" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1382868080416" ignored="false" />
     <file path="/RollTheDiceFormBean.java" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1382728863000" ignored="false" />
     <file path="/fragment.java" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1382728522342" ignored="false" />
@@ -12,6 +43,10 @@
     <file path="/OneRoll.java" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1382729165908" ignored="false" />
     <file path="/RadaDice.java" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1382866872081" ignored="false" />
     <file path="/DiceRoller.java" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1382989707740" ignored="false" />
+    <file path="$PROJECT_DIR$/../D20Project/src/test/java/com/radamanth/dice/DiceRollerTest.java" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1383653830472" ignored="false" />
+    <file path="$PROJECT_DIR$/../D20Project/src/main/java/com/radamanth/d20modern/combat/CombatManager.java" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1383653830473" ignored="false" />
+    <file path="/diceRoller.js" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1383655402692" ignored="false" />
+    <file path="/index.jsp" changelist="074ef13f-b8b7-4f1f-aa14-c47b86296231" time="1383655212672" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,10 +107,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RadaDice.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RadaDice.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxws/impl/RadaDice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="33" selection-start="786" selection-end="786" vertical-scroll-proportion="0.31924883">
+            <state line="27" column="33" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -84,7 +119,34 @@
       <file leaf-file-name="RadaDice.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxrs/impl/RadaDice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0">
+            <state line="43" column="0" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IRadaDice.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxws/IRadaDice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="36" selection-start="786" selection-end="786" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="diceRoller.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/diceRoller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="39" selection-start="1190" selection-end="1288" vertical-scroll-proportion="0.6060606">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="122" selection-start="1214" selection-end="1214" vertical-scroll-proportion="-16.346153">
               <folding />
             </state>
           </provider>
@@ -93,7 +155,7 @@
       <file leaf-file-name="IRadaDiceService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/service/IRadaDiceService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="21" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
+            <state line="12" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -102,16 +164,7 @@
       <file leaf-file-name="IRadaDiceJaxrs.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxrs/IRadaDiceJaxrs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="17" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RollTheDiceFormResultBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/model/RollTheDiceFormResultBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="39" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0">
+            <state line="11" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -120,7 +173,7 @@
       <file leaf-file-name="RollTheDiceFormBean.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/model/RollTheDiceFormBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="20" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
+            <state line="13" column="20" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -129,7 +182,7 @@
       <file leaf-file-name="OneRoll.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/model/OneRoll.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="33" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
+            <state line="22" column="33" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -157,8 +210,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/radamanth/model/RollTheDiceFormBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radamanth/model/OneRoll.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radamanth/model/RollTheDiceFormResultBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxws/impl/RadaDice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radamanth/service/impl/RadaDiceService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxws/impl/RadaDice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxrs/IRadaDiceJaxrs.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/scripts/diceRoller.js" />
       </list>
     </option>
   </component>
@@ -233,6 +289,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -268,6 +326,92 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RadaOnlineTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RadaOnlineTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RadaOnlineTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RadaOnlineTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RadaOnlineTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RadaOnlineTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -288,6 +432,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RadaOnlineTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RadaOnlineTools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="radamanth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ws" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -527,8 +701,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -539,22 +711,25 @@
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../immozeo/immozeo-proto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../D20Project" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.radamanth.model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\devenv\sources\github\Games\RadaOnlineTools\src\main\webapp\scripts\libs" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -597,19 +772,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -636,6 +798,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -672,26 +847,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote">
-      <option name="LOCAL" value="false" />
-      <deployment />
-      <server-settings>
-        <data>
-          <option name="transportHostId" />
-        </data>
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="50386" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="false" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
@@ -757,6 +912,26 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote">
+      <option name="LOCAL" value="false" />
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="transportHostId" />
+        </data>
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="50386" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
     <configuration default="false" name="clean install" type="MavenRunConfiguration" factoryName="Maven">
@@ -912,21 +1087,22 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33029613" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.48291573" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.6708428" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5170843" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -995,20 +1171,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxws/impl/RadaDice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="46" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/model/RollTheDiceFormResultBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="39" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/model/RollTheDiceFormBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="20" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
@@ -1032,42 +1194,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/model/RollTheDiceFormBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="20" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/model/RollTheDiceFormResultBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="39" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0">
+        <state line="13" column="20" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/service/IRadaDiceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxrs/IRadaDiceJaxrs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="17" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxrs/impl/RadaDice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0">
+        <state line="12" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/model/OneRoll.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="33" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
+        <state line="22" column="33" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1100,7 +1241,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxws/impl/RadaDice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="33" selection-start="786" selection-end="786" vertical-scroll-proportion="0.31924883">
+        <state line="27" column="33" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxrs/IRadaDiceJaxrs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxrs/impl/RadaDice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/radamanth/ws/jaxws/IRadaDice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="36" selection-start="786" selection-end="786" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="122" selection-start="1214" selection-end="1214" vertical-scroll-proportion="-16.346153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/diceRoller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="39" selection-start="1190" selection-end="1288" vertical-scroll-proportion="0.6060606">
           <folding />
         </state>
       </provider>

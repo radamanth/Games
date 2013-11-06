@@ -4,23 +4,26 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="stylesheet" href="scripts/jquery.mobile-1.3.2.css" ></link>
-<script src="scripts/jquery-2.0.3.js" ></script>
-<script src="scripts/jquery.mobile-1.3.2.js"></script>
-<script src="scripts/jsrender.js"></script>
-<script src="scripts/jsviews.js"></script>
+<link rel="stylesheet" href="scripts/libs/jquery.mobile-1.3.2.css" ></link>
+<script src="scripts/libs/jquery-2.0.3.js" ></script>
+<script src="scripts/libs/jquery.mobile-1.3.2.js"></script>
+<script src="scripts/libs/jsrender.js"></script>
+<script src="scripts/libs/jsviews.js"></script>
 <script src="scripts/diceRoller.js"></script>
-<script id="diceTpl" type="text/x-jsrender"> 
+<script id="diceTpl" type="text/x-jsrender">
+    <div id=results>
+
+    </div>
 	<div data-role="collapsible" data-collapsed="false" data-theme="a">
 		<h3>{{:title}}</h3>
 		<fieldset>
 			<label for={{:nbRollsName}} data-theme="a" >Nombre de roll :</label> 
-			<input type="range" name={{:nbRollsName}} id={{:nbRollsId}} value="1" min="1" max="20" data-theme="a" /> 
+			<input type="range" name={{:nbRollsName}} id={{:nbRollsId}} data-link="nbRoll" value="1" min="1" max="20" data-theme="a" />
 			<label for={{:rollName}} data-theme="a">Roll :</label> 
 			<input type="text" name={{:rollName}} 
-				id={{:rollId}} value="" placeholder="Ex : 3D6+12R1B2"   data-theme="a" /> 
+				id={{:rollId}} value="" placeholder="Ex : 3D6+12R1B2"   data-theme="a" data-link="dice"/>
 			<label for={{:rollTitleName}} data-theme="a">Titre du roll : </label> 
-			<input type="text" name={{:rollTitleName}} data-id={{:rollTitleId}} value="" data-theme="a" />
+			<input type="text" name={{:rollTitleName}} data-id={{:rollTitleId}} value="" data-theme="a" data-link="comment" />
 		</fieldset>
 	</div>
 </script>

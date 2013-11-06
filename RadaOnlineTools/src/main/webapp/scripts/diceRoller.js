@@ -1,6 +1,22 @@
 $(document).ready(function () {
 	var dicetpl = $.templates('#diceTpl');
-	
+
+     var RequestedRoll = function(p_comment, p_nbRoll, p_dice, p_results) {
+         this.nbRoll =  p_nbRoll;
+         this.dice= p_dice;
+         this.comment = p_comment ;
+         // devrait être une Array
+         if (p_results.isArray()) {
+             this.results = p_results;
+         } else
+            this.results = [];
+
+
+
+     };
+
+
+
 	var Roll = function(title, rollTitleName, rollTitleId, rollName, rollId,nbRollsName, nbRollsId) {
 		this.title = title;
 		this.rollTitleName = rollTitleName;
@@ -26,6 +42,12 @@ $(document).ready(function () {
 	$('#adddices').bind("click", addDice);
 	
 	function rollTheDice(evt) {
+        rollsTab.forEach(function() {
+           console.log(this.nbRoll);
+           console.log(this.dice);
+           console.log(this.comment);
+        });
+
 		evt.preventDefault();
 	};
 	

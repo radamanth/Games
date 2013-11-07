@@ -2,4 +2,7 @@ target/
 work/
 .#webclasspath
 .tomcatplugin
+.project
+.classpath
 .settings/
+.settings/*

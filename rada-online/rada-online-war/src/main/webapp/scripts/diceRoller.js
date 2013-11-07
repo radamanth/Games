@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+	
 	function RequestedRoll (p_comment, p_nbRoll, p_dice, p_results) {
 		var self = this;
         self.nbRoll = ko.observable(p_nbRoll);
@@ -21,7 +22,7 @@ $(document).ready(function () {
         self.rollId = rollId;
         self.nbRollsName = nbRollsName;
         self.nbRollsId = nbRollsId;
-        self.rollData = ko.observable([new RequestedRoll('Comment'+self.title, 4, '1D20+13', [])]);
+        self.rollData = ko.observable(new RequestedRoll('Comment'+self.title, 1, '', []));
 
     };
 
@@ -29,36 +30,36 @@ $(document).ready(function () {
 		
 		var self = this;
 		self.rolls=  ko.observableArray([]);
-		self.addOneDiceRoll= function() {
-	        var newIndex = self.rolls().length + 1;
-	        var newRoll = new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex);
-	        self.rolls.push(newRoll);
-	        $('div[data-role="page"]').trigger('refresh');
-	    }
+		var newIndex = 1 ;
+		self.roll1 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+		newIndex ++;
+		self.roll2 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+		newIndex ++;
+		self.roll3 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+		newIndex ++;
+		self.roll4 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+		newIndex ++;
+		self.roll5 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+		self.rollthedice = function() {
+			var url = './services/RadaDiceRs/diceSession'
+				$.getJSON(url, function(data){
+					console.log(data);
+				});
+		};
+//		self.addOneDiceRoll= function() {
+//	        var newIndex = self.rolls().length + 1;
+//	        var newRoll = new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex);
+//	        self.rolls.push(newRoll);
+//	        
+//	    }
 		
 	}
 	
-      function rollTheDice(evt) {
-
-        evt.preventDefault();
-    };
-
-    
-
-//    function addDice(evt) {
-//        addOneDiceRoll();
-//        evt.preventDefault();
-//    }
-
-    
-    $('#btnRoll').bind("click submit", rollTheDice);
-    
 
     var model = new RollViewModel();
-    model.addOneDiceRoll();
     ko.applyBindings(model);
+//    $('#diceSet').trigger('create');
 
-    $('div[data-role="page"]').trigger('refresh');
 
 
 });

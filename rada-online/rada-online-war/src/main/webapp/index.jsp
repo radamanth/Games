@@ -19,11 +19,45 @@
 			<h1>Rada Dice Roller</h1>
 		</div><!-- /header -->
 		  <!-- resultsPanel-->
-		  <div data-role="panel" id="resultsPanel" data-position="right" data-display="push" data-swipe-close="true" data-theme="a" >	
+		  <div data-role="panel" id="resultsPanel" data-position="right" data-display="overlay" data-swipe-close="true" data-theme="a" >	
 		    <div class="panel-content">
 		      <h3>Résultats</h3>
-		      <p></p>
-		      <a href="#resultsPanel" data-rel="close" data-role="button" data-theme="a" data-icon="delete" data-inline="true">Close</a>
+		      		<div data-bind="with: roll1">
+						<h4><span data-bind="  text: title"></span></h4>
+						<h5><span data-bind="  text: rollData().comment"></span></h5>
+						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
+					  		<li data-bind="text: $data"></li>
+						</ul>
+					</div>
+					<div data-bind="with: roll2">
+						<h4><span data-bind="  text: title"></span></h4>
+						<h5><span data-bind="  text: rollData().comment"></span></h5>
+						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
+					  		<li data-bind="text: $data"></li>
+						</ul>
+					</div>
+					<div data-bind="with: roll3">
+						<h4><span data-bind="  text: title"></span></h4>
+						<h5><span data-bind="  text: rollData().comment"></span></h5>
+						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
+					  		<li data-bind="text: $data"></li>
+						</ul>
+					</div>
+					<div data-bind="with: roll4">
+						<h4><span data-bind="  text: title"></span></h4>
+						<h5><span data-bind="  text: rollData().comment"></span></h5>
+						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
+					  		<li data-bind="text: $data"></li>
+						</ul>
+					</div>
+					<div data-bind="with: roll5">
+						<h4><span data-bind="  text: title"></span></h4>
+						<h5><span data-bind="  text: rollData().comment"></span></h5>
+						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
+					  		<li data-bind="text: $data"></li>
+						</ul>
+					</div>
+				
 		    </div><!-- /content wrapper for padding -->
 		  </div><!-- /resultsPanel -->
 		

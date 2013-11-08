@@ -43,7 +43,7 @@ $(document).ready(function () {
         self.getRolls = function() {
             var jsonData = [];
             if (self.roll1().rollData().nbRoll() > 0 ) {
-                jsonData.push(ko.toJS(self.roll1().rollData()));
+            	jsonData.push(ko.toJS(self.roll1().rollData()));
             }
             if (self.roll2().rollData().nbRoll() > 0 ) {
                 jsonData.push(ko.toJS(self.roll2().rollData()));
@@ -71,7 +71,6 @@ $(document).ready(function () {
                 contentType: "application/json",
                 data: JSON.stringify(self.getRolls()),
                 success: function(data, textStatus, jqXHR){
-//                    alert('Dice rolled created successfully');
                     var results =  data.requestedRoll;
                     if (!results) {
                         alert("aucun résultats obtenus");
@@ -114,11 +113,12 @@ $(document).ready(function () {
                         }
                     }
 
-                    console.log(ko.toJSON(self.roll1().rollData()));
-                    console.log(ko.toJSON(self.roll2().rollData()));
-                    console.log(ko.toJSON(self.roll3().rollData()));
-                    console.log(ko.toJSON(self.roll4().rollData()));
-                    console.log(ko.toJSON(self.roll5().rollData()));
+//                    console.log(ko.toJSON(self.roll1().rollData()));
+//                    console.log(ko.toJSON(self.roll2().rollData()));
+//                    console.log(ko.toJSON(self.roll3().rollData()));
+//                    console.log(ko.toJSON(self.roll4().rollData()));
+//                    console.log(ko.toJSON(self.roll5().rollData()));
+                    
                     
 
 
@@ -137,5 +137,5 @@ $(document).ready(function () {
 
     var model = new RollViewModel();
     ko.applyBindings(model);
-
+    
 });

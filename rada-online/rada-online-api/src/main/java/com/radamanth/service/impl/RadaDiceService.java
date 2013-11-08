@@ -40,7 +40,7 @@ public class RadaDiceService implements IRadaDiceService {
 			
             String dice = one.getDice();
             Integer nb = one.getNbRoll();
-            ArrayList<Integer> res = one.getResults();
+            ArrayList<Integer> res = new ArrayList<Integer>();
             if (nb == null )
                 nb = 1;
             if (DiceRoller.DICE_PATTERN.matcher(dice).matches()) {

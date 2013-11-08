@@ -76,19 +76,50 @@ $(document).ready(function () {
                     if (!results) {
                         alert("aucun résultats obtenus");
                     } else {
-                        if (results.length >= 1)
-                           model.roll1().rollData(results[0]);
-                        if (results.length >= 2)
-                            model.roll2().rollData(results[1]);
-                        if (results.length >= 3)
-                            model.roll3().rollData(results[2]);
-                        if (results.length >= 4)
-                            model.roll4().rollData(results[3]);
-                        if (results.length >= 5)
-                            model.roll5().rollData(results[4]);
+                        if (results.length >= 1) {
+                        	var v= results[0];
+                        	model.roll1().rollData().comment(v.comment);
+                        	model.roll1().rollData().nbRoll(v.nbRoll);
+                        	model.roll1().rollData().dice(v.dice);
+                        	model.roll1().rollData().results(v.results);
+                        }
+                           
+                        if (results.length >= 2){
+                        	var v= results[1];
+                        	model.roll2().rollData().comment(v.comment);
+                        	model.roll2().rollData().nbRoll(v.nbRoll);
+                        	model.roll2().rollData().dice(v.dice);
+                        	model.roll2().rollData().results(v.results);
+                        }
+                        if (results.length >= 3){
+                        	var v= results[2];
+                        	model.roll3().rollData().comment(v.comment);
+                        	model.roll3().rollData().nbRoll(v.nbRoll);
+                        	model.roll3().rollData().dice(v.dice);
+                        	model.roll3().rollData().results(v.results);
+                        }
+                        if (results.length >= 4){
+                        	var v= results[3];
+                        	model.roll4().rollData().comment(v.comment);
+                        	model.roll4().rollData().nbRoll(v.nbRoll);
+                        	model.roll4().rollData().dice(v.dice);
+                        	model.roll4().rollData().results(v.results);
+                        }
+                        if (results.length >= 5){
+                        	var v= results[4];
+                        	model.roll5().rollData().comment(v.comment);
+                        	model.roll5().rollData().nbRoll(v.nbRoll);
+                        	model.roll5().rollData().dice(v.dice);
+                        	model.roll5().rollData().results(v.results);
+                        }
                     }
 
                     console.log(ko.toJSON(self.roll1().rollData()));
+                    console.log(ko.toJSON(self.roll2().rollData()));
+                    console.log(ko.toJSON(self.roll3().rollData()));
+                    console.log(ko.toJSON(self.roll4().rollData()));
+                    console.log(ko.toJSON(self.roll5().rollData()));
+                    
 
 
                 },

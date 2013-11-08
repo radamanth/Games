@@ -23,90 +23,99 @@
 		<!-- /header -->
 
 		<form id="diceRollForm" name="diceRollForm" method="post">
-			<!-- <div id="results" data-role="panel" data-position="top" data-display="push">
-			
-			</div> -->
+
 			<div id="diceSet" data-role="collapsible-set" data-theme="a" data-content-theme="a" >
 
                 <div data-role="collapsible" data-collapsed="false" data-theme="a" data-bind="with: roll1">
 					<h3><span data-bind="text: title"></span></h3>
 					<fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll"  min="1" max="20" data-theme="a" />
+						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
 						<label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
 						<input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
 						<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 						<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-						<span data-bind="value: rollData().results")></span>
+						<span data-bind="value: rollData().results"></span>
 					</fieldset>
 				</div>
 				<div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll2">
 					<h3><span data-bind="text: title"></span></h3>
 					<fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll"  min="1" max="20" data-theme="a" />
+						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
 						<label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
 						<input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
 						<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 						<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-						<span data-bind="value: rollData().results")></span>
+						<span data-bind="value: rollData().results"></span>
 					</fieldset>
 				</div>
 				<div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll3">
 					<h3><span data-bind="text: title"></span></h3>
 					<fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll"  min="1" max="20" data-theme="a" />
+						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
 						<label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
 						<input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
 						<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 						<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-						<span data-bind="value: rollData().results")></span>
+						<span data-bind="value: rollData().results"></span>
 					</fieldset>
 				</div>
 				<div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll4">
 					<h3><span data-bind="text: title"></span></h3>
 					<fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll"  min="1" max="20" data-theme="a" />
+						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
 						<label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
 						<input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
 						<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 						<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-						<span data-bind="value: rollData().results")></span>
+						<span data-bind="value: rollData().results"></span>
 					</fieldset>
 				</div>
 				<div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll5" >
 					<h3><span data-bind="text: title"></span></h3>
 					<fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll"  min="1" max="20" data-theme="a" />
+						<input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
 						<label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
 						<input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
 						<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 						<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-						<span data-bind="value: rollData().results")></span>
+						<span data-bind="value: rollData().results"></span>
 					</fieldset>
 				</div>
+
+                <div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with : roll1" >
+                    <h3><span >RESULTS</span></h3>
+                    <fieldset>
+
+                        <span data-bind="value: rollData().results"></span>
+                    </fieldset>
+                </div>
 			</div>
 
             <div data-role="controlgroup">
 				<a href="#" id="btnRoll" data-theme="a" data-role="button" data-bind="click: rollthedice">Roll the Dice !</a>
 			</div>
+
 			
-			
-			<!-- /content -->
+
 		</form>
+
+
+        <!-- /content -->
 	</div>
 	<!-- /page -->
 </body>

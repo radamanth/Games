@@ -43,7 +43,12 @@
 	
 							<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 							<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-							
+							<div data-role="collapsible" data-collapsed="true" data-theme="a" ">
+								<h1>results</h1>
+								<ul data-role="listview" data-theme="a" id="res1" data-bind="foreach: rollData().results"> 
+								  <li data-bind="text: $data"></li>
+								</ul>
+							</div>
 						</fieldset>
 					</div>
 					<div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll2">
@@ -57,7 +62,12 @@
 	
 							<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 							<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-							
+							<div data-role="collapsible" data-collapsed="true" data-theme="a" ">
+								<h1>results</h1>
+								<ul data-role="listview" data-theme="a" id="res1" data-bind="foreach: rollData().results"> 
+								  <li data-bind="text: $data"></li>
+								</ul>
+							</div>
 						</fieldset>
 					</div>
 					<div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll3">
@@ -71,7 +81,12 @@
 	
 							<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 							<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-							
+							<div data-role="collapsible" data-collapsed="true" data-theme="a" ">
+								<h1>results</h1>
+								<ul data-role="listview" data-theme="a" id="res1" data-bind="foreach: rollData().results"> 
+								  <li data-bind="text: $data"></li>
+								</ul>
+							</div>
 						</fieldset>
 					</div>
 					<div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll4">
@@ -85,7 +100,12 @@
 	
 							<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 							<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-							
+							<div data-role="collapsible" data-collapsed="true" data-theme="a" ">
+								<h1>results</h1>
+								<ul data-role="listview" data-theme="a" id="res1" data-bind="foreach: rollData().results"> 
+								  <li data-bind="text: $data"></li>
+								</ul>
+							</div>
 						</fieldset>
 					</div>
 					<div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll5" >
@@ -99,6 +119,12 @@
 	
 							<label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
 							<input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
+							<div data-role="collapsible" data-collapsed="true" data-theme="a" ">
+								<h1>results</h1>
+								<ul data-role="listview" data-theme="a" id="res1" data-bind="foreach: rollData().results"> 
+								  <li data-bind="text: $data"></li>
+								</ul>
+							</div>
 						</fieldset>
 					</div>
 	

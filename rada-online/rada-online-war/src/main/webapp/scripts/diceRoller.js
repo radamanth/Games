@@ -75,12 +75,14 @@ $(document).ready(function () {
                     if (!results) {
                         alert("aucun résultats obtenus");
                     } else {
+                    	
                         if (results.length >= 1) {
                         	var v= results[0];
                         	model.roll1().rollData().comment(v.comment);
                         	model.roll1().rollData().nbRoll(v.nbRoll);
                         	model.roll1().rollData().dice(v.dice);
                         	model.roll1().rollData().results(v.results);
+                        	
                         }
                            
                         if (results.length >= 2){

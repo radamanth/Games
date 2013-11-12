@@ -1,4 +1,4 @@
-package com.radamanth.d20modern.combat;
+package com.radamanth.d20.combat;
 
 public class CombatResult {
 

@@ -1,6 +1,6 @@
-package com.radamanth.d20modern.computer.action;
+package com.radamanth.d20.computer.action;
 
-public class DefendSecurityAction implements ComputerAction {
+public class CrashAction implements ComputerAction {
 
 	@Override
 	public ComputerActionResult doAction() {

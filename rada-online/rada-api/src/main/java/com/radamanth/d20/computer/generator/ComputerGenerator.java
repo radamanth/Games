@@ -1,4 +1,4 @@
-package com.radamanth.d20modern.computer.generator;
+package com.radamanth.d20.computer.generator;
 
 import java.beans.XMLDecoder;
 import java.io.BufferedInputStream;
@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-import com.radamanth.d20modern.computer.Computer;
+import com.radamanth.d20.computer.Computer;
 
 public abstract class ComputerGenerator {
 

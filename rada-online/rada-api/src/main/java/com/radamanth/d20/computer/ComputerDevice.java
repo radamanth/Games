@@ -1,8 +1,8 @@
-package com.radamanth.d20modern.computer;
+package com.radamanth.d20.computer;
 
 import java.util.Set;
 
-import com.radamanth.d20modern.computer.action.ComputerAction;
+import com.radamanth.d20.computer.action.ComputerAction;
 
 public class ComputerDevice {
 	private Integer Id;

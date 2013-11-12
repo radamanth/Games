@@ -10,5 +10,6 @@
         </dependent-module>
         <property name="java-output-path" value="/RadaOnlineTools/target/classes"/>
         <property name="context-root" value="rada-online-war"/>
+        <property name="component.exclusion.patterns" value="WEB-INF/web.xml"/>
     </wb-module>
 </project-modules>

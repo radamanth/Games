@@ -1,4 +1,4 @@
-package com.radamanth.d20modern.computer;
+package com.radamanth.d20.computer;
 
 import java.util.List;
 

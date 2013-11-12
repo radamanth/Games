@@ -1,4 +1,4 @@
-package com.radamanth.d20modern.computer.action;
+package com.radamanth.d20.computer.action;
 
 public class ComputerActionResult {
 	public final static int RETURN_CODE_OK = 0;

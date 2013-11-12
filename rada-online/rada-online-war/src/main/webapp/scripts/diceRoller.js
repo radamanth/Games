@@ -115,6 +115,7 @@ $(document).ready(function () {
                         }
                     }
 
+                    $('#resultsPanel').panel('open');
 //                    console.log(ko.toJSON(self.roll1().rollData()));
 //                    console.log(ko.toJSON(self.roll2().rollData()));
 //                    console.log(ko.toJSON(self.roll3().rollData()));

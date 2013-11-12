@@ -3,6 +3,8 @@
 <title>RadaDiceRoller</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
 <link rel="stylesheet" href="scripts/libs/jquery.mobile-1.3.2.min.css" ></link>
 
 <script src="scripts/libs/jquery-1.10.2.min.js" ></script>
@@ -21,9 +23,10 @@
 		  <!-- resultsPanel-->
 		  <div data-role="panel" id="resultsPanel" data-position="right" data-display="overlay" data-swipe-close="true" data-theme="a" >	
 		    <div class="panel-content">
-		      <h3>Résultats</h3>
+		      <h3>RÃ©sultats</h3>
 		      		<div data-bind="with: roll1">
 						<h4><span data-bind="  text: title"></span></h4>
+                        <h5><span data-bind="  text: rollData().dice"></span></h5>
 						<h5><span data-bind="  text: rollData().comment"></span></h5>
 						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
 					  		<li data-bind="text: $data"></li>

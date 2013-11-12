@@ -20,6 +20,23 @@
 		<div data-role="header">
 			<h1>Rada Dice Roller</h1>
 		</div><!-- /header -->
+		<div data-role="panel" id="mailPanel" data-position="left" data-display="overlay"  data-theme="a" data-visible="true">	
+			<div class="panel-content">
+				<label for="author" data-theme="a">Auteur</label>
+				<input type="email" data-bind="value: author" data-theme="a" />
+				<label for="dest1" data-theme="a">Destinataire 1</label>
+				<input type="email" data-bind="value: dest1"   data-theme="a" />
+				<label for="dest2" data-theme="a">Destinataire 2</label>
+				<input type="email" data-bind="value: dest2"   data-theme="a" />
+				<label for="dest3" data-theme="a">Destinataire 3</label>
+				<input type="email" data-bind="value: dest3"   data-theme="a" />
+				<label for="dest4" data-theme="a">Destinataire 4</label>
+				<input type="email" data-bind="value: dest4"   data-theme="a" />
+				<label for="dest5" data-theme="a">Destinataire 5</label>
+				<input type="email" data-bind="value: dest5"   data-theme="a" />
+		   	</div>
+		</div>
+		 
 		  <!-- resultsPanel-->
 		  <div data-role="panel" id="resultsPanel" data-position="right" data-display="overlay" data-swipe-close="true" data-theme="a" >	
 		    <div class="panel-content">
@@ -66,8 +83,8 @@
 		
 		<div data-role="content">
 		    <form id="diceRollForm" name="diceRollForm" method="post">
-	
-				<div id="diceSet" data-role="collapsible-set" data-theme="a" data-content-theme="a" >
+				
+				<div id="diceSet" data-role="collapsible-set" data-theme="a" data-content-theme="a" data-mini="true"  >
 	
 	                <div data-role="collapsible" data-collapsed="false" data-theme="a" data-bind="with: roll1">
 						<h3><span data-bind="text: title"></span></h3>
@@ -168,9 +185,10 @@
 	                
 				</div>
 				
-	            <div data-role="controlgroup">
+	            <div data-role="controlgroup" data-mini="true">
 	            	<a href="#" id="btnRoll" data-theme="a" data-role="button" data-bind="click: rollthedice">Roll the Dice !</a>
 					<a href="#resultsPanel" data-theme="a" data-role="button">Open results</a>
+					<a href="#mailPanel" data-theme="a" data-role="button">Open mail</a>
 				</div>
 			</form>
 		</div><!-- /content -->

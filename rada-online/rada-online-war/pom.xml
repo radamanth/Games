@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.radamanth</groupId>
 	<artifactId>rada-online-war</artifactId>
 	<name>Radamanth Online WAR</name>
 	<description>API de l'appli WEB</description>
@@ -27,15 +26,7 @@
 					<packagingExcludes>WEB-INF/web.xml</packagingExcludes>
 				</configuration>
 			</plugin>
-	<!-- <plugin> <groupId>org.mortbay.jetty</groupId> <artifactId>maven-jetty-plugin</artifactId> 
-		<version>6.1.10</version> <configuration> <scanIntervalSeconds>10</scanIntervalSeconds> 
-		<connectors> <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector"> 
-		<port>9080</port> <maxIdleTime>60000</maxIdleTime> </connector> </connectors> 
-		</configuration> <executions> <execution> <id>start-jetty</id> <phase>pre-integration-test</phase> 
-		<goals> <goal>run</goal> </goals> <configuration> <scanIntervalSeconds>0</scanIntervalSeconds> 
-		<daemon>true</daemon> </configuration> </execution> <execution> <id>stop-jetty</id> 
-		<phase>post-integration-test</phase> <goals> <goal>stop</goal> </goals> </execution> 
-		</executions> </plugin> -->
+	
 		</plugins>
 	</build>
 	<dependencies>

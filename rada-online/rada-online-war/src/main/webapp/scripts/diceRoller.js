@@ -40,6 +40,13 @@ $(document).ready(function () {
 		self.roll4 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
 		newIndex ++;
 		self.roll5 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+		self.author = '';
+		self.dest1 = '';
+		self.dest2 = '';
+		self.dest3 = '';
+		self.dest4 = '';
+		self.dest5 = '';
+		
         self.getRolls = function() {
             var jsonData = [];
             if (self.roll1().rollData().nbRoll() > 0 ) {
@@ -140,5 +147,6 @@ $(document).ready(function () {
 
     var model = new RollViewModel();
     ko.applyBindings(model);
+    $( "#mailPanel" ).panel( "open" );
     
 });

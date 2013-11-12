@@ -4,18 +4,30 @@ import java.util.ArrayList;
 
 import javax.ws.rs.Produces;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.OneRoll;
 import com.radamanth.model.RollTheDiceFormBean;
 import com.radamanth.service.IRadaDiceService;
+import com.radamanth.utils.StringUtils;
 
 /**
  * Classe de service de lancement de dés
  */
 @Service
 public class RadaDiceService implements IRadaDiceService {
+	
+	
+	@Autowired
+	MailSender mailSender;
+	
+	@Autowired
+    private SimpleMailMessage preConfiguredMessage;
+	
     /**
      *
      * @param dicePattern
@@ -53,6 +65,27 @@ public class RadaDiceService implements IRadaDiceService {
 			oneres.setNbRoll(nb);
 			oneres.setComment(one.getComment());
 			results.getRequestedRoll().add(oneres);
+        }
+        
+        if (results.getAuthor() != null && StringUtils.isEmail(results.getAuthor()) )  {
+        	SimpleMailMessage message = new SimpleMailMessage(preConfiguredMessage);
+        	StringBuffer text = new StringBuffer();
+        	for (OneRoll one : results.getRequestedRoll() ) {
+        		text.append(one.getComment() );
+        		text.append(" : " );
+        		text.append(one.getNbRoll());
+        		text.append(" : " );
+        		text.append(one.getDice());
+        		text.append("\n");
+        		for (Integer i : one.getResults())
+        			text.append(i + " / ");
+        		text.append("\n\n\n");
+        		
+        	}
+        	message.setText(text.toString());
+        	message.setTo(results.getAuthor());
+        	mailSender.send(message);
+        	
         }
 		return results;
 	}

@@ -64,7 +64,7 @@ $(document).ready(function () {
             if (self.roll5().rollData().nbRoll() > 0 ) {
                 jsonData.push(ko.toJS(self.roll5().rollData()));
             }
-            var data = {"requestedRoll": jsonData};
+            var data = {"author" : self.author, "dest1" : self.dest1, "dest2" : self.dest2, "dest3" : self.dest3, "dest4" : self.dest4, "dest5" : self.dest5, "requestedRoll": jsonData};
             return data;
         }
 		self.rollthedice = function() {

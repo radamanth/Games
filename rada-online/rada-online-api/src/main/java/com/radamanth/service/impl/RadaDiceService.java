@@ -1,6 +1,8 @@
 package com.radamanth.service.impl;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
 
 import javax.ws.rs.Produces;
 
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.OneRoll;
@@ -21,7 +24,7 @@ import com.radamanth.utils.StringUtils;
 @Service
 public class RadaDiceService implements IRadaDiceService {
 	
-	
+	private static final Logger logger = Logger.getLogger(RadaDiceService.class.getName());
 	@Autowired
 	MailSender mailSender;
 	
@@ -45,9 +48,10 @@ public class RadaDiceService implements IRadaDiceService {
 		if (request == null)
 			throw new IllegalArgumentException(
 					"les données d'entrée ne peuvent être nulle.");
-		RollTheDiceFormBean results = new RollTheDiceFormBean();
+		RollTheDiceFormBean results = request;
+		List<OneRoll> rolls = request.getRequestedRoll();
 		results.setRequestedRoll(new ArrayList<OneRoll>());		
-        for (OneRoll one:request.getRequestedRoll()) {
+        for (OneRoll one:rolls) {
 			OneRoll oneres = new OneRoll();
 			
             String dice = one.getDice();
@@ -82,9 +86,36 @@ public class RadaDiceService implements IRadaDiceService {
         		text.append("\n\n\n");
         		
         	}
-        	message.setText(text.toString());
+        	message.setText(text.toString()); 
         	message.setTo(results.getAuthor());
+        	
+        	List<String> ccTab = new ArrayList<String>();
+        	
+        	String cc= results.getDest1();
+        	if(cc != null && StringUtils.isEmail(cc)  ) {
+        		ccTab.add(cc);
+        	}
+        	cc= results.getDest2();
+        	if(cc != null && StringUtils.isEmail(cc)  ) {
+        		ccTab.add(cc);
+        	}
+        	cc= results.getDest3();
+        	if(cc != null && StringUtils.isEmail(cc)  ) {
+        		ccTab.add(cc);
+        	}
+        	cc= results.getDest4();
+        	if(cc != null && StringUtils.isEmail(cc)  ) {
+        		ccTab.add(cc);
+        	}
+        	cc= results.getDest5();
+        	if(cc != null && StringUtils.isEmail(cc)  ) {
+        		ccTab.add(cc);
+        	}
+        	if (!CollectionUtils.isEmpty(ccTab))
+        		message.setCc(ccTab.toArray(new String[ccTab.size()]));
+        	logger.info("Sending mail to : " + message.getTo() + " cc: " +message.getCc());
         	mailSender.send(message);
+        	//	
         	
         }
 		return results;

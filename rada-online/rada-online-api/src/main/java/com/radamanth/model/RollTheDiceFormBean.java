@@ -5,24 +5,23 @@ import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 
 @XmlRootElement
 @JsonAutoDetect
 public class RollTheDiceFormBean {
 
-	@JsonProperty
+	
 	private String author = null;
-	@JsonProperty
+	
 	private String dest1 = null;
-	@JsonProperty
+	
 	private String dest2 = null;
-	@JsonProperty
+	
 	private String dest3 = null;
-	@JsonProperty
+	
 	private String dest4 = null;
-	@JsonProperty
+	
 	private String dest5 = null;
 	
     private ArrayList<OneRoll> requestedRoll= new ArrayList<OneRoll>();

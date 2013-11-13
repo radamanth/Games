@@ -43,7 +43,7 @@
 		      <h3>Résultats</h3>
 		      		<div data-bind="with: roll1">
 						<h4><span data-bind="  text: title"></span></h4>
-                        <h5><span data-bind="  text: rollData().dice"></span></h5>
+                        <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
 						<h5><span data-bind="  text: rollData().comment"></span></h5>
 						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
 					  		<li data-bind="text: $data"></li>
@@ -51,13 +51,15 @@
 					</div>
 					<div data-bind="with: roll2">
 						<h4><span data-bind="  text: title"></span></h4>
-						<h5><span data-bind="  text: rollData().comment"></span></h5>
+                        <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
+                        <h5><span data-bind="  text: rollData().comment"></span></h5>
 						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
 					  		<li data-bind="text: $data"></li>
 						</ul>
 					</div>
 					<div data-bind="with: roll3">
 						<h4><span data-bind="  text: title"></span></h4>
+                        <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
 						<h5><span data-bind="  text: rollData().comment"></span></h5>
 						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
 					  		<li data-bind="text: $data"></li>
@@ -65,6 +67,7 @@
 					</div>
 					<div data-bind="with: roll4">
 						<h4><span data-bind="  text: title"></span></h4>
+                        <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
 						<h5><span data-bind="  text: rollData().comment"></span></h5>
 						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
 					  		<li data-bind="text: $data"></li>
@@ -72,6 +75,7 @@
 					</div>
 					<div data-bind="with: roll5">
 						<h4><span data-bind="  text: title"></span></h4>
+                        <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
 						<h5><span data-bind="  text: rollData().comment"></span></h5>
 						<ul data-role="listview" data-theme="a" id="res1" data-bind=" foreach: rollData().results"> 
 					  		<li data-bind="text: $data"></li>

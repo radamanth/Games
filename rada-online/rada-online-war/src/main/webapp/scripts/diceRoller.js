@@ -70,6 +70,7 @@ $(document).ready(function () {
 		self.rollthedice = function() {
 			var myurl = './services/RadaDiceRs/diceSession'
             console.log('posting dice on ' + myurl);
+            $.mobile.loading( 'show');
             $.ajax({
                 type: 'POST',
                 contentType: 'application/json',
@@ -123,17 +124,13 @@ $(document).ready(function () {
                     }
 
                     $('#resultsPanel').panel('open');
-//                    console.log(ko.toJSON(self.roll1().rollData()));
-//                    console.log(ko.toJSON(self.roll2().rollData()));
-//                    console.log(ko.toJSON(self.roll3().rollData()));
-//                    console.log(ko.toJSON(self.roll4().rollData()));
-//                    console.log(ko.toJSON(self.roll5().rollData()));
-                    
+                    $.mobile.loading( 'hide');
                     
 
 
                 },
                 error: function(jqXHR, textStatus, errorThrown){
+                    $.mobile.loading( 'hide');
                     alert('rollthedice ' + textStatus  + ' / ' + errorThrown);
                 }
             });

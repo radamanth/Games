@@ -15,6 +15,7 @@ import org.springframework.util.CollectionUtils;
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.OneRoll;
 import com.radamanth.model.RollTheDiceFormBean;
+import com.radamanth.security.HMAC;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.utils.StringUtils;
 
@@ -74,10 +75,10 @@ public class RadaDiceService implements IRadaDiceService {
         if (results.getAuthor() != null && StringUtils.isEmail(results.getAuthor()) )  {
         	SimpleMailMessage message = new SimpleMailMessage(preConfiguredMessage);
         	StringBuffer text = new StringBuffer();
+        	text.append("==START==\n");
         	for (OneRoll one : results.getRequestedRoll() ) {
-        		text.append(one.getComment() );
-        		text.append(" : " );
-        		text.append(one.getNbRoll());
+        		text.append("Roll : " +one.getComment() +"\n");
+        		text.append("NB : " + one.getNbRoll() );
         		text.append(" : " );
         		text.append(one.getDice());
         		text.append("\n");
@@ -86,6 +87,9 @@ public class RadaDiceService implements IRadaDiceService {
         		text.append("\n\n\n");
         		
         	}
+        	text.append("==END==\n");
+        	String digest = HMAC.hmacDigest(text.toString(), "This is my fucking great 1st key!", "HmacSHA1");
+        	text.append(digest);
         	message.setText(text.toString()); 
         	message.setTo(results.getAuthor());
         	

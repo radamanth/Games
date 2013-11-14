@@ -128,7 +128,7 @@ public class RadaDiceService implements IRadaDiceService {
         		message.setCc(ccTab.toArray(new String[ccTab.size()]));
         	logger.info("Sending mail to : " + message.getTo() + " cc: " +message.getCc());
         	mailSender.send(message);
-        	//	
+        		
         	
         }
 		return results;

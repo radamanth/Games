@@ -7,11 +7,13 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.xml.ws.WebServiceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.radamanth.model.OneRoll;
 import com.radamanth.model.RollTheDiceFormBean;
+import com.radamanth.model.VerifyMailBean;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.ws.jaxrs.IRadaDiceJaxrs;
 
@@ -60,6 +62,19 @@ public class RadaDice implements IRadaDiceJaxrs{
 	@Consumes("application/json")
 	public RollTheDiceFormBean rollTheRoller(RollTheDiceFormBean request) {
 		return serviceDice.rollTheRoller(request);
+	}
+
+	/** 
+	 * @see com.radamanth.ws.jaxrs.IRadaDiceJaxrs#verifyMail(com.radamanth.model.VerifyMailBean)
+	 */
+	@Override
+	@POST
+	@Produces("application/json")
+	@Consumes("application/json")
+	public VerifyMailBean verifyMail(VerifyMailBean mail)
+			throws IllegalArgumentException, WebServiceException {
+		
+		return serviceDice.verifyMail(mail);
 	}
 	
 	

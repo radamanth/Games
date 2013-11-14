@@ -9,6 +9,7 @@ import javax.xml.ws.WebServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.radamanth.model.RollTheDiceFormBean;
+import com.radamanth.model.VerifyMailBean;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.ws.WsNameSpace;
 import com.radamanth.ws.jaxws.IRadaDice;
@@ -19,6 +20,10 @@ public class RadaDice implements IRadaDice {
 	@Autowired
 	IRadaDiceService serviceDice;
 
+	/**
+	 * 
+	 * @see com.radamanth.ws.jaxws.IRadaDice#rollTheDice(java.lang.String)
+	 */
 	@Override
 	@WebMethod
 	public @WebResult(name = "diceResult")
@@ -28,6 +33,10 @@ public class RadaDice implements IRadaDice {
 
 	}
 
+	/**
+	 * 
+	 * @see com.radamanth.ws.jaxws.IRadaDice#rollTheRoller(com.radamanth.model.RollTheDiceFormBean)
+	 */
 	@Override
 	@WebMethod
 	public @WebResult(name = "diceSessionResult")
@@ -36,6 +45,15 @@ public class RadaDice implements IRadaDice {
 			throws IllegalArgumentException, WebServiceException {
 		return serviceDice.rollTheRoller(request);
 
+	}
+
+	/** 
+	 * @see com.radamanth.ws.jaxws.IRadaDice#verifyMail(com.radamanth.model.VerifyMailBean)
+	 */
+	@Override
+	public VerifyMailBean verifyMail(VerifyMailBean mail)
+			throws IllegalArgumentException, WebServiceException {
+		return serviceDice.verifyMail(mail);
 	}
 
 }

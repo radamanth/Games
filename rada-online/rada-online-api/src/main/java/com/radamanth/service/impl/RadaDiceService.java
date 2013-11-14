@@ -15,6 +15,7 @@ import org.springframework.util.CollectionUtils;
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.OneRoll;
 import com.radamanth.model.RollTheDiceFormBean;
+import com.radamanth.model.VerifyMailBean;
 import com.radamanth.security.HMAC;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.utils.StringUtils;
@@ -25,6 +26,14 @@ import com.radamanth.utils.StringUtils;
 @Service
 public class RadaDiceService implements IRadaDiceService {
 	
+	/**
+	 * 
+	 */
+	private static final String HMAC_SHA1 = "HmacSHA1";
+	/**
+	 * 
+	 */
+	private static final String SEC_KEY = "This is my fucking great 1st key!";
 	private static final Logger logger = Logger.getLogger(RadaDiceService.class.getName());
 	@Autowired
 	MailSender mailSender;
@@ -83,12 +92,12 @@ public class RadaDiceService implements IRadaDiceService {
         		text.append(one.getDice());
         		text.append("\n");
         		for (Integer i : one.getResults())
-        			text.append(i + " / ");
+        			text.append(i + " /");
         		text.append("\n\n\n");
         		
         	}
         	text.append("==END==\n");
-        	String digest = HMAC.hmacDigest(text.toString(), "This is my fucking great 1st key!", "HmacSHA1");
+        	String digest = HMAC.hmacDigest(text.toString(), SEC_KEY, HMAC_SHA1);
         	text.append(digest);
         	message.setText(text.toString()); 
         	message.setTo(results.getAuthor());
@@ -132,6 +141,30 @@ public class RadaDiceService implements IRadaDiceService {
     public String usage() {
 		
 		return DiceRoller.usage("");
+	}
+
+	/**
+	 * @see com.radamanth.service.IRadaDiceService#verifyMail(com.radamanth.model.VerifyMailBean)
+	 */
+	@Override
+	public VerifyMailBean verifyMail(VerifyMailBean mail)
+			throws IllegalArgumentException {
+		if (mail == null)
+			return null;
+		if (StringUtils.isEmpty(mail.getMailContent())) 
+			throw new IllegalArgumentException("Le mail à vérifier doit avoir du contenu");
+		if (StringUtils.isEmpty(mail.getKey())) 
+			throw new IllegalArgumentException("Le mail à vérifier doit avoir une clef de comparaison");
+		String res = HMAC.hmacDigest(mail.getMailContent(), SEC_KEY, HMAC_SHA1);
+		if (mail.getKey().compareTo(res) == 0) {
+			mail.setResult(true);
+			mail.setResultMessage("Message valide.");
+		} else {
+			mail.setResult(false);
+			mail.setResultMessage("Mmmm ça sent la gruge ici !!!!");
+		}
+				
+		return mail;
 	}
 	
 	

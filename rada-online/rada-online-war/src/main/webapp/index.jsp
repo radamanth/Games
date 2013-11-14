@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<div data-role="page" id="home" data-theme="a">
+	<div data-role="page" id="home" data-theme="a" data-mini="true">
 		
 		<div data-role="header">
 			<h1>Rada Dice Roller</h1>
@@ -34,13 +34,21 @@
 				<input type="email" data-bind="value: dest4"   data-theme="a" />
 				<label for="dest5" data-theme="a">Destinataire 5</label>
 				<input type="email" data-bind="value: dest5"   data-theme="a" />
+				<a href="#checkMailPopup" id="checkMailButton" data-theme="a" data-role="button" data-rel="popup" data-position-to="window" data-mini="true" >Check Mail</a>
+				<div data-role="popup" id="checkMailPopup" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
+  					<label for="mailContent" data-theme="a">Message</label>
+  					<textarea id="mailContent" name="mailContentName" placeholder="Paste mail content here" data-bind="text: verifyMail().mailContent"></textarea>
+  					<label for="mailKey" data-theme="a">Key</label>
+  					<input type="text" placeholder="Paste key here" data-bind="text: verifyMail().key"></input>
+  					<a href="#" id="btnCheckMail" data-theme="a" data-role="button" data-bind="click: checkMailContent" data-mini="true">Check!</a>
+				</div>
 		   	</div>
 		</div>
 		 
 		  <!-- resultsPanel-->
 		  <div data-role="panel" id="resultsPanel" data-position="right" data-display="overlay" data-swipe-close="true" data-theme="a" >	
 		    <div class="panel-content">
-		      <h3>Résultats</h3>
+		      <h3>RÃ©sultats</h3>
 		      		<div data-bind="with: roll1">
 						<h4><span data-bind="  text: title"></span></h4>
                         <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>

@@ -10,6 +10,7 @@ import org.apache.cxf.annotations.WSDLDocumentation;
 
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.RollTheDiceFormBean;
+import com.radamanth.model.VerifyMailBean;
 import com.radamanth.ws.WsNameSpace;
 
 @WebService(targetNamespace=WsNameSpace.RADA_JAXWS_NS)
@@ -37,4 +38,8 @@ public interface IRadaDice {
 	RollTheDiceFormBean rollTheRoller(
 			@WebParam(name = "diceSessionRequest") RollTheDiceFormBean request)
 			throws IllegalArgumentException, WebServiceException;
+	
+	@WSDLDocumentation("Permet de vérifier la validité d'un contenu.")
+	@WebMethod
+	public @WebResult(name="mailVerified") VerifyMailBean verifyMail(@WebParam(name="mail") VerifyMailBean mail)throws IllegalArgumentException, WebServiceException;
 }

@@ -12,7 +12,13 @@ $(document).ready(function () {
         } else
             self.results = ko.observable([]);
     };
-    
+    function VerifyMail(pmailContent, pmailKey, presult, presultMessage) {
+    	var self = this;
+    	self.mailContent= ko.observable(pmailContent);
+    	self.key = ko.observable(pmailKey);
+    	self.result = ko.observable(presult);
+    	self.resultMessage = ko.observable(presultMessage);
+    }
 	function Roll(title, rollTitleName, rollTitleId, rollName, rollId, nbRollsName, nbRollsId) {
 		var self = this;
         self.title = title;
@@ -46,7 +52,11 @@ $(document).ready(function () {
 		self.dest3 = '';
 		self.dest4 = '';
 		self.dest5 = '';
-		
+		self.verifyMail= ko.observable(new VerifyMail('', '', true, ''));
+		self.checkMailContent= function() {
+			var jsonData = ko.toJS(self.verifyMail());
+			alert("Checking mail : " + ko.toJSON(jsonData));
+		};
         self.getRolls = function() {
             var jsonData = [];
             if (self.roll1().rollData().nbRoll() > 0 ) {

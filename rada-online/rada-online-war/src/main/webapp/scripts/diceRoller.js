@@ -12,13 +12,15 @@ $(document).ready(function () {
         } else
             self.results = ko.observable([]);
     };
+
     function VerifyMail(pmailContent, pmailKey, presult, presultMessage) {
     	var self = this;
     	self.mailContent= ko.observable(pmailContent);
     	self.key = ko.observable(pmailKey);
     	self.result = ko.observable(presult);
     	self.resultMessage = ko.observable(presultMessage);
-    }
+    };
+
 	function Roll(title, rollTitleName, rollTitleId, rollName, rollId, nbRollsName, nbRollsId) {
 		var self = this;
         self.title = title;
@@ -54,8 +56,25 @@ $(document).ready(function () {
 		self.dest5 = '';
 		self.verifyMail= ko.observable(new VerifyMail('', '', true, ''));
 		self.checkMailContent= function() {
-			var jsonData = ko.toJS(self.verifyMail());
-			alert("Checking mail : " + ko.toJSON(jsonData));
+			var jsonDataMail = ko.toJS(self.verifyMail());
+            var myurl = './services/MailVerifyerRs/mailVerify'
+
+//			alert("Checking mail : " + ko.toJSON(jsonDataMail));
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json',
+                url: myurl,
+                dataType: "json",
+                contentType: "application/json",
+                data: jsonDataMail,
+                success: function(data, textStatus, jqXHR){
+                   self.verifyMail =   ko.observable(data);
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    $.mobile.loading( 'hide');
+                    alert('verifyMail ' + textStatus  + ' / ' + errorThrown);
+                }
+            });
 		};
         self.getRolls = function() {
             var jsonData = [];

@@ -1,17 +1,5 @@
 package com.radamanth.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
-import javax.ws.rs.Produces;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
-
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.OneRoll;
 import com.radamanth.model.RollTheDiceFormBean;
@@ -19,14 +7,24 @@ import com.radamanth.model.VerifyMailBean;
 import com.radamanth.security.HMAC;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.utils.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import javax.ws.rs.Produces;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Classe de service de lancement de dés
  */
 @Service
 public class RadaDiceService implements IRadaDiceService {
-	
-	/**
+
+    /**
 	 * 
 	 */
 	private static final String HMAC_SHA1 = "HmacSHA1";
@@ -35,7 +33,9 @@ public class RadaDiceService implements IRadaDiceService {
 	 */
 	private static final String SEC_KEY = "This is my fucking great 1st key!";
 	private static final Logger logger = Logger.getLogger(RadaDiceService.class.getName());
-	@Autowired
+    public static final String END_OF_MAIL = "==END==";
+    public static final String START_OF_MAIL = "==START==\n";
+    @Autowired
 	MailSender mailSender;
 	
 	@Autowired
@@ -84,7 +84,7 @@ public class RadaDiceService implements IRadaDiceService {
         if (results.getAuthor() != null && StringUtils.isEmail(results.getAuthor()) )  {
         	SimpleMailMessage message = new SimpleMailMessage(preConfiguredMessage);
         	StringBuffer text = new StringBuffer();
-        	text.append("==START==\n");
+        	text.append(START_OF_MAIL);
         	for (OneRoll one : results.getRequestedRoll() ) {
         		text.append("Roll : " +one.getComment() +"\n");
         		text.append("NB : " + one.getNbRoll() );
@@ -96,9 +96,9 @@ public class RadaDiceService implements IRadaDiceService {
         		text.append("\n\n\n");
         		
         	}
-        	text.append("==END==\n");
+        	text.append(END_OF_MAIL);
         	String digest = HMAC.hmacDigest(text.toString(), SEC_KEY, HMAC_SHA1);
-        	text.append(digest);
+        	text.append("\n"+digest);
         	message.setText(text.toString()); 
         	message.setTo(results.getAuthor());
         	

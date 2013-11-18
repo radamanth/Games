@@ -4,7 +4,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-
+    <link rel="shortcut icon" href="images/d20.ico" />
     <link rel="stylesheet" href="scripts/libs/jquery.mobile-1.3.2.min.css" />
 
     <script src="scripts/libs/jquery-1.10.2.min.js" ></script>
@@ -39,7 +39,9 @@
                 <textarea id="idMailContent" name="mailContentName" placeholder="Paste mail content here" data-bind="value: verifyMail().mailContent"></textarea>
                 <label for="idMailKey" data-theme="a">Key</label>
                 <input id="idMailKey" type="text" placeholder="Paste key here" data-bind="value: verifyMail().key"/>
+                <span data-bind="text: verifyMail().resultMessage"></span>
                 <a href="#" id="btnCheckMail" data-theme="a" data-role="button" data-bind="click: checkMailContent" data-mini="true">Check!</a>
+
             </div>
         </div>   <!-- Panel content -->
     </div>   <!-- MailPanel-->

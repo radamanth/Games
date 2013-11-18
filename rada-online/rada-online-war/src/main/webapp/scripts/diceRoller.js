@@ -56,10 +56,13 @@ $(document).ready(function () {
 		self.dest5 = '';
 		self.verifyMail= ko.observable(new VerifyMail('', '', true, ''));
 		self.checkMailContent= function() {
+            $('#checkMailPopup').popup('close');
+            $.mobile.loading( 'show');
 			var jsonDataMail = ko.toJS(self.verifyMail());
             var myurl = './services/MailVerifyerRs/mailVerify'
 
 //			alert("Checking mail : " + ko.toJSON(jsonDataMail));
+            jsonDataMail = ko.toJSON(jsonDataMail);
             $.ajax({
                 type: 'POST',
                 contentType: 'application/json',
@@ -68,13 +71,17 @@ $(document).ready(function () {
                 contentType: "application/json",
                 data: jsonDataMail,
                 success: function(data, textStatus, jqXHR){
-                   self.verifyMail =   ko.observable(data);
+                    self.verifyMail = ko.observable(new VerifyMail(data.mailContent, data.key, data.result, data.resultMessage));
+                    alert(data.resultMessage);
+
+
                 },
                 error: function(jqXHR, textStatus, errorThrown){
                     $.mobile.loading( 'hide');
                     alert('verifyMail ' + textStatus  + ' / ' + errorThrown);
                 }
             });
+            $.mobile.loading( 'hide');
 		};
         self.getRolls = function() {
             var jsonData = [];
@@ -99,6 +106,7 @@ $(document).ready(function () {
 		self.rollthedice = function() {
 			var myurl = './services/RadaDiceRs/diceSession'
             console.log('posting dice on ' + myurl);
+
             $.mobile.loading( 'show');
             $.ajax({
                 type: 'POST',

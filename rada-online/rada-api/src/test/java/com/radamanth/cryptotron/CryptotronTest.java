@@ -24,12 +24,12 @@ public class CryptotronTest {
 		ckey.add(27);
 		
 		System.out.println("LA SOURCE : /" + src+"/");
-		Cryptotron c = new Cryptotron(src, Cryptotron.MODE_CRYPT, 100, ckey);
+		Cryptotron c = new Cryptotron(src, Cryptotron.CryptModeEnum.CRYPT, 100, ckey);
 		String ret = c.cypher();
 		System.out.println("Crypted : " + ret);
 		
 		c.setSrc(ret);
-		c.setMode(Cryptotron.MODE_DECRYPT);
+		c.setMode(Cryptotron.CryptModeEnum.DECRYPT);
 		c.setCentage(100);
 		String cryptedDecripted = c.cypher();
 		System.out.println("Decrypted : /" + cryptedDecripted+"/");

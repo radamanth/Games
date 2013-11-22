@@ -26,7 +26,10 @@
     <!-- Dice Service -->  
     <bean id="RadaDiceJaxrs" class="com.radamanth.ws.jaxrs.impl.RadaDice"></bean>
 
+	<!--  Mail verify Dice -->
     <bean id="MailVerifyerJaxrs" class="com.radamanth.ws.jaxrs.impl.MailVerifyer"></bean>
+    <!-- Cryptotron -->
+    <bean id="CryptotronJaxrs" class="com.radamanth.ws.jaxrs.impl.Cryptotron"></bean>
     
 	
 	<!-- JAXRS JackSon WS -->
@@ -46,6 +49,19 @@
     <jaxrs:server id="WsMailVerifyerJaxrs" address="/MailVerifyerRs" >
         <jaxrs:serviceBeans>
             <ref bean="MailVerifyerJaxrs" />
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean="jsonProvider" />
+        </jaxrs:providers>
+        <jaxrs:features>
+            <cxf:logging />
+        </jaxrs:features>
+    </jaxrs:server>
+    
+     <!-- JAXRS JackSon WS -->
+    <jaxrs:server id="WsCryptotronJaxrs" address="/Cryptotron" >
+        <jaxrs:serviceBeans>
+            <ref bean="CryptotronJaxrs" />
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <ref bean="jsonProvider" />

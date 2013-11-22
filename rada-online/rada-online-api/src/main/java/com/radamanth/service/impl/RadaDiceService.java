@@ -12,7 +12,9 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import com.radamanth.cryptotron.Cryptotron;
 import com.radamanth.dice.DiceRoller;
+import com.radamanth.model.CryptotronBean;
 import com.radamanth.model.OneRoll;
 import com.radamanth.model.RollTheDiceFormBean;
 import com.radamanth.model.VerifyMailBean;
@@ -168,6 +170,26 @@ public class RadaDiceService implements IRadaDiceService {
 		}
 				
 		return mail;
+	}
+
+	/** 
+	 * @see com.radamanth.service.IRadaDiceService#cryptotron(com.radamanth.model.CryptotronBean)
+	 */
+	@Override
+	public CryptotronBean cryptotron(CryptotronBean request)
+			throws IllegalArgumentException {
+		if (request == null)
+			return null;
+		if (request.getSrc()== null || request.getSrc().isEmpty() )
+			return request;
+		
+		List<Integer> caesar = new ArrayList<>();
+		
+		Cryptotron crypto = new Cryptotron(request.getSrc(),Cryptotron.CryptModeEnum.valueOf(request.getMode().name()), request.getPercentage(), caesar );
+		String result = crypto.cypher();
+		request.setRes(result);
+		return request;
+		
 	}
 	
 	

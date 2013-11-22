@@ -34,6 +34,7 @@
             <label for="idDest5" data-theme="a">Destinataire 5</label>
             <input id="idDest5" type="email" data-bind="value: dest5"   data-theme="a" />
             <a href="#checkMailPopup" id="checkMailButton" data-theme="a" data-role="button" data-rel="popup" data-position-to="window" data-mini="true" >Check Mail</a>
+            <a href="#mailPanel" data-theme="a" data-role="button" data-mini="true" >Close</a>
             <div data-role="popup" id="checkMailPopup" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
                 <label for="idMailContent" data-theme="a">Message</label>
                 <textarea id="idMailContent" name="mailContentName" placeholder="Paste mail content here" data-bind="value: verifyMail().mailContent"></textarea>
@@ -41,7 +42,7 @@
                 <input id="idMailKey" type="text" placeholder="Paste key here" data-bind="value: verifyMail().key"/>
                 <span data-bind="text: verifyMail().resultMessage"></span>
                 <a href="#" id="btnCheckMail" data-theme="a" data-role="button" data-bind="click: checkMailContent" data-mini="true">Check!</a>
-
+				<a href="#"  data-theme="a" data-role="button" data-rel="back"  data-mini="true" >Close</a>
             </div>
         </div>   <!-- Panel content -->
     </div>   <!-- MailPanel-->
@@ -49,46 +50,56 @@
     <div data-role="panel" id="resultsPanel" data-position="right" data-display="overlay" data-swipe-close="true" data-theme="a" >
         <div class="panel-content">
             <h3>Résultats</h3>
-            <div data-bind="with: roll1">
-                <h4><span data-bind="  text: title"></span></h4>
-                <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
-                <h5><span data-bind="  text: rollData().comment"></span></h5>
-                <ul data-role="listview" data-theme="a"  data-bind=" foreach: rollData().results">
-                    <li data-bind="text: $data"></li>
-                </ul>
-            </div>
+            <!-- ko  if: roll1().rollData().results().length -->
+	            <div data-bind="with: roll1 " >
+	                <h4><span data-bind="  text: title"></span></h4>
+	                <h5><span data-bind="  text: rollData().nbRoll"></span> roll(s) de <span data-bind="  text: rollData().dice"></span></h5>
+	                <h5><span data-bind="  text: rollData().comment"></span></h5>
+	                <ul data-role="listview" data-theme="a"  data-bind=" foreach: rollData().results">
+	                    <li data-bind="text: $data"></li>
+	                </ul>
+	            </div>
+            <!-- /ko -->
+            <!-- ko  if: roll2().rollData().results().length -->
             <div data-bind="with: roll2">
                 <h4><span data-bind="  text: title"></span></h4>
-                <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
+                <h5><span data-bind="  text: rollData().nbRoll"></span> roll(s) de <span data-bind="  text: rollData().dice"></span></h5>
                 <h5><span data-bind="  text: rollData().comment"></span></h5>
                 <ul data-role="listview" data-theme="a" id="res2" data-bind=" foreach: rollData().results">
                     <li data-bind="text: $data"></li>
                 </ul>
             </div>
+            <!-- /ko -->
+            <!-- ko  if: roll3().rollData().results().length -->
             <div data-bind="with: roll3">
                 <h4><span data-bind="  text: title"></span></h4>
-                <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
+                <h5><span data-bind="  text: rollData().nbRoll"></span> roll(s) de <span data-bind="  text: rollData().dice"></span></h5>
                 <h5><span data-bind="  text: rollData().comment"></span></h5>
                 <ul data-role="listview" data-theme="a" id="res3" data-bind=" foreach: rollData().results">
                     <li data-bind="text: $data"></li>
                 </ul>
             </div>
+            <!-- /ko -->
+            <!-- ko  if: roll4().rollData().results().length -->
             <div data-bind="with: roll4">
                 <h4><span data-bind="  text: title"></span></h4>
-                <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
+                <h5><span data-bind="  text: rollData().nbRoll"></span> roll(s) de <span data-bind="  text: rollData().dice"></span></h5>
                 <h5><span data-bind="  text: rollData().comment"></span></h5>
                 <ul data-role="listview" data-theme="a" id="res4" data-bind=" foreach: rollData().results">
                     <li data-bind="text: $data"></li>
                 </ul>
             </div>
+            <!-- /ko -->
+            <!-- ko  if: roll5().rollData().results().length -->
             <div data-bind="with: roll5">
                 <h4><span data-bind="  text: title"></span></h4>
-                <h5><span data-bind="  text: rollData().nbRoll"></span> roll de <span data-bind="  text: rollData().dice"></span></h5>
+                <h5><span data-bind="  text: rollData().nbRoll"></span> roll(s) de <span data-bind="  text: rollData().dice"></span></h5>
                 <h5><span data-bind="  text: rollData().comment"></span></h5>
                 <ul data-role="listview" data-theme="a"  data-bind=" foreach: rollData().results">
                     <li data-bind="text: $data"></li>
                 </ul>
             </div>
+            <!-- /ko -->
 
         </div><!-- /content wrapper for padding -->
     </div><!-- /resultsPanel -->
@@ -109,12 +120,14 @@
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-                        <div data-role="collapsible" data-collapsed="true" data-theme="a" >
-                            <h1>results</h1>
-                            <ul data-role="listview" data-theme="a" data-bind="foreach: rollData().results">
-                                <li data-bind="text: $data"></li>
+                        
+<!--                         <div data-role="collapsible" data-collapsed="false" data-theme="a" >
+                            <h5>Results</h5>
+                            <ul data-role="listview" data-theme="a" data-mini="true" data-bind="foreach: rollData().results">
+                                <li data-mini="true" data-bind="text: $data"></li>
                             </ul>
                         </div>
+ -->                        
                     </fieldset>
                 </div>
                 <div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll2">
@@ -128,12 +141,12 @@
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-                        <div data-role="collapsible" data-collapsed="true" data-theme="a" >
+    <!--                     <div data-role="collapsible" data-collapsed="true" data-theme="a" >
                             <h1>results</h1>
                             <ul data-role="listview" data-theme="a"  data-bind="foreach: rollData().results">
                                 <li data-bind="text: $data"></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </fieldset>
                 </div>
                 <div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll3">
@@ -147,12 +160,12 @@
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-                        <div data-role="collapsible" data-collapsed="true" data-theme="a" >
+                        <!-- <div data-role="collapsible" data-collapsed="true" data-theme="a" >
                             <h1>results</h1>
                             <ul data-role="listview" data-theme="a"  data-bind="foreach: rollData().results">
                                 <li data-bind="text: $data"></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </fieldset>
                 </div>
                 <div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll4">
@@ -166,12 +179,12 @@
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-                        <div data-role="collapsible" data-collapsed="true" data-theme="a" >
+                        <!-- <div data-role="collapsible" data-collapsed="true" data-theme="a" >
                             <h1>results</h1>
                             <ul data-role="listview" data-theme="a"  data-bind="foreach: rollData().results">
                                 <li data-bind="text: $data"></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </fieldset>
                 </div>
                 <div data-role="collapsible" data-collapsed="true" data-theme="a" data-bind="with: roll5" >
@@ -185,12 +198,12 @@
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
-                        <div data-role="collapsible" data-collapsed="true" data-theme="a" >
+                       <!--  <div data-role="collapsible" data-collapsed="true" data-theme="a" >
                             <h1>results</h1>
                             <ul data-role="listview" data-theme="a"  data-bind="foreach: rollData().results">
                                 <li data-bind="text: $data"></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </fieldset>
                 </div>
             </div>

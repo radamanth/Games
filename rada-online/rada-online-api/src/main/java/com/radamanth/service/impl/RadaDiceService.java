@@ -1,5 +1,17 @@
 package com.radamanth.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
+
+import javax.ws.rs.Produces;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
 import com.radamanth.dice.DiceRoller;
 import com.radamanth.model.OneRoll;
 import com.radamanth.model.RollTheDiceFormBean;
@@ -7,16 +19,6 @@ import com.radamanth.model.VerifyMailBean;
 import com.radamanth.security.HMAC;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.utils.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
-
-import javax.ws.rs.Produces;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Classe de service de lancement de dés
@@ -35,6 +37,7 @@ public class RadaDiceService implements IRadaDiceService {
 	private static final Logger logger = Logger.getLogger(RadaDiceService.class.getName());
     public static final String END_OF_MAIL = "==END==";
     public static final String START_OF_MAIL = "==START==\n";
+    
     @Autowired
 	MailSender mailSender;
 	

@@ -31,6 +31,9 @@ $(document).ready(function () {
         self.nbRollsName = nbRollsName;
         self.nbRollsId = nbRollsId;
         self.rollData = ko.observable(new RequestedRoll('', 0, '', []));
+        self.needToShow = function() {
+        	return (self.rollData().nbRoll > 0);
+        }
 
     };
 
@@ -160,7 +163,11 @@ $(document).ready(function () {
                         }
                     }
 
+                    
+                    
+                    
                     $('#resultsPanel').panel('open');
+                    
                     $.mobile.loading( 'hide');
                     
 

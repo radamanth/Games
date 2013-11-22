@@ -89,13 +89,13 @@
 			<artifactId>spring-beans</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- CGLIB is required to process @Configuration classes -->
 		<dependency>
 			<groupId>cglib</groupId>
@@ -116,6 +116,18 @@
 			<version>1.4.3</version>
 		</dependency>
 	</dependencies>
-
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<author>radamanth</author>
+					<charset>utf-8</charset>
+					<show>public</show>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

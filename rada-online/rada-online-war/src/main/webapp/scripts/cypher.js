@@ -49,7 +49,7 @@ $(document).ready(function() {
 			            skey = data.key.join('/');
 			        } 
 					 
-					self.data().res(data.result);
+					self.data().res(data.res);
 					
 	
 				},

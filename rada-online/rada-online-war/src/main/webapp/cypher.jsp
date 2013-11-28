@@ -29,8 +29,8 @@
                 <input type="text" data-bind=" value: data().key" placeholder="Ex : 17/13/24" data-theme="a" />
                 <label for="idPercent" data-theme="a" >Nombre de roll :</label>
 				<input type="range" id="idPercent" data-bind="value: data().percentage" min="0"  max="100" data-theme="a" />
-				<label for="idResContent" data-theme="a">Résultat :</label>
-                <textarea id="idResContent" name="ResContentName" data-bind="value: data().res" readonly="readonly"></textarea>
+				<label for="idResContent" data-theme="a">RÃ©sultat :</label>
+				<textarea id="idResContent" name="ResContentName" data-bind="value: data().res" readonly="readonly"></textarea>
             
         </form>
         <div data-role="controlgroup" data-mini="true">

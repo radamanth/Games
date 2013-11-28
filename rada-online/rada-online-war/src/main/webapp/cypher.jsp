@@ -22,20 +22,20 @@
     
 
     <div data-role="content">
-        <form id="cryptoform" name="cryptoform" method="post">
+        <form id="cryptoform" name="cryptoform" method="post" data-with="">
  				<label for="idSourceContent" data-theme="a">Source :</label>
-                <textarea id="idSourceContent" name="SourceContentName" placeholder="Paste content here" data-bind="value: src"></textarea>
+                <textarea id="idSourceContent" name="SourceContentName" placeholder="Paste content here" data-bind="value: data().src"></textarea>
                 <label for="idKey" data-theme="a" >clef de cryptage (X/Y/Z) :</label>
-                <input type="text" data-bind=" value: key" placeholder="Ex : 17/13/24" data-theme="a" />
+                <input type="text" data-bind=" value: data().key" placeholder="Ex : 17/13/24" data-theme="a" />
                 <label for="idPercent" data-theme="a" >Nombre de roll :</label>
-				<input type="range" id="idPercent" data-bind="value: percentage" min="0"  max="100" data-theme="a" />
+				<input type="range" id="idPercent" data-bind="value: data().percentage" min="0"  max="100" data-theme="a" />
             
         </form>
         <div data-role="controlgroup" data-mini="true">
             <a href="#" id="btnCypher" data-theme="a" data-role="button" data-bind="click: cypher">Cypher!</a>
             <a href="#" id="btnDeCypher" data-theme="a" data-role="button" data-bind="click: decypher">Decipher</a>
         </div>
-        <div id="resultPanel" data-bind="text: res">
+        <div id="resultPanel" data-bind="text: data().res">
         	
         </div>
 

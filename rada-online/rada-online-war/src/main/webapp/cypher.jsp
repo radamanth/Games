@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="images/d20.ico" />
     <link rel="stylesheet" href="scripts/libs/jquery.mobile-1.3.2.min.css" />
 
-    <script src="scripts/libs/jquery-1.10.2.min.js" ></script>
-    <script src="scripts/libs/jquery.mobile-1.3.2.min.js"></script>
-    <script src="scripts/libs/knockout-3.0.0.js"></script>
+    <script src="scripts/libs/jquery-1.10.2.js" ></script>
+    <script src="scripts/libs/jquery.mobile-1.3.2.js"></script>
+    <script src="scripts/libs/knockout-3.0.0.debug.js"></script>
     <script src="scripts/cypher.js"></script>
 
 </head>
@@ -27,14 +27,15 @@
                 <textarea id="idSourceContent" name="SourceContentName" placeholder="Paste content here" data-bind="value: src"></textarea>
                 <label for="idKey" data-theme="a" >clef de cryptage (X/Y/Z) :</label>
                 <input type="text" data-bind=" value: key" placeholder="Ex : 17/13/24" data-theme="a" />
-                
+                <label for="idPercent" data-theme="a" >Nombre de roll :</label>
+				<input type="range" id="idPercent" data-bind="value: percentage" min="0"  max="100" data-theme="a" />
             
         </form>
         <div data-role="controlgroup" data-mini="true">
             <a href="#" id="btnCypher" data-theme="a" data-role="button" data-bind="click: cypher">Cypher!</a>
             <a href="#" id="btnDeCypher" data-theme="a" data-role="button" data-bind="click: decypher">Decipher</a>
         </div>
-        <div id="resultPanel" data-bind="text: result">
+        <div id="resultPanel" data-bind="text: res">
         	
         </div>
 

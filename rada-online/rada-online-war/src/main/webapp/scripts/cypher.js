@@ -4,14 +4,16 @@ $(document).ready(function () {
 	function CrytotronViewModel (p_src, p_key_tab, p_result) {
 		var self = this;
         self.src = ko.observable(p_src);
-        self.dice = ko.observable(p_dice);
-        self.comment = ko.observable(p_comment);
-        // devrait être une Array
-        if (Array.isArray(p_results)) {
-            self.results = ko.observable(p_results);
-        } else
-            self.results = ko.observable([]);
+        self.key= ko.observable(p_key_tab);
+        self.result = ko.observable(p_result);
+        self.cypher = function() {
+        	alert("cypher");
+        };
+        self.decypher = function() {
+        	alert("decypher");
+        };
     };
+    
 	
 
     var model = new CrytotronViewModel();

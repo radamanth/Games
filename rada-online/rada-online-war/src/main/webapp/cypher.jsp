@@ -29,16 +29,15 @@
                 <input type="text" data-bind=" value: data().key" placeholder="Ex : 17/13/24" data-theme="a" />
                 <label for="idPercent" data-theme="a" >Nombre de roll :</label>
 				<input type="range" id="idPercent" data-bind="value: data().percentage" min="0"  max="100" data-theme="a" />
+				<label for="idResContent" data-theme="a">Résultat :</label>
+                <textarea id="idResContent" name="ResContentName" data-bind="value: data().res" readonly="readonly"></textarea>
             
         </form>
         <div data-role="controlgroup" data-mini="true">
             <a href="#" id="btnCypher" data-theme="a" data-role="button" data-bind="click: cypher">Cypher!</a>
             <a href="#" id="btnDeCypher" data-theme="a" data-role="button" data-bind="click: decypher">Decipher</a>
         </div>
-        <div id="resultPanel" data-bind="text: data().res">
-        	
-        </div>
-
+        
     </div><!-- /content -->
 </div><!--  page home -->
 

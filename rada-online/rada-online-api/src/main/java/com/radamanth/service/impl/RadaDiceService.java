@@ -184,7 +184,8 @@ public class RadaDiceService implements IRadaDiceService {
 			return request;
 		
 		List<Integer> caesar = new ArrayList<>();
-		
+		for (int i :request.getKey())
+			caesar.add(i);
 		Cryptotron crypto = new Cryptotron(request.getSrc(),Cryptotron.CryptModeEnum.valueOf(request.getMode().name()), request.getPercentage(), caesar );
 		String result = crypto.cypher();
 		request.setRes(result);

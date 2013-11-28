@@ -20,17 +20,21 @@ $(document).ready(function() {
 	
 		self.cypher = function() {
 			self.data().mode('CRYPT');
+			self.doit();
+	
+		};
+	
+		self.decypher = function() {
+			self.data().mode('DECRYPT');
+			self.doit();
+		};
+		
+		self.doit = function() {
 			$.mobile.loading('show');
-	
 			var jsonDataCypher  = ko.toJS(self.data());
-//			new CrytotronViewModelData(self.data().src, self
-//					.data().key, self.data().result,
-//					self.data().percentage);
-	
 			var k = jsonDataCypher .key;
 			var karray = k.split('/');
 			jsonDataCypher.key = karray;
-			
 	
 			$.ajax({
 				type : 'POST',
@@ -40,23 +44,21 @@ $(document).ready(function() {
 				contentType : "application/json",
 				data : JSON.stringify(jsonDataCypher),
 				success : function(data, textStatus, jqXHR) {
-					self = ko.observable(new CrytotronViewModel(
-							data.src, data.key, data.result,
-							data.percent, 'CRYPT'));
+					var skey = [];
+					if (Array.isArray(data.key)) {
+			            skey = data.key.join('/');
+			        } 
+					 
+					self.data().res(data.result);
+					
 	
 				},
 				error : function(jqXHR, textStatus, errorThrown) {
 					$.mobile.loading('hide');
-					alert('crypt ' + textStatus + ' / ' + errorThrown);
+					alert(self.data().mode() + ' ' + textStatus + ' / ' + errorThrown);
 				}
 			});
 			$.mobile.loading('hide');
-	
-		};
-	
-		self.decypher = function() {
-			self.data().mode('DECRYPT');
-			alert("decypher");
 		};
 	}
 	;

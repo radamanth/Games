@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="images/d20.ico" />
     <link rel="stylesheet" href="scripts/libs/jquery.mobile-1.3.2.min.css" />
 
-    <script src="scripts/libs/jquery-1.10.2.js" ></script>
-    <script src="scripts/libs/jquery.mobile-1.3.2.js"></script>
-    <script src="scripts/libs/knockout-3.0.0.debug.js"></script>
+    <script src="scripts/libs/jquery-1.10.2.min.js" ></script>
+    <script src="scripts/libs/jquery.mobile-1.3.2.min.js"></script>
+    <script src="scripts/libs/knockout-3.0.0.js"></script>
     <script src="scripts/cypher.js"></script>
 
 </head>
@@ -26,7 +26,7 @@
  				<label for="idSourceContent" data-theme="a">Source :</label>
                 <textarea id="idSourceContent" name="SourceContentName" placeholder="Paste content here" data-bind="value: data().src"></textarea>
                 <label for="idKey" data-theme="a" >clef de cryptage (X/Y/Z) :</label>
-                <input type="text" data-bind=" value: data().key" placeholder="Ex : 17/13/24" data-theme="a" />
+                <input type="text" data-bind=" value: data().key" pattern="/^[1-9]{1}[0-9]*([/]{1}[1-9]{1}[0-9]*)*$/g" placeholder="Ex : 17/13/24" data-theme="a" />
                 <label for="idPercent" data-theme="a" >Nombre de roll :</label>
 				<input type="range" id="idPercent" data-bind="value: data().percentage" min="0"  max="100" data-theme="a" />
 				<label for="idResContent" data-theme="a">Résultat :</label>

@@ -23,6 +23,7 @@ $(document).ready(function () {
 
 	function Roll(title, rollTitleName, rollTitleId, rollName, rollId, nbRollsName, nbRollsId) {
 		var self = this;
+		self.rollPattern = '/^[1-9]{1}[0-9]*[dD]{1}[1-9]{1}[0-9]*([\\+-]{1}[1-9]{1}[0-9]*)?([rR]{1}[1-9]{1}[0-9]*)?([bB]{1}[1-9]{1}[0-9]*)?/g';
         self.title = title;
         self.rollTitleName = rollTitleName;
         self.rollTitleId = rollTitleId;
@@ -109,7 +110,9 @@ $(document).ready(function () {
 		self.rollthedice = function() {
 			var myurl = './services/RadaDiceRs/diceSession'
             console.log('posting dice on ' + myurl);
-
+			$('#diceRollForm').validate();
+			
+			 
             $.mobile.loading( 'show');
             $.ajax({
                 type: 'POST',
@@ -188,6 +191,7 @@ $(document).ready(function () {
 
     var model = new RollViewModel();
     ko.applyBindings(model);
+    $('#diceRollForm').validate();
     $( "#mailPanel" ).panel( "open" );
     
 });

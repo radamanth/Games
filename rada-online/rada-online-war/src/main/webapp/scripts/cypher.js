@@ -63,6 +63,6 @@ $(document).ready(function() {
 	}
 	;
 	
-	var model = new CrytotronViewModel('', '', '', 100, 'CRYPT');
+	var model = new CrytotronViewModel('', '', '', 0, 'CRYPT');
 	ko.applyBindings(model);
 });

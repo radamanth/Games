@@ -9,6 +9,7 @@
 
     <script src="scripts/libs/jquery-1.10.2.min.js" ></script>
     <script src="scripts/libs/jquery.mobile-1.3.2.min.js"></script>
+   	<script src="scripts/libs/jquery.validate.min.js"></script>
     <script src="scripts/libs/knockout-3.0.0.js"></script>
     <script src="scripts/diceRoller.js"></script>
 
@@ -116,7 +117,7 @@
                         <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
-                        <input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
+                        <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
@@ -137,7 +138,7 @@
                         <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
-                        <input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
+                        <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
@@ -156,7 +157,7 @@
                         <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
-                        <input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
+                        <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
@@ -175,7 +176,7 @@
                         <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
-                        <input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
+                        <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />
@@ -194,7 +195,7 @@
                         <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
-                        <input type="text" data-bind="attr : {name: rollName, id: rollId}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
+                        <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
 
                         <label data-bind="attr : {for: rollTitleId}" data-theme="a">Titre du roll : </label>
                         <input type="text" data-bind="attr {name: rollTitleName, id: rollTitleId}, value: rollData().comment " data-theme="a"  />

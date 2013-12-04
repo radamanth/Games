@@ -114,7 +114,7 @@
                     <h3><span data-bind="text: title"></span></h3>
                     <fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-                        <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
+                        <input type="number" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
                         <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
@@ -135,7 +135,7 @@
                     <h3><span data-bind="text: title"></span></h3>
                     <fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-                        <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
+                        <input type="number" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
                         <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
@@ -154,7 +154,7 @@
                     <h3><span data-bind="text: title"></span></h3>
                     <fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-                        <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
+                        <input type="number" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
                         <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
@@ -173,7 +173,7 @@
                     <h3><span data-bind="text: title"></span></h3>
                     <fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-                        <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
+                        <input type="number" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
                         <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />
@@ -192,7 +192,7 @@
                     <h3><span data-bind="text: title"></span></h3>
                     <fieldset>
                         <label data-bind="attr: {for: nbRollsId}" data-theme="a" >Nombre de roll :</label>
-                        <input type="range" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
+                        <input type="number" data-bind="attr: {name: nbRollsName, id: nbRollsId}, value: rollData().nbRoll" min="0"  max="20" data-theme="a" />
 
                         <label data-bind="attr :{for: rollId}" data-theme="a">Roll :</label>
                         <input type="text" data-bind="attr : {name: rollName, id: rollId, pattern: rollPattern}, value: rollData().dice" placeholder="Ex : 3D6+12R1B2"   data-theme="a" />

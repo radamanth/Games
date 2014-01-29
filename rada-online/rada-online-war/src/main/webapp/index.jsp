@@ -10,6 +10,8 @@
     <script src="scripts/libs/jquery-1.10.2.min.js" ></script>
     <script src="scripts/libs/jquery.mobile-1.3.2.min.js"></script>
    	<script src="scripts/libs/jquery.validate.min.js"></script>
+   	<script src="scripts/libs/jquery.cookie.js"></script>
+   	
     <script src="scripts/libs/knockout-3.0.0.js"></script>
     <script src="scripts/diceRoller.js"></script>
 

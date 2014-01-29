@@ -237,12 +237,12 @@ $(document).ready(function () {
 	        }
     	}
     	
-        model.author = $.cookie("roll-data").author;
-        model.dest1 = $.cookie("roll-data").dest1;
-        model.dest2 = $.cookie("roll-data").dest2;
-        model.dest3 = $.cookie("roll-data").dest3;
-        model.dest4  = $.cookie("roll-data").dest4;
-        model.dest5 = $.cookie("roll-data").dest5;
+        model.author = cData.author;
+        model.dest1 = cData.dest1;
+        model.dest2 = cData.dest2;
+        model.dest3 = cData.dest3;
+        model.dest4  = cData.dest4;
+        model.dest5 = cData.dest5;
         
     } 
     

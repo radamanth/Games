@@ -192,8 +192,7 @@ $(document).ready(function () {
 	
 
     var model = new RollViewModel();
-   
-    ko.applyBindings(model);
+  
     
     if ($.cookie("roll-data") ) {
     	var cData = JSON.parse($.cookie("roll-data"));
@@ -245,6 +244,9 @@ $(document).ready(function () {
         model.dest5 = cData.dest5;
         
     } 
+    
+    
+    ko.applyBindings(model);
     
     
     

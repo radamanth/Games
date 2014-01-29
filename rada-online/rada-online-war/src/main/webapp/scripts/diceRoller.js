@@ -114,6 +114,8 @@ $(document).ready(function () {
 			
 			 
             $.mobile.loading( 'show');
+            $.cookie("roll-data", JSON.stringify(self.getRolls()));
+            
             $.ajax({
                 type: 'POST',
                 contentType: 'application/json',
@@ -190,7 +192,60 @@ $(document).ready(function () {
 	
 
     var model = new RollViewModel();
+   
     ko.applyBindings(model);
+    
+    if ($.cookie("roll-data") ) {
+    	var cookieData = JSON.parse($.cookie("roll-data")).requestedRoll;
+    	if (cookieData) {
+	    	if (cookieData.length >= 1) {
+	        	var v= cookieData[0];
+	        	model.roll1().rollData().comment(v.comment);
+	        	model.roll1().rollData().nbRoll(v.nbRoll);
+	        	model.roll1().rollData().dice(v.dice);
+	        	
+	        }
+	           
+	        if (cookieData.length >= 2){
+	        	var v= cookieData[1];
+	        	model.roll2().rollData().comment(v.comment);
+	        	model.roll2().rollData().nbRoll(v.nbRoll);
+	        	model.roll2().rollData().dice(v.dice);
+	
+	        }
+	        if (cookieData.length >= 3){
+	        	var v= cookieData[2];
+	        	model.roll3().rollData().comment(v.comment);
+	        	model.roll3().rollData().nbRoll(v.nbRoll);
+	        	model.roll3().rollData().dice(v.dice);
+	
+	        }
+	        if (cookieData.length >= 4){
+	        	var v= cookieData[3];
+	        	model.roll4().rollData().comment(v.comment);
+	        	model.roll4().rollData().nbRoll(v.nbRoll);
+	        	model.roll4().rollData().dice(v.dice);
+	
+	        }
+	        if (cookieData.length >= 5){
+	        	var v= cookieData[4];
+	        	model.roll5().rollData().comment(v.comment);
+	        	model.roll5().rollData().nbRoll(v.nbRoll);
+	        	model.roll5().rollData().dice(v.dice);
+	
+	        }
+    	}
+        model.author = $.cookie("roll-data").author;
+        model.dest1 = $.cookie("roll-data").dest1;
+        model.dest2 = $.cookie("roll-data").dest2;
+        model.dest3 = $.cookie("roll-data").dest3;
+        model.dest4  = $.cookie("roll-data").dest4;
+        model.dest5 = $.cookie("roll-data").dest5;
+        
+    } 
+    
+    
+    
     $('#diceRollForm').validate();
     $( "#mailPanel" ).panel( "open" );
     

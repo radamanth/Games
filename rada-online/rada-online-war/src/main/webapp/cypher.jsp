@@ -27,7 +27,7 @@
                 <textarea id="idSourceContent" name="SourceContentName" placeholder="Paste content here" data-bind="value: data().src"></textarea>
                 <label for="idKey" data-theme="a" >clef de cryptage (X/Y/Z) :</label>
                 <input type="text" data-bind=" value: data().key" pattern="/^[1-9]{1}[0-9]*([/]{1}[1-9]{1}[0-9]*)*$/g" placeholder="Ex : 17/13/24" data-theme="a" />
-                <label for="idPercent" data-theme="a" >Nombre de roll :</label>
+                <label for="idPercent" data-theme="a" >Pourcentage Cryptage :</label>
 				<input type="range" id="idPercent" data-bind="value: data().percentage" min="0"  max="100" data-theme="a" />
 				<label for="idResContent" data-theme="a">Résultat :</label>
 				<textarea id="idResContent" name="ResContentName" data-bind="value: data().res" readonly="readonly"></textarea>

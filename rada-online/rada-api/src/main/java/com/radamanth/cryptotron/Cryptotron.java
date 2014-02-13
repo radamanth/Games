@@ -1,5 +1,8 @@
 package com.radamanth.cryptotron;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
@@ -66,7 +69,12 @@ public class Cryptotron {
 		keyList = caeserKey;
 	}
 
-	
+//	private Pattern PATTERN_WHITESPACE = Pattern.compile("\\s");
+	private boolean isWhiteSpaceOnly(String s) {
+		if (s == null)
+			return false;
+		return s.matches("^\\s*$");
+	}
 	/**
 	 * Retourne la source traité par le {@link Cryptotron}
 	 * @return
@@ -75,68 +83,67 @@ public class Cryptotron {
 		// futur resultats crypte
 		String crypted = new String();
 		
-		// Le tableau des mots sources
-		String[] srcTab = src.split(" ");
-		
-		// Nbre de mots
-		int nbWord = srcTab.length;
-		int nbCarriageReturnNewLine = 0;
-		for (String ss:srcTab) {
-			if (isAuthorizedWithspaces(ss) )
-				nbCarriageReturnNewLine++;
+		StringReader sr = new StringReader(src);
+		BufferedReader br = new BufferedReader(sr);
+		try {
+			for (String line = br.readLine(); line != null ; line = br.readLine() ) {
+				
+				// Le tableau des mots sources
+				String[] srcTab = line.split(" ");
+				// Nbre de mots
+				
+				int nbWord = srcTab.length;
+				int nbWhiteSpaceReturnNewLine = 0;
+				for (String ss:srcTab) {
+					if (isWhiteSpaceOnly(ss) )
+						nbWhiteSpaceReturnNewLine++;
+				}
+				// Le tableau des mots crypte (ou pas :p )
+				String[] retTab = new String[nbWord];
+				// Nombre de mot à ne pas crypter ou decrypter
+				int nbWordNotCrypted = ( nbWord - nbWhiteSpaceReturnNewLine) * (100 - centage) / 100;
+				// set des indexs du tableau source à crypté
+				TreeSet<Integer> notCryptedIndex = new TreeSet<Integer>();
+				// selection des mots non cryptés en excluant \r et \n
+				for (int i = 0; i < nbWordNotCrypted;) {
+					// Random entre 0 et nbWord -1
+					int tmpIndex = (int) (Math.random() * (nbWord));
+					if (!notCryptedIndex.contains(tmpIndex) && !isWhiteSpaceOnly(srcTab[tmpIndex]) ) {
+						notCryptedIndex.add(tmpIndex);
+						i++;
+					}
+				}
+				this.notCryptedIndex = notCryptedIndex;
+				
+				// sur tout les mots à crypter
+				for (int i = 0; i < nbWord; i++) {
+					if (notCryptedIndex.contains(new Integer(i)))
+						retTab[i] = srcTab[i];
+					else {
+						if (CryptModeEnum.CRYPT.equals(mode))
+							retTab[i] = cryptIt(srcTab[i]);
+						else if (CryptModeEnum.DECRYPT.equals(mode))
+							retTab[i] = decryptIt(srcTab[i]);
+						else
+							retTab[i] = srcTab[i];
+					}
+				}
+
+				for (int i = 0; i < retTab.length; i++) {
+					crypted += retTab[i] ;
+					if (i < retTab.length-1)
+						crypted += " ";
+					}
+			}
+		} catch (IOException e) {
+			return "Erreur lors de la lecture de la source " + e.getMessage();
 		}
 		
-		// Le tableau des mots crypte (ou pas :p )
-		String[] retTab = new String[nbWord];
-
-		// Nombre de mot à ne pas crypter ou decrypter
-		int nbWordNotCrypted = ( nbWord - nbCarriageReturnNewLine) * (100 - centage) / 100;
-		
-		// set des indexs du tableau source à crypté
-		TreeSet<Integer> notCryptedIndex = new TreeSet<Integer>();
-		
-		// selection des mots non cryptés en excluant \r et \n
-		for (int i = 0; i < nbWordNotCrypted;) {
-			// Random entre 0 et nbWord -1
-			int tmpIndex = (int) (Math.random() * (nbWord));
-			if (!notCryptedIndex.contains(tmpIndex) && !isAuthorizedWithspaces(srcTab[tmpIndex]) ) {
-				notCryptedIndex.add(tmpIndex);
-				i++;
-			}
-		}
-		this.notCryptedIndex = notCryptedIndex;
-
-		// sur tout les mots à crypter
-		for (int i = 0; i < nbWord; i++) {
-			if (notCryptedIndex.contains(new Integer(i)))
-				retTab[i] = srcTab[i];
-			else {
-				if (CryptModeEnum.CRYPT.equals(mode))
-					retTab[i] = cryptIt(srcTab[i]);
-				else if (CryptModeEnum.DECRYPT.equals(mode))
-					retTab[i] = decryptIt(srcTab[i]);
-				else
-					retTab[i] = srcTab[i];
-			}
-		}
-
-		for (int i = 0; i < retTab.length; i++) {
-			crypted += retTab[i] ;
-			if (i < retTab.length-1)
-				crypted += " ";
-			}
 		return crypted;
 	}
 
 
-	/**
-	 * La chaine de caractère est elle \n ou \r ou \t
-	 * @param ss
-	 * @return
-	 */
-	private boolean isAuthorizedWithspaces(String ss) {
-		return "\n".equalsIgnoreCase(ss) || "\r".equalsIgnoreCase(ss) || "\t".equalsIgnoreCase(ss);
-	}
+	
 
 	/**
 	 * methode qui crypte en vrai

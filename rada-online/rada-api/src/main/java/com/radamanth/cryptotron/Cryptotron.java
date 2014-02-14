@@ -1,32 +1,35 @@
 package com.radamanth.cryptotron;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Le crytotron permet de faire un pseudo cryptage de caesar d'un fichier texte.
- * Il et destructeur en terme de mise en page car il split le text sur les caractère blanc sauf \n \r et \t 
+ * Il et destructeur en terme de mise en page car il split le text sur les
+ * caractère blanc sauf \n \r et \t
+ * 
  * @author CER3190183
- *
+ * 
  */
 public class Cryptotron {
 	/**
-	 * defaut caesar shift 
+	 * defaut caesar shift
 	 */
 	private final static int DEFAULT_CAESAR_SHIFT = 11;
+
 	/**
 	 * Mode du Crytotron
-	 *  
+	 * 
 	 * @author radamanth
-	 *
+	 * 
 	 */
 	public static enum CryptModeEnum {
 		CRYPT, DECRYPT;
 	}
+
 	/**
 	 * Liste de clefs de Caesar pour les shift. si null ou vide alors on utilise
 	 * uniquement le Caesar par défaut !
@@ -37,7 +40,7 @@ public class Cryptotron {
 	 */
 	private TreeSet<Integer> notCryptedIndex = null;
 	/**
-	 * TExt Source 
+	 * TExt Source
 	 */
 	private String src = "";
 	/**
@@ -48,16 +51,19 @@ public class Cryptotron {
 	 * Mode du Crytotron
 	 */
 	private CryptModeEnum mode = CryptModeEnum.CRYPT;
-	
+
 	/**
 	 * Pourcentage de cryptag / decryptage
 	 */
 	private int centage = 100;
-	
+
 	/**
 	 * Construction du Cryptotron
-	 * @param src - source à crypter ou décrypter
-	 * @param mode - Crytpage ou Decryptage 
+	 * 
+	 * @param src
+	 *            - source à crypter ou décrypter
+	 * @param mode
+	 *            - Crytpage ou Decryptage
 	 * @param cryptCentage
 	 * @param caeserKey
 	 */
@@ -69,81 +75,87 @@ public class Cryptotron {
 		keyList = caeserKey;
 	}
 
-//	private Pattern PATTERN_WHITESPACE = Pattern.compile("\\s");
+	private Pattern PATTERN_WHITESPACE = Pattern.compile("\\s");
+
 	private boolean isWhiteSpaceOnly(String s) {
 		if (s == null)
 			return false;
 		return s.matches("^\\s*$");
 	}
+
 	/**
 	 * Retourne la source traité par le {@link Cryptotron}
+	 * 
 	 * @return
 	 */
 	public String cypher() {
-		// futur resultats crypte
-		String crypted = new String();
 		
-		StringReader sr = new StringReader(src);
-		BufferedReader br = new BufferedReader(sr);
-		try {
-			for (String line = br.readLine(); line != null ; line = br.readLine() ) {
-				
-				// Le tableau des mots sources
-				String[] srcTab = line.split(" ");
-				// Nbre de mots
-				
-				int nbWord = srcTab.length;
-				int nbWhiteSpaceReturnNewLine = 0;
-				for (String ss:srcTab) {
-					if (isWhiteSpaceOnly(ss) )
-						nbWhiteSpaceReturnNewLine++;
-				}
-				// Le tableau des mots crypte (ou pas :p )
-				String[] retTab = new String[nbWord];
-				// Nombre de mot à ne pas crypter ou decrypter
-				int nbWordNotCrypted = ( nbWord - nbWhiteSpaceReturnNewLine) * (100 - centage) / 100;
-				// set des indexs du tableau source à crypté
-				TreeSet<Integer> notCryptedIndex = new TreeSet<Integer>();
-				// selection des mots non cryptés en excluant \r et \n
-				for (int i = 0; i < nbWordNotCrypted;) {
-					// Random entre 0 et nbWord -1
-					int tmpIndex = (int) (Math.random() * (nbWord));
-					if (!notCryptedIndex.contains(tmpIndex) && !isWhiteSpaceOnly(srcTab[tmpIndex]) ) {
-						notCryptedIndex.add(tmpIndex);
-						i++;
-					}
-				}
-				this.notCryptedIndex = notCryptedIndex;
-				
-				// sur tout les mots à crypter
-				for (int i = 0; i < nbWord; i++) {
-					if (notCryptedIndex.contains(new Integer(i)))
-						retTab[i] = srcTab[i];
-					else {
-						if (CryptModeEnum.CRYPT.equals(mode))
-							retTab[i] = cryptIt(srcTab[i]);
-						else if (CryptModeEnum.DECRYPT.equals(mode))
-							retTab[i] = decryptIt(srcTab[i]);
-						else
-							retTab[i] = srcTab[i];
-					}
-				}
+		// liste contenant des White Space et des mots
+		List<String> listOfWordsAndWhiteSpace = new ArrayList<String>();
 
-				for (int i = 0; i < retTab.length; i++) {
-					crypted += retTab[i] ;
-					if (i < retTab.length-1)
-						crypted += " ";
-					}
+		Matcher matcher = PATTERN_WHITESPACE.matcher(src);
+		int lastStart = 0;
+		int lastEnd = 0;
+		int nbWhite = 0;
+		while (matcher.find()) {
+			int start = matcher.start();
+			int end = matcher.end();
+			if (lastStart < start) {
+
+				listOfWordsAndWhiteSpace.add(src.substring(lastEnd, start));
 			}
-		} catch (IOException e) {
-			return "Erreur lors de la lecture de la source " + e.getMessage();
+			// autres matchs
+			listOfWordsAndWhiteSpace.add(src.substring(start, end ));
+
+			lastStart = start;
+			lastEnd = end ;
+			nbWhite++;
 		}
-		
-		return crypted;
+		if (lastEnd < src.length()) {
+			listOfWordsAndWhiteSpace.add(src.substring(lastEnd));
+		}
+
+		int nbWord = listOfWordsAndWhiteSpace.size() - nbWhite;
+		int nbWordNotCrypted = (nbWord) * (100 - centage) / 100;
+		TreeSet<Integer> notCryptedIndex = new TreeSet<Integer>();
+		// Selection des mots non crypté
+		for (int i = 0; i < nbWordNotCrypted;) {
+			// Random entre 0 et nbWord -1
+			int tmpIndex = (int) (Math.random() * (nbWord));
+			if (!notCryptedIndex.contains(tmpIndex)
+					&& !isWhiteSpaceOnly(listOfWordsAndWhiteSpace.get(tmpIndex))) {
+				notCryptedIndex.add(tmpIndex);
+				i++;
+			}
+		}
+
+		this.notCryptedIndex = notCryptedIndex;
+		// sur tout les mots à crypter
+		List<String> cryptedResult = new ArrayList<String>();
+		for (int i = 0; i < listOfWordsAndWhiteSpace.size(); i++) {
+			String cypher = listOfWordsAndWhiteSpace.get(i);
+			if (notCryptedIndex.contains(new Integer(i))
+					|| isWhiteSpaceOnly(cypher))
+				cypher = listOfWordsAndWhiteSpace.get(i);
+			else {
+				if (CryptModeEnum.CRYPT.equals(mode))
+					cypher = cryptIt(cypher);
+				else if (CryptModeEnum.DECRYPT.equals(mode))
+					cypher = decryptIt(cypher);
+				else
+					;
+			}
+
+			cryptedResult.add(cypher);
+		}
+
+		StringBuilder sb = new StringBuilder();
+		for (String cypher : cryptedResult) {
+			sb.append(cypher);
+		}
+		return sb.toString();
+
 	}
-
-
-	
 
 	/**
 	 * methode qui crypte en vrai
@@ -197,7 +209,6 @@ public class Cryptotron {
 
 	}
 
-
 	/**
 	 * @return the keyList
 	 */
@@ -205,14 +216,13 @@ public class Cryptotron {
 		return keyList;
 	}
 
-
 	/**
-	 * @param keyList the keyList to set
+	 * @param keyList
+	 *            the keyList to set
 	 */
 	public void setKeyList(List<Integer> keyList) {
 		this.keyList = keyList;
 	}
-
 
 	/**
 	 * @return the notCryptedIndex
@@ -221,14 +231,13 @@ public class Cryptotron {
 		return notCryptedIndex;
 	}
 
-
 	/**
-	 * @param notCryptedIndex the notCryptedIndex to set
+	 * @param notCryptedIndex
+	 *            the notCryptedIndex to set
 	 */
 	public void setNotCryptedIndex(TreeSet<Integer> notCryptedIndex) {
 		this.notCryptedIndex = notCryptedIndex;
 	}
-
 
 	/**
 	 * @return the src
@@ -237,14 +246,13 @@ public class Cryptotron {
 		return src;
 	}
 
-
 	/**
-	 * @param src the src to set
+	 * @param src
+	 *            the src to set
 	 */
 	public void setSrc(String src) {
 		this.src = src;
 	}
-
 
 	/**
 	 * @return the lastResult
@@ -253,14 +261,13 @@ public class Cryptotron {
 		return lastResult;
 	}
 
-
 	/**
-	 * @param lastResult the lastResult to set
+	 * @param lastResult
+	 *            the lastResult to set
 	 */
 	public void setLastResult(String lastResult) {
 		this.lastResult = lastResult;
 	}
-
 
 	/**
 	 * @return the mode
@@ -269,14 +276,13 @@ public class Cryptotron {
 		return mode;
 	}
 
-
 	/**
-	 * @param mode the mode to set
+	 * @param mode
+	 *            the mode to set
 	 */
 	public void setMode(CryptModeEnum mode) {
 		this.mode = mode;
 	}
-
 
 	/**
 	 * @return the centage
@@ -285,15 +291,12 @@ public class Cryptotron {
 		return centage;
 	}
 
-
 	/**
-	 * @param centage the centage to set
+	 * @param centage
+	 *            the centage to set
 	 */
 	public void setCentage(int centage) {
 		this.centage = centage;
 	}
 
-		
-	
-	
 }

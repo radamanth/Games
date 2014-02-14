@@ -2,6 +2,7 @@ package com.radamanth.cryptotron;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,7 +39,7 @@ public class Cryptotron {
 	/**
 	 * List des index de mots non cryptés
 	 */
-	private TreeSet<Integer> notCryptedIndex = null;
+	private TreeSet<Integer> cypheredIndex = null;
 	/**
 	 * TExt Source
 	 */
@@ -86,58 +87,69 @@ public class Cryptotron {
 	/**
 	 * Retourne la source traité par le {@link Cryptotron}
 	 * 
+	 * 
+	 * 
 	 * @return
 	 */
 	public String cypher() {
 		
 		// liste contenant des White Space et des mots
 		List<String> listOfWordsAndWhiteSpace = new ArrayList<String>();
-
+		Set<Integer> whiteSpaceIndexSet = new TreeSet<Integer>();
+		Set<Integer> wordIndexSet = new TreeSet<Integer>();
+		
 		Matcher matcher = PATTERN_WHITESPACE.matcher(src);
 		int lastStart = 0;
 		int lastEnd = 0;
-		int nbWhite = 0;
+		
+		
 		while (matcher.find()) {
 			int start = matcher.start();
 			int end = matcher.end();
 			if (lastStart < start) {
-
+				//WORD
 				listOfWordsAndWhiteSpace.add(src.substring(lastEnd, start));
+				wordIndexSet.add(listOfWordsAndWhiteSpace.size()-1);
+				
 			}
-			// autres matchs
+			// WhiteSpace
 			listOfWordsAndWhiteSpace.add(src.substring(start, end ));
-
+			whiteSpaceIndexSet.add(listOfWordsAndWhiteSpace.size()-1);
+			// maj index
 			lastStart = start;
 			lastEnd = end ;
-			nbWhite++;
 		}
 		if (lastEnd < src.length()) {
 			listOfWordsAndWhiteSpace.add(src.substring(lastEnd));
+			wordIndexSet.add(listOfWordsAndWhiteSpace.size()-1);
 		}
 
-		int nbWord = listOfWordsAndWhiteSpace.size() - nbWhite;
-		int nbWordNotCrypted = (nbWord) * (100 - centage) / 100;
-		TreeSet<Integer> notCryptedIndex = new TreeSet<Integer>();
-		// Selection des mots non crypté
+		int nbWord = wordIndexSet.size() ;
 		
-		for (int i= 0; i < nbWordNotCrypted;) {
-			// Random entre 0 et nbWord -1
-			int tmpIndex = (int) (Math.random() * (listOfWordsAndWhiteSpace.size()));
-			if (!notCryptedIndex.contains(tmpIndex) && !isWhiteSpaceOnly(listOfWordsAndWhiteSpace.get(tmpIndex) ) ) {
-				notCryptedIndex.add(tmpIndex);
-				i++;
-			}
+//		int nbWordToBeProcessed = (nbWord) * centage /100;
+		TreeSet<Integer> cypheredIndex = new TreeSet<Integer>();
+		// Selection des indexs mots à traiter
+		int modulo = 100/this.centage;
+		Integer [] wordIndexArray = new Integer[wordIndexSet.size()];
+		wordIndexSet.toArray(wordIndexArray);
+		for (int i= 0; i < nbWord;i++) {
 			
+			if (i == 0  || (i %  modulo) == 0   )
+				if (i < wordIndexSet.size())
+					cypheredIndex.add(wordIndexArray[i]);
 		}
 
-		this.notCryptedIndex = notCryptedIndex;
+		this.cypheredIndex = cypheredIndex;
 		// sur tout les mots à crypter
 		List<String> cryptedResult = new ArrayList<String>();
 		for (int i = 0; i < listOfWordsAndWhiteSpace.size(); i++) {
 			String cypher = listOfWordsAndWhiteSpace.get(i);
-			if (notCryptedIndex.contains(new Integer(i))
-					|| isWhiteSpaceOnly(cypher))
+			if (!cypheredIndex.contains(new Integer(i))
+					|| isWhiteSpaceOnly(cypher)) {
+				// Pas chiffré
 				cypher = listOfWordsAndWhiteSpace.get(i);
+				
+			}
 			else {
 				if (CryptModeEnum.CRYPT.equals(mode))
 					cypher = cryptIt(cypher);
@@ -229,7 +241,7 @@ public class Cryptotron {
 	 * @return the notCryptedIndex
 	 */
 	public TreeSet<Integer> getNotCryptedIndex() {
-		return notCryptedIndex;
+		return cypheredIndex;
 	}
 
 	/**
@@ -237,7 +249,7 @@ public class Cryptotron {
 	 *            the notCryptedIndex to set
 	 */
 	public void setNotCryptedIndex(TreeSet<Integer> notCryptedIndex) {
-		this.notCryptedIndex = notCryptedIndex;
+		this.cypheredIndex = notCryptedIndex;
 	}
 
 	/**

@@ -119,14 +119,15 @@ public class Cryptotron {
 		int nbWordNotCrypted = (nbWord) * (100 - centage) / 100;
 		TreeSet<Integer> notCryptedIndex = new TreeSet<Integer>();
 		// Selection des mots non crypté
-		for (int i = 0; i < nbWordNotCrypted;) {
+		
+		for (int i= 0; i < nbWordNotCrypted;) {
 			// Random entre 0 et nbWord -1
-			int tmpIndex = (int) (Math.random() * (nbWord));
-			if (!notCryptedIndex.contains(tmpIndex)
-					&& !isWhiteSpaceOnly(listOfWordsAndWhiteSpace.get(tmpIndex))) {
+			int tmpIndex = (int) (Math.random() * (listOfWordsAndWhiteSpace.size()));
+			if (!notCryptedIndex.contains(tmpIndex) && !isWhiteSpaceOnly(listOfWordsAndWhiteSpace.get(tmpIndex) ) ) {
 				notCryptedIndex.add(tmpIndex);
 				i++;
 			}
+			
 		}
 
 		this.notCryptedIndex = notCryptedIndex;

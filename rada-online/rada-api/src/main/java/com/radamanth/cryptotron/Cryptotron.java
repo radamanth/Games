@@ -11,8 +11,7 @@ import java.util.regex.Pattern;
 
 /**
  * Le crytotron permet de faire un pseudo cryptage de caesar d'un fichier texte.
- * Il et destructeur en terme de mise en page car il split le text sur les
- * caractère blanc sauf \n \r et \t
+ * 
  * 
  * @author CER3190183
  * 
@@ -223,6 +222,7 @@ public class Cryptotron {
 
 		char[] s = src.toCharArray();
 		int caesarshift = 0;
+		int sens = 1;
 		for (int i = 0; i < s.length; i++) {
 
 			if (keyList == null || keyList.size() == 0) {
@@ -231,13 +231,15 @@ public class Cryptotron {
 				if (caesarshift >= keyList.size())
 					caesarshift = 0;
 
-				s[i] = (char) (s[i] + keyList.get(caesarshift++).intValue());
+			    s[i] = (char) (s[i]+ ((sens) * keyList.get(caesarshift++).intValue()));
+				sens = -1 * sens;
 			}
 
 		}
 		return new String(s);
 
 	}
+	
 
 	/**
 	 * methode qui crypte en vrai
@@ -249,6 +251,7 @@ public class Cryptotron {
 
 		char[] s = src.toCharArray();
 		int caesarshift = 0;
+		int sens = 1;
 		for (int i = 0; i < s.length; i++) {
 
 			if (keyList == null || keyList.size() == 0) {
@@ -256,8 +259,8 @@ public class Cryptotron {
 			} else {
 				if (caesarshift >= keyList.size())
 					caesarshift = 0;
-
-				s[i] = (char) (s[i] - keyList.get(caesarshift++).intValue());
+				s[i] = (char) (s[i]- ((sens) * keyList.get(caesarshift++).intValue()));
+				sens = -1 * sens;
 			}
 
 		}

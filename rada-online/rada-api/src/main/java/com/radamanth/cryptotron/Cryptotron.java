@@ -1,5 +1,7 @@
 package com.radamanth.cryptotron;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +18,14 @@ import java.util.regex.Pattern;
  * 
  */
 public class Cryptotron {
+	/**
+	 * 
+	 */
+	private static final BigDecimal BIGDEC_1 = new BigDecimal(1);
+	/**
+	 * 
+	 */
+	private static final BigDecimal BIGDEC_100 = new BigDecimal(100);
 	/**
 	 * defaut caesar shift
 	 */
@@ -57,6 +67,7 @@ public class Cryptotron {
 	 * Pourcentage de cryptag / decryptage
 	 */
 	private int centage = 100;
+	private BigDecimal centageBDecimal = null;
 
 	/**
 	 * Construction du Cryptotron
@@ -73,7 +84,9 @@ public class Cryptotron {
 		this.src = src;
 		this.mode = mode;
 		this.centage = cryptCentage;
-		keyList = caeserKey;
+		this.centageBDecimal = new BigDecimal(this.centage);
+		this.centageBDecimal = this.centageBDecimal.divide(BIGDEC_100, 2, RoundingMode.HALF_UP);
+		this.keyList = caeserKey;
 	}
 
 	private Pattern PATTERN_WHITESPACE = Pattern.compile("\\s");
@@ -92,6 +105,8 @@ public class Cryptotron {
 	 * @return
 	 */
 	public String cypher() {
+		if (this.centage == 0)
+			return this.src;
 		
 		// liste contenant des White Space et des mots
 		List<String> listOfWordsAndWhiteSpace = new ArrayList<String>();
@@ -125,21 +140,27 @@ public class Cryptotron {
 		}
 
 		int nbWord = wordIndexSet.size() ;
+		int nbWordToBeProcessed = (nbWord) * centage /100;
+		int nbReste = nbWord - nbWordToBeProcessed;
 		
-//		int nbWordToBeProcessed = (nbWord) * centage /100;
+		BigDecimal nbResteBD = new BigDecimal(nbReste);
+		BigDecimal nbWordToBeProcessedBD = new BigDecimal(nbWordToBeProcessed);
+		BigDecimal nbWordBD = new BigDecimal(nbWord);
+		
+		
+		
+		
 		TreeSet<Integer> cypheredIndex = new TreeSet<Integer>();
 		// Selection des indexs mots à traiter
-		int modulo = 100/this.centage;
+		
 		Integer [] wordIndexArray = new Integer[wordIndexSet.size()];
 		wordIndexSet.toArray(wordIndexArray);
 		for (int i= 0; i < nbWord;i++) {
-			
-			if (i == 0  || (i %  modulo) == 0   )
-				if (i < wordIndexSet.size())
-					cypheredIndex.add(wordIndexArray[i]);
+			if (i != 0 && i < wordIndexSet.size() && isCyphered(cypheredIndex.size(), i))
+				cypheredIndex.add(wordIndexArray[i]);
 		}
-
 		this.cypheredIndex = cypheredIndex;
+		
 		// sur tout les mots à crypter
 		List<String> cryptedResult = new ArrayList<String>();
 		for (int i = 0; i < listOfWordsAndWhiteSpace.size(); i++) {
@@ -168,6 +189,28 @@ public class Cryptotron {
 		}
 		return sb.toString();
 
+	}
+	
+	/**
+	 * Cas n : si tu as crypté k mots entre 1 et n, alors si k/n > p alors tu ne cryptes pas m_n, sinon, tu cryptes m_n.
+	 * n = indexWord
+	 * k = nbAlreadyCrypted
+	 * 
+	 * 
+	 * @param nbAlreadyCrypted
+	 * @param indexWord
+	 * @return
+	 */
+	private boolean isCyphered(int nbAlreadyCrypted, int indexWord  )  {
+		BigDecimal n = new BigDecimal(indexWord);
+		BigDecimal k = new BigDecimal(nbAlreadyCrypted);
+		BigDecimal result = k.divide(n, 2, RoundingMode.HALF_UP);
+		if (result.compareTo(this.centageBDecimal) <= 0) {
+			return true;
+		}
+		
+		
+		return false;
 	}
 
 	/**
@@ -310,6 +353,8 @@ public class Cryptotron {
 	 */
 	public void setCentage(int centage) {
 		this.centage = centage;
+		this.centageBDecimal = new BigDecimal(this.centage);
+		this.centageBDecimal= this.centageBDecimal.divide(BIGDEC_100, 2, RoundingMode.HALF_UP);
 	}
 
 }

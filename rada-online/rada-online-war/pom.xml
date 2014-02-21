@@ -29,7 +29,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
-					<author>radamanth</author>
+					<author>true</author>
 					<charset>utf-8</charset>
 					<show>public</show>
 				</configuration>

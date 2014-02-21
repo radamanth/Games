@@ -16,9 +16,9 @@
 	<url>http://dice.radamanth.fr</url>
 
 	<scm>
-		<url>https://github.com/radamanth/Games/wiki</url>
-		<connection>scm:git:git://github.com/radamanth/Games.git</connection>
-		<developerConnection>scm:git:git@github.com:radamanth/Games.git</developerConnection>
+		<url>https://github.com/radamanth/Games</url>
+		<connection>scm:git:ssh://github.com/radamanth/Games.git</connection>
+		<developerConnection>scm:git:ssh@github.com:radamanth/Games.git</developerConnection>
 	</scm>
 	<!-- <scm> <connection>scm:git:https://github.com/intelygenz/example-git.git</connection> 
 		</scm> -->

@@ -12,14 +12,22 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<git.name>Games</git.name>
 		<github.global.server>gitrada</github.global.server>
+
 	</properties>
 	<url>http://dice.radamanth.fr</url>
 
 	<scm>
 		<url>https://github.com/radamanth/Games</url>
-        <connection>scm:git:ssh://radamanth@github.com/radamanth/Games.git</connection>
-		<developerConnection>scm:git:ssh://radamanth@github.com/radamanth/Games.git</developerConnection>
+        <connection>scm:git:ssh://github.com/radamanth/Games.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/radamanth/Games.git</developerConnection>
 	</scm>
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <name>Temporary Staging Repository</name>
+            <url>file://${project.build.directory}/mvn-repo</url>
+        </repository>
+    </distributionManagement>
 	<!-- <scm> <connection>scm:git:https://github.com/intelygenz/example-git.git</connection> 
 		</scm> -->
 	<developers>

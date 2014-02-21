@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -25,6 +26,70 @@ public abstract class DiceRoller {
 	public static final String REROLL = "r";
 	public static final String BEST = "b";
 
+	/**
+	 * Inner class décrivant un lancé de dé
+	 * @author radamanth
+	 *
+	 */
+	public class Roll {
+		private int minus;
+		private int plus;
+		private int reroll;
+		private int best;
+		private int plustotal;
+		/**
+		 * @param minus
+		 * @param plus
+		 * @param reroll
+		 * @param best
+		 * @param plustotal
+		 */
+		public Roll(int minus, int plus, int reroll, int best, int plustotal) {
+			super();
+			this.minus = minus;
+			this.plus = plus;
+			this.reroll = reroll;
+			this.best = best;
+			this.plustotal = plustotal;
+		}
+		/**
+		 * @return the minus
+		 */
+		public int getMinus() {
+			return minus;
+		}
+		/**
+		 * @return the plus
+		 */
+		public int getPlus() {
+			return plus;
+		}
+		/**
+		 * @return the reroll
+		 */
+		public int getReroll() {
+			return reroll;
+		}
+		/**
+		 * @return the best
+		 */
+		public int getBest() {
+			return best;
+		}
+		/**
+		 * @return the plustotal
+		 */
+		public int getPlustotal() {
+			return plustotal;
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
 	/**
 	 * 
 	 * @param diceStr
@@ -48,15 +113,41 @@ public abstract class DiceRoller {
 		return false;
 	}
 
+	
+	/**
+	 * Split de la chaine de dé
+	 * @param diceStr diceStr.split("[d\\-\\+rb]");
+	 * @return
+	 */
 	private static Integer[] getTabIntFromDiceStr(String diceStr) {
 		diceStr = diceStr.toLowerCase();
 
+		
+		Pattern p = Pattern.compile("[d\\-\\+rb]");
+		Matcher m = p.matcher(diceStr);
+		
 		Integer tabint[] = new Integer[5];
 		int indexM = diceStr.indexOf(MINUS);
 		int indexP = diceStr.indexOf(PLUS);
 		int indexR = diceStr.indexOf(REROLL);
 		int indexB = diceStr.indexOf(BEST);
 
+		int lastStart = 0;
+		int lastEnd=0;
+		String operateur = null;
+		while (m.matches()) {
+			int start = m.start();
+			int end = m.end();
+			operateur = m.group();
+			String value = "";
+			if (lastStart == 0 && lastEnd == 0 ){
+				 
+			} else {
+				
+			}
+		}
+		
+		
 		String splitStr[] = diceStr.split("[d\\-\\+rb]");
 		// NbDice
 		tabint[0] = Integer.parseInt(splitStr[0]);
@@ -94,7 +185,7 @@ public abstract class DiceRoller {
 	 * 
 	 * @param diceStr
 	 *            - Un chaine du type 3D6+12R1
-	 * @return - Le resultat du jet de d�s ou renvoit une erreur
+	 * @return - Le resultat du jet de dés ou renvoit une erreur
 	 */
 	public static int rollDice(String diceStr) throws IllegalArgumentException {
 		if (diceStr != null) {

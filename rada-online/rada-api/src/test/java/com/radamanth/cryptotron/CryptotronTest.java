@@ -23,18 +23,14 @@ public class CryptotronTest {
 		ckey.add(48);
 		ckey.add(27);
 		
-//		System.out.println("LA SOURCE : /" + src+"/");
 		Cryptotron c = new Cryptotron(src, Cryptotron.CryptModeEnum.CRYPT, 100, ckey);
 		String ret = c.cypher();
-//		System.out.println("Crypted : " + ret);
 		
 		c.setSrc(ret);
 		c.setMode(Cryptotron.CryptModeEnum.DECRYPT);
 		c.setCentage(100);
 		String cryptedDecripted = c.cypher();
-//		System.out.println("Decrypted : /" + cryptedDecripted+"/");
-//		System.out.println(src.length());
-//		System.out.println(cryptedDecripted.length());
+
 		Assert.assertTrue(src.compareTo(cryptedDecripted) == 0);
 
 	}
@@ -47,18 +43,14 @@ public class CryptotronTest {
 		ckey.add(48);
 		ckey.add(27);
 		
-//		System.out.println("LA SOURCE : /" + src+"/");
 		Cryptotron c = new Cryptotron(src, Cryptotron.CryptModeEnum.CRYPT, 20, ckey);
 		String ret = c.cypher();
-//		System.out.println("Crypted : " + ret);
 		
 		c.setSrc(ret);
 		c.setMode(Cryptotron.CryptModeEnum.DECRYPT);
 		c.setCentage(20);
 		String cryptedDecripted = c.cypher();
-//		System.out.println("Decrypted : /" + cryptedDecripted+"/");
-//		System.out.println(src.length());
-//		System.out.println(cryptedDecripted.length());
+
 		Assert.assertTrue(src.compareTo(cryptedDecripted) == 0);
 
 	}
@@ -71,18 +63,13 @@ public class CryptotronTest {
 		ckey.add(48);
 		ckey.add(27);
 		
-//		System.out.println("LA SOURCE : /" + src+"/");
 		Cryptotron c = new Cryptotron(src, Cryptotron.CryptModeEnum.CRYPT, 50, ckey);
 		String ret = c.cypher();
-//		System.out.println("Crypted : " + ret);
 		
 		c.setSrc(ret);
 		c.setMode(Cryptotron.CryptModeEnum.DECRYPT);
 		c.setCentage(50);
 		String cryptedDecripted = c.cypher();
-//		System.out.println("Decrypted : /" + cryptedDecripted+"/");
-//		System.out.println(src.length());
-//		System.out.println(cryptedDecripted.length());
 		Assert.assertTrue(src.compareTo(cryptedDecripted) == 0);
 
 	}
@@ -95,18 +82,14 @@ public class CryptotronTest {
 		ckey.add(48);
 		ckey.add(27);
 		
-//		System.out.println("LA SOURCE : /" + src+"/");
 		Cryptotron c = new Cryptotron(src, Cryptotron.CryptModeEnum.CRYPT, 70, ckey);
 		String ret = c.cypher();
-//		System.out.println("Crypted : " + ret);
 		
 		c.setSrc(ret);
 		c.setMode(Cryptotron.CryptModeEnum.DECRYPT);
 		c.setCentage(70);
 		String cryptedDecripted = c.cypher();
-//		System.out.println("Decrypted : /" + cryptedDecripted+"/");
-//		System.out.println(src.length());
-//		System.out.println(cryptedDecripted.length());
+
 		Assert.assertTrue(src.compareTo(cryptedDecripted) == 0);
 
 	}

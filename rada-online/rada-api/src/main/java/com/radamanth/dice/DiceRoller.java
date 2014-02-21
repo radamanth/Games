@@ -164,14 +164,5 @@ public abstract class DiceRoller {
 		pw.println("3D6B1R2 ne fonctionne pas alors que 3D6R1B2 oui. ");
 		return sw.toString();
 	}
-
-	public static void main(String[] a) {
-
-		System.out.println(DiceRoller.rollDice("1D20-21"));
-		// System.out.println(DiceRoller.rollDice("1D20+1"));
-		// System.out.println(DiceRoller.rollDice("1D20-10"));
-		// System.out.println(DiceRoller.rollDice("1D20+10"));
-		// System.out.println(DiceRoller.rollDice("1D20+15"));
-
-	}
+	
 }

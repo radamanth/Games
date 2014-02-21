@@ -155,7 +155,7 @@ public class Cryptotron {
 		Integer [] wordIndexArray = new Integer[wordIndexSet.size()];
 		wordIndexSet.toArray(wordIndexArray);
 		for (int i= 0; i < nbWord;i++) {
-			if (i != 0 && i < wordIndexSet.size() && isCyphered(cypheredIndex.size(), i))
+			if (i < wordIndexSet.size() && isCyphered(cypheredIndex.size(), i))
 				cypheredIndex.add(wordIndexArray[i]);
 		}
 		this.cypheredIndex = cypheredIndex;
@@ -201,6 +201,8 @@ public class Cryptotron {
 	 * @return
 	 */
 	private boolean isCyphered(int nbAlreadyCrypted, int indexWord  )  {
+		if (indexWord == 0)
+			return true;
 		BigDecimal n = new BigDecimal(indexWord);
 		BigDecimal k = new BigDecimal(nbAlreadyCrypted);
 		BigDecimal result = k.divide(n, 2, RoundingMode.HALF_UP);

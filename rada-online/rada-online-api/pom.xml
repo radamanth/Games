@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>com.radamanth</groupId>
 			<artifactId>rada-api</artifactId>
-			<version>1.0.0</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

@@ -17,6 +17,10 @@ import java.util.regex.Pattern;
  * 
  */
 public class Cryptotron {
+	
+	
+	
+	
 	/**
 	 * 
 	 */
@@ -222,6 +226,7 @@ public class Cryptotron {
 	 */
 	private String cryptIt(String src) {
 
+		
 		char[] s = src.toCharArray();
 		int caesarshift = 0;
 		int sens = 1;

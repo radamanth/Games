@@ -1,7 +1,12 @@
 package com.radamanth.service.impl;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.ws.rs.Produces;
@@ -11,6 +16,7 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.radamanth.cryptotron.Cryptotron;
 import com.radamanth.dice.DiceRoller;
@@ -45,6 +51,10 @@ public class RadaDiceService implements IRadaDiceService {
 	
 	@Autowired
     private SimpleMailMessage preConfiguredMessage;
+	
+	
+	@Autowired
+	private WebApplicationContext webAppCtx;
 	
     /**
      *
@@ -189,8 +199,45 @@ public class RadaDiceService implements IRadaDiceService {
 		Cryptotron crypto = new Cryptotron(request.getSrc(),Cryptotron.CryptModeEnum.valueOf(request.getMode().name()), request.getPercentage(), caesar );
 		String result = crypto.cypher();
 		request.setRes(result);
+		
+		String fileName = generateResultFile(result);
+		
+		request.setFileRelativePath(fileName);
 		return request;
 		
+	}
+
+	/**
+	 * 
+	 */
+	private String generateResultFile(String content)  {
+		
+		BufferedWriter bw = null;
+		try {
+			if (content == null)
+				return null;
+			
+			String fileName = "gen/cypher-"+System.currentTimeMillis()+".txt";
+			String realPath = webAppCtx.getServletContext().getRealPath(fileName);
+			FileOutputStream fos = new FileOutputStream(realPath);
+			bw = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8") );
+			
+			bw.write(content);
+			bw.flush();
+			bw.close();
+			return fileName;
+			
+		} catch (Exception e) {
+			logger.log(Level.SEVERE, "Erreur lors de la génération du fichier de sortie.", e);
+		} finally {
+			if (bw != null)
+				try {
+					bw.close();
+				} catch (IOException e) {
+					logger.log(Level.SEVERE, "Erreur lors de la génération du fichier de sortie.", e);
+				}
+		}
+		return null;
 	}
 	
 	

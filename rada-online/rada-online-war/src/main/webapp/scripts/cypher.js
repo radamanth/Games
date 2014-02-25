@@ -38,10 +38,9 @@ $(document).ready(function() {
 	
 			$.ajax({
 				type : 'POST',
-				contentType : 'application/json',
 				url : myurl,
 				dataType : "json",
-				contentType : "application/json",
+				contentType : "application/json; charset=UTF-8",
 				data : JSON.stringify(jsonDataCypher),
 				success : function(data, textStatus, jqXHR) {
 					var skey = [];

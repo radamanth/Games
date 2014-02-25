@@ -4,6 +4,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta charset="UTF-8" />
     <link rel="shortcut icon" href="images/d20.ico" />
     <link rel="stylesheet" href="scripts/libs/jquery.mobile-1.3.2.min.css" />
 

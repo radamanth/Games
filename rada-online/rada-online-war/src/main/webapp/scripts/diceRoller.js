@@ -69,10 +69,9 @@ $(document).ready(function () {
             jsonDataMail = ko.toJSON(jsonDataMail);
             $.ajax({
                 type: 'POST',
-                contentType: 'application/json',
                 url: myurl,
                 dataType: "json",
-                contentType: "application/json",
+                contentType: "application/json; charset=UTF-8",
                 data: jsonDataMail,
                 success: function(data, textStatus, jqXHR){
                     self.verifyMail = ko.observable(new VerifyMail(data.mailContent, data.key, data.result, data.resultMessage));
@@ -118,10 +117,9 @@ $(document).ready(function () {
             
             $.ajax({
                 type: 'POST',
-                contentType: 'application/json',
                 url: myurl,
                 dataType: "json",
-                contentType: "application/json",
+                contentType: "application/json; charset=UTF-8",
                 data: JSON.stringify(self.getRolls()),
                 success: function(data, textStatus, jqXHR){
                     var results =  data.requestedRoll;

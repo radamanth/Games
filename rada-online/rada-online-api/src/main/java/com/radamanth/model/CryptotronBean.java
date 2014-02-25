@@ -21,6 +21,9 @@ public class CryptotronBean {
 	private int[] key = {42};
 	private CryptModeEnum mode = CryptModeEnum.CRYPT;
 	private int percentage = 100;
+	
+	private String fileRelativePath = null;
+	
 	@XmlEnum(value=String.class)
 	public static enum CryptModeEnum {
 		CRYPT, DECRYPT;
@@ -86,6 +89,18 @@ public class CryptotronBean {
 	 */
 	public void setPercentage(int percentage) {
 		this.percentage = percentage;
+	}
+	/**
+	 * @return the fileRelativePath
+	 */
+	public String getFileRelativePath() {
+		return fileRelativePath;
+	}
+	/**
+	 * @param fileRelativePath the fileRelativePath to set
+	 */
+	public void setFileRelativePath(String fileRelativePath) {
+		this.fileRelativePath = fileRelativePath;
 	}
 	
 	

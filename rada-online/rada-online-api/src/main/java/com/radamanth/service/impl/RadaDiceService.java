@@ -1,6 +1,7 @@
 package com.radamanth.service.impl;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -32,9 +33,13 @@ import com.radamanth.utils.StringUtils;
  * Classe de service de lancement de dés
  */
 @Service
-public class RadaDiceService implements IRadaDiceService {
+public class RadaDiceService implements IRadaDiceService  {
 
     /**
+	 * 
+	 */
+	private static final String GEN_DIRECTORY = "gen";
+	/**
 	 * 
 	 */
 	private static final String HMAC_SHA1 = "HmacSHA1";
@@ -55,6 +60,8 @@ public class RadaDiceService implements IRadaDiceService {
 	
 	@Autowired
 	private WebApplicationContext webAppCtx;
+	
+	
 	
     /**
      *
@@ -208,24 +215,37 @@ public class RadaDiceService implements IRadaDiceService {
 	}
 
 	/**
-	 * 
+	 *  Génère le fichier à télécharger.
 	 */
 	private String generateResultFile(String content)  {
 		
 		BufferedWriter bw = null;
 		try {
-			if (content == null)
+			if (content == null || webAppCtx == null) 
 				return null;
+			String realDirectoryPath = webAppCtx.getServletContext().getRealPath(GEN_DIRECTORY);
+			if (realDirectoryPath == null) 
+				return null;
+			File directoryFile = new File(realDirectoryPath);
 			
-			String fileName = "gen/cypher-"+System.currentTimeMillis()+".txt";
-			String realPath = webAppCtx.getServletContext().getRealPath(fileName);
-			FileOutputStream fos = new FileOutputStream(realPath);
-			bw = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8") );
+			if (directoryFile != null && (directoryFile.exists() || directoryFile.mkdirs() ) ) {
+				String fileName = GEN_DIRECTORY+"/cypher-"+System.currentTimeMillis()+".txt";
+				String realPath = webAppCtx.getServletContext().getRealPath(fileName);
+				File file = new File(realPath);
+				if (!file.exists())
+					file.createNewFile();
+				FileOutputStream fos = new FileOutputStream(file);
+				bw = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8") );
+				
+				bw.write(content);
+				bw.flush();
+				bw.close();
+				return fileName;
+			} 
 			
-			bw.write(content);
-			bw.flush();
-			bw.close();
-			return fileName;
+			
+			
+			
 			
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, "Erreur lors de la génération du fichier de sortie.", e);
@@ -239,6 +259,8 @@ public class RadaDiceService implements IRadaDiceService {
 		}
 		return null;
 	}
+
+	
 	
 	
 

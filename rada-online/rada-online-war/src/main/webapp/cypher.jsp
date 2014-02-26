@@ -30,12 +30,14 @@
                 <input type="text" data-bind=" value: data().key" pattern="/^[1-9]{1}[0-9]*([/]{1}[1-9]{1}[0-9]*)*$/g" placeholder="Ex : 17/13/24" data-theme="a" />
                 <label for="idPercent" data-theme="a" >Pourcentage Cryptage :</label>
 				<input type="range" id="idPercent" data-bind="value: data().percentage" min="0"  max="100" data-theme="a" />
-				<label for="idResContent" data-theme="a">Résultat :</label>
+				<label for="idResContent" data-theme="a">Résultat : </label>
 				<textarea id="idResContent" name="ResContentName" data-bind="value: data().res" readonly="readonly"></textarea>
-            
+				<!-- ko  if: data().fileRelativePath -->
+            	<a data-bind="attr : {href: data().fileRelativePath}" download>Download txt</a>
+            	<!-- /ko -->
         </form>
         <div data-role="controlgroup" data-mini="true">
-            <a href="#" id="btnCypher" data-theme="a" data-role="button" data-bind="click: cypher">Cypher!</a>
+        	<a href="#" id="btnCypher" data-theme="a" data-role="button" data-bind="click: cypher">Cypher!</a>
             <a href="#" id="btnDeCypher" data-theme="a" data-role="button" data-bind="click: decypher">Decipher</a>
         </div>
         
@@ -43,4 +45,5 @@
 </div><!--  page home -->
 
 </body>
+<iframe id="dldiv" style="display:none"></iframe>
 </html>

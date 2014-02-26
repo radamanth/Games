@@ -16,6 +16,26 @@ import org.junit.Test;
 public class CryptotronTest {
 
 	@Test
+	public void testSimple() {
+		String src = "abc abc";
+		
+		ArrayList<Integer> ckey = new ArrayList<Integer>();
+		ckey.add(1);
+		
+		
+		Cryptotron c = new Cryptotron(src, Cryptotron.CryptModeEnum.CRYPT, 100, ckey);
+		String ret = c.cypher();
+		
+		c.setSrc(ret);
+		c.setMode(Cryptotron.CryptModeEnum.DECRYPT);
+		c.setCentage(100);
+		String cryptedDecripted = c.cypher();
+
+		Assert.assertTrue(src.compareTo(cryptedDecripted) == 0);
+
+	}
+	
+	@Test
 	public void test100Pour100() {
 		String src = "Test de cryptage a la \n\r\t con juste pour voir.";
 		

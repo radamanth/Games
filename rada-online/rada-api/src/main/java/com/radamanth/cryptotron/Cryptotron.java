@@ -4,10 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Le crytotron permet de faire un pseudo cryptage de caesar d'un fichier texte.
@@ -17,14 +14,6 @@ import java.util.regex.Pattern;
  * 
  */
 public class Cryptotron {
-	
-	
-	
-	
-	/**
-	 * 
-	 */
-	private static final BigDecimal BIGDEC_1 = new BigDecimal(1);
 	/**
 	 * 
 	 */
@@ -41,7 +30,20 @@ public class Cryptotron {
 	 * 
 	 */
 	public static enum CryptModeEnum {
-		CRYPT, DECRYPT;
+		CRYPT(1), DECRYPT(1);
+		
+		private int sens ;
+		private CryptModeEnum(int sens) {
+			this.sens = sens;
+		}
+		/**
+		 * @return the sens
+		 */
+		public int getSens() {
+			return sens;
+		}
+		
+		
 	}
 
 	/**
@@ -71,6 +73,13 @@ public class Cryptotron {
 	 */
 	private int centage = 100;
 	private BigDecimal centageBDecimal = null;
+	
+	
+	/**
+	 * Split Src DAta 
+	 */
+	private SplitData split = null;
+	
 
 	/**
 	 * Construction du Cryptotron
@@ -90,15 +99,13 @@ public class Cryptotron {
 		this.centageBDecimal = new BigDecimal(this.centage);
 		this.centageBDecimal = this.centageBDecimal.divide(BIGDEC_100, 2, RoundingMode.HALF_UP);
 		this.keyList = caeserKey;
+		this.split = CryptotronUtils.splitIntoWordsAndSpaces(this.src, this.mode);
+		
+		
 	}
 
-	private Pattern PATTERN_WHITESPACE = Pattern.compile("\\s");
-
-	private boolean isWhiteSpaceOnly(String s) {
-		if (s == null)
-			return false;
-		return s.matches("^\\s*$");
-	}
+	
+	
 
 	/**
 	 * Retourne la source traité par le {@link Cryptotron}
@@ -111,76 +118,36 @@ public class Cryptotron {
 		if (this.centage == 0)
 			return this.src;
 		
-		// liste contenant des White Space et des mots
-		List<String> listOfWordsAndWhiteSpace = new ArrayList<String>();
-		Set<Integer> whiteSpaceIndexSet = new TreeSet<Integer>();
-		Set<Integer> wordIndexSet = new TreeSet<Integer>();
 		
-		Matcher matcher = PATTERN_WHITESPACE.matcher(src);
-		int lastStart = 0;
-		int lastEnd = 0;
-		
-		
-		while (matcher.find()) {
-			int start = matcher.start();
-			int end = matcher.end();
-			if (lastStart < start) {
-				//WORD
-				listOfWordsAndWhiteSpace.add(src.substring(lastEnd, start));
-				wordIndexSet.add(listOfWordsAndWhiteSpace.size()-1);
-				
-			}
-			// WhiteSpace
-			listOfWordsAndWhiteSpace.add(src.substring(start, end ));
-			whiteSpaceIndexSet.add(listOfWordsAndWhiteSpace.size()-1);
-			// maj index
-			lastStart = start;
-			lastEnd = end ;
-		}
-		if (lastEnd < src.length()) {
-			listOfWordsAndWhiteSpace.add(src.substring(lastEnd));
-			wordIndexSet.add(listOfWordsAndWhiteSpace.size()-1);
-		}
 
-		int nbWord = wordIndexSet.size() ;
-		int nbWordToBeProcessed = (nbWord) * centage /100;
-		int nbReste = nbWord - nbWordToBeProcessed;
-		
-		BigDecimal nbResteBD = new BigDecimal(nbReste);
-		BigDecimal nbWordToBeProcessedBD = new BigDecimal(nbWordToBeProcessed);
-		BigDecimal nbWordBD = new BigDecimal(nbWord);
-		
-		
+		int nbWord = split.getWordIndexSet().size() ;
 		
 		
 		TreeSet<Integer> cypheredIndex = new TreeSet<Integer>();
 		// Selection des indexs mots à traiter
 		
-		Integer [] wordIndexArray = new Integer[wordIndexSet.size()];
-		wordIndexSet.toArray(wordIndexArray);
+		Integer [] wordIndexArray = new Integer[split.getWordIndexSet().size()];
+		split.getWordIndexSet().toArray(wordIndexArray);
 		for (int i= 0; i < nbWord;i++) {
-			if (i < wordIndexSet.size() && isCyphered(cypheredIndex.size(), i))
+			if (i < split.getWordIndexSet().size() && isCyphered(cypheredIndex.size(), i))
 				cypheredIndex.add(wordIndexArray[i]);
 		}
 		this.cypheredIndex = cypheredIndex;
 		
+		
+		
 		// sur tout les mots à crypter
 		List<String> cryptedResult = new ArrayList<String>();
-		for (int i = 0; i < listOfWordsAndWhiteSpace.size(); i++) {
-			String cypher = listOfWordsAndWhiteSpace.get(i);
+		for (int i = 0; i < split.getListOfWordsAndWhiteSpace().size(); i++) {
+			String cypher = split.getListOfWordsAndWhiteSpace().get(i);
 			if (!cypheredIndex.contains(new Integer(i))
-					|| isWhiteSpaceOnly(cypher)) {
+					|| CryptotronUtils.isWhiteSpaceOnly(cypher)) {
 				// Pas chiffré
-				cypher = listOfWordsAndWhiteSpace.get(i);
-				
+				cypher = split.getListOfWordsAndWhiteSpace().get(i);
 			}
 			else {
-				if (CryptModeEnum.CRYPT.equals(mode))
-					cypher = cryptIt(cypher);
-				else if (CryptModeEnum.DECRYPT.equals(mode))
-					cypher = decryptIt(cypher);
-				else
-					;
+				cypher = cryptIt(cypher, mode);
+				
 			}
 
 			cryptedResult.add(cypher);
@@ -193,7 +160,12 @@ public class Cryptotron {
 		return sb.toString();
 
 	}
+
+
+
+
 	
+
 	/**
 	 * Cas n : si tu as crypté k mots entre 1 et n, alors si k/n > p alors tu ne cryptes pas m_n, sinon, tu cryptes m_n.
 	 * n = indexWord
@@ -224,57 +196,62 @@ public class Cryptotron {
 	 * @param src
 	 * @return
 	 */
-	private String cryptIt(String src) {
+	private String cryptIt(String src, CryptModeEnum mode) {
 
+		if (this.split.getDicoCharList() == null || this.split.getDicoCharList().isEmpty())
+			return src;
 		
 		char[] s = src.toCharArray();
+		
+		int sens = mode.getSens();
 		int caesarshift = 0;
-		int sens = 1;
 		for (int i = 0; i < s.length; i++) {
 
+			int index = split.getDicoCharList().indexOf(s[i]);
+		
+			int newIndex = index;
 			if (keyList == null || keyList.size() == 0) {
-				s[i] = (char) (s[i] + DEFAULT_CAESAR_SHIFT);
+				newIndex = index + (sens * DEFAULT_CAESAR_SHIFT);
+				newIndex = checkNewIndex(newIndex);
+				s[i] = split.getDicoCharList().get(newIndex);
+				
 			} else {
 				if (caesarshift >= keyList.size())
 					caesarshift = 0;
-
-			    s[i] = (char) (s[i]+ ((sens) * keyList.get(caesarshift++).intValue()));
-				sens = -1 * sens;
+				newIndex = index + (sens *keyList.get(caesarshift++).intValue() );
+				newIndex = checkNewIndex(newIndex);
+				s[i] = split.getDicoCharList().get(newIndex);
+				
 			}
+//			sens = -1 * sens;
 
 		}
 		return new String(s);
 
 	}
-	
 
 	/**
-	 * methode qui crypte en vrai
-	 * 
-	 * @param src
+	 * Corrige le nouvelIndex en fonction de la taille du dictionnaire.
+	 * @param newIndex
 	 * @return
 	 */
-	private String decryptIt(String src) {
-
-		char[] s = src.toCharArray();
-		int caesarshift = 0;
-		int sens = 1;
-		for (int i = 0; i < s.length; i++) {
-
-			if (keyList == null || keyList.size() == 0) {
-				s[i] = (char) (s[i] - DEFAULT_CAESAR_SHIFT);
-			} else {
-				if (caesarshift >= keyList.size())
-					caesarshift = 0;
-				s[i] = (char) (s[i]- ((sens) * keyList.get(caesarshift++).intValue()));
-				sens = -1 * sens;
-			}
-
-		}
-		return new String(s);
-
+	private int checkNewIndex(int newIndex) {
+		if (this.split.getDicoCharList() == null )
+			return newIndex;
+		if (this.split.getDicoCharList().size()== 0)
+			throw new IllegalStateException("Impossible de corrigé un index si aucun dictionnaire n'est défini.");
+		int max = this.split.getDicoCharList().size() -1;
+		int increment = this.split.getDicoCharList().size();
+		while ( newIndex < 0)
+			newIndex += increment;
+		while ( newIndex > max)
+			newIndex -= increment;
+		
+		return newIndex;
 	}
 
+
+	
 	/**
 	 * @return the keyList
 	 */
@@ -318,6 +295,7 @@ public class Cryptotron {
 	 */
 	public void setSrc(String src) {
 		this.src = src;
+		this.split = CryptotronUtils.splitIntoWordsAndSpaces(this.src, this.mode);
 	}
 
 	/**
@@ -348,6 +326,7 @@ public class Cryptotron {
 	 */
 	public void setMode(CryptModeEnum mode) {
 		this.mode = mode;
+		this.split = CryptotronUtils.splitIntoWordsAndSpaces(this.src, this.mode);
 	}
 
 	/**

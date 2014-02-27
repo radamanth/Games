@@ -1,12 +1,17 @@
 package com.radamanth.ws.jaxrs.impl;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.xml.ws.WebServiceException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.radamanth.model.VerifyMailBean;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.service.impl.RadaDiceService;
 import com.radamanth.ws.jaxrs.IMailVerifyerJaxrs;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.ws.rs.*;
-import javax.xml.ws.WebServiceException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,7 +33,7 @@ public class MailVerifyer implements IMailVerifyerJaxrs {
      */
     @Override
     @GET
-    @Produces("application/json")
+    @Produces("application/json; charset=UTF-8")
     public VerifyMailBean usage() {
         VerifyMailBean usage = new VerifyMailBean();
         usage.setKey("TheMegaGeneratedKeyYouReceveive after "+ RadaDiceService.END_OF_MAIL);
@@ -42,8 +47,8 @@ public class MailVerifyer implements IMailVerifyerJaxrs {
      */
     @Override
     @POST
-    @Produces("application/json")
-    @Consumes("application/json")
+    @Produces("application/json; charset=UTF-8")
+    @Consumes("application/json; charset=UTF-8")
     public VerifyMailBean verifyMail(VerifyMailBean mail)
             throws IllegalArgumentException, WebServiceException {
 

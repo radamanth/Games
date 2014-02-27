@@ -3,6 +3,7 @@
  */
 package com.radamanth.ws.jaxrs.impl;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -29,7 +30,7 @@ public class Cryptotron implements ICryptotronJaxrs {
 	 * @see com.radamanth.ws.jaxrs.ICryptotronJaxrs#usage()
 	 */
 	@GET
-	@Produces("application/json")
+	@Produces("application/json; charset=UTF-8")
 	@Override
 	public CryptotronBean usage() {
 		// TODO Auto-generated method stub
@@ -45,7 +46,8 @@ public class Cryptotron implements ICryptotronJaxrs {
 	 * @see com.radamanth.ws.jaxrs.ICryptotronJaxrs#cypher(com.radamanth.model.CryptotronBean)
 	 */
 	@POST
-	@Produces("application/json")
+	@Produces("application/json; charset=UTF-8")
+	@Consumes("application/json; charset=UTF-8")
 	@Override
 	public CryptotronBean cypher(CryptotronBean request)
 			throws IllegalArgumentException, WebServiceException {

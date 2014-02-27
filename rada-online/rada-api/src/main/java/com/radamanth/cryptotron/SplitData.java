@@ -36,6 +36,7 @@ public class SplitData {
 	Set<Character> dicoChar = new TreeSet<>();
 	List<Character> dicoCharList = new ArrayList<>();
 	
+	
 	/**
 	 * @return the listOfWordsAndWhiteSpace
 	 */

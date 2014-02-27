@@ -22,6 +22,12 @@ public abstract class CryptotronUtils {
 
 	public static final Pattern PATTERN_WHITESPACE = Pattern.compile("\\s");
 	
+	
+	static final String DICO_STR ="0123456789./*²&aqwézsx\"edc'rfv(tgb-yhnèuj,_ik;çol:àpm!)^ù=$AZERTYUIOP¨£µ%MLKJHGFDSQWXCVBN?.§*âêûîôéé~~#{[|`\\@]°+}¤<>ÂÊÛÎÔ" +
+			"äëüöïÄËÜÏÖ";
+	public static final Set<Character> DEFAULT_DIC = CryptotronUtils.generateDictionaryFromString(CryptotronUtils.DICO_STR);
+	public static final  List<Character> DEFAULT_DIC_LIST = new ArrayList<Character>(CryptotronUtils.DEFAULT_DIC);
+	
 	/**
 	 * Construit un dicitonnaire de charactère en fonction du contenu. 
 	 * 
@@ -38,13 +44,28 @@ public abstract class CryptotronUtils {
 		}
 		Set<Character> res = new HashSet<Character>(words.size());
 		for (String w:words) {
-			char[] cs = w.toCharArray();
-			for (char c:cs) {
-				res.add(c);
-			}
+			res.addAll(generateDictionaryFromString(w));
+			
 		}
 		
 		return res;
+	}
+	
+	/**
+	 * Construit un dictionnaire de char à partir d'une String
+	 * @param s
+	 * @return
+	 */
+	public static Set<Character> generateDictionaryFromString(String s) {
+		if (s == null)
+			return new HashSet<Character>();
+		Set<Character> res = new HashSet<Character>(s.length());
+		char[] cs = s.toCharArray();
+		for (char c:cs) {
+			res.add(c);
+		}
+		return res;
+		
 	}
 
 	/**
@@ -97,7 +118,7 @@ public abstract class CryptotronUtils {
 			wordIndexSet.add(listOfWordsAndWhiteSpace.size()-1);
 		}
 		// Génération DICO
-		Set<Character> dicoChar = CryptotronUtils.generateDictionaryFromSourceWords(listOfWordsAndWhiteSpace);
+		Set<Character> dicoChar = CryptotronUtils.generateDictionaryFromSourceWords(new ArrayList<String>() );
 		List<Character> dicoCharLst  = new ArrayList<Character>(dicoChar);
 		Collections.sort(dicoCharLst);
 		if (CryptModeEnum.DECRYPT.equals(mode))

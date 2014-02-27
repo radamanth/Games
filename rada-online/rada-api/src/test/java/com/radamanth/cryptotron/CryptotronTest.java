@@ -93,6 +93,24 @@ public class CryptotronTest {
 		Assert.assertTrue(src.compareTo(cryptedDecripted) == 0);
 
 	}
+	
+	@Test
+	public void test50POURCENTSimple() {
+		String src = "aaa bbb ccc";
+		
+		ArrayList<Integer> ckey = new ArrayList<Integer>();
+		ckey.add(11);
+		
+		Cryptotron c = new Cryptotron(src, Cryptotron.CryptModeEnum.CRYPT, 50, ckey);
+		String ret = c.cypher();
+		
+		c.setSrc(ret);
+		c.setMode(Cryptotron.CryptModeEnum.DECRYPT);
+		c.setCentage(50);
+		String cryptedDecripted = c.cypher();
+		Assert.assertTrue(src.compareTo(cryptedDecripted) == 0);
+
+	}
 
 	@Test
 	public void test70POURCENT() {

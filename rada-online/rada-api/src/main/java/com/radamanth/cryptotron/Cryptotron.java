@@ -30,20 +30,21 @@ public class Cryptotron {
 	 * 
 	 */
 	public static enum CryptModeEnum {
-		CRYPT(1), DECRYPT(1);
-		
-		private int sens ;
+		CRYPT(1), DECRYPT(-1);
+
+		private int sens;
+
 		private CryptModeEnum(int sens) {
 			this.sens = sens;
 		}
+
 		/**
 		 * @return the sens
 		 */
 		public int getSens() {
 			return sens;
 		}
-		
-		
+
 	}
 
 	/**
@@ -73,13 +74,11 @@ public class Cryptotron {
 	 */
 	private int centage = 100;
 	private BigDecimal centageBDecimal = null;
-	
-	
+
 	/**
-	 * Split Src DAta 
+	 * Split Src DAta
 	 */
 	private SplitData split = null;
-	
 
 	/**
 	 * Construction du Cryptotron
@@ -97,15 +96,13 @@ public class Cryptotron {
 		this.mode = mode;
 		this.centage = cryptCentage;
 		this.centageBDecimal = new BigDecimal(this.centage);
-		this.centageBDecimal = this.centageBDecimal.divide(BIGDEC_100, 2, RoundingMode.HALF_UP);
+		this.centageBDecimal = this.centageBDecimal.divide(BIGDEC_100, 2,
+				RoundingMode.HALF_UP);
 		this.keyList = caeserKey;
-		this.split = CryptotronUtils.splitIntoWordsAndSpaces(this.src, this.mode);
-		
-		
-	}
+		this.split = CryptotronUtils.splitIntoWordsAndSpaces(this.src,
+				this.mode);
 
-	
-	
+	}
 
 	/**
 	 * Retourne la source traité par le {@link Cryptotron}
@@ -117,25 +114,21 @@ public class Cryptotron {
 	public String cypher() {
 		if (this.centage == 0)
 			return this.src;
-		
-		
 
-		int nbWord = split.getWordIndexSet().size() ;
-		
-		
+		int nbWord = split.getWordIndexSet().size();
+
 		TreeSet<Integer> cypheredIndex = new TreeSet<Integer>();
 		// Selection des indexs mots à traiter
-		
-		Integer [] wordIndexArray = new Integer[split.getWordIndexSet().size()];
+
+		Integer[] wordIndexArray = new Integer[split.getWordIndexSet().size()];
 		split.getWordIndexSet().toArray(wordIndexArray);
-		for (int i= 0; i < nbWord;i++) {
-			if (i < split.getWordIndexSet().size() && isCyphered(cypheredIndex.size(), i))
+		for (int i = 0; i < nbWord; i++) {
+			if (i < split.getWordIndexSet().size()
+					&& isCyphered(cypheredIndex.size(), i))
 				cypheredIndex.add(wordIndexArray[i]);
 		}
 		this.cypheredIndex = cypheredIndex;
-		
-		
-		
+
 		// sur tout les mots à crypter
 		List<String> cryptedResult = new ArrayList<String>();
 		for (int i = 0; i < split.getListOfWordsAndWhiteSpace().size(); i++) {
@@ -144,10 +137,9 @@ public class Cryptotron {
 					|| CryptotronUtils.isWhiteSpaceOnly(cypher)) {
 				// Pas chiffré
 				cypher = split.getListOfWordsAndWhiteSpace().get(i);
-			}
-			else {
+			} else {
 				cypher = cryptIt(cypher, mode);
-				
+
 			}
 
 			cryptedResult.add(cypher);
@@ -161,22 +153,17 @@ public class Cryptotron {
 
 	}
 
-
-
-
-	
-
 	/**
-	 * Cas n : si tu as crypté k mots entre 1 et n, alors si k/n > p alors tu ne cryptes pas m_n, sinon, tu cryptes m_n.
-	 * n = indexWord
-	 * k = nbAlreadyCrypted
+	 * Cas n : si tu as crypté k mots entre 1 et n, alors si k/n > p alors tu ne
+	 * cryptes pas m_n, sinon, tu cryptes m_n. n = indexWord k =
+	 * nbAlreadyCrypted
 	 * 
 	 * 
 	 * @param nbAlreadyCrypted
 	 * @param indexWord
 	 * @return
 	 */
-	private boolean isCyphered(int nbAlreadyCrypted, int indexWord  )  {
+	private boolean isCyphered(int nbAlreadyCrypted, int indexWord) {
 		if (indexWord == 0)
 			return true;
 		BigDecimal n = new BigDecimal(indexWord);
@@ -185,8 +172,7 @@ public class Cryptotron {
 		if (result.compareTo(this.centageBDecimal) <= 0) {
 			return true;
 		}
-		
-		
+
 		return false;
 	}
 
@@ -198,32 +184,35 @@ public class Cryptotron {
 	 */
 	private String cryptIt(String src, CryptModeEnum mode) {
 
-		if (this.split.getDicoCharList() == null || this.split.getDicoCharList().isEmpty())
+		if (CryptotronUtils.DEFAULT_DIC_LIST == null
+				|| CryptotronUtils.DEFAULT_DIC_LIST.isEmpty())
 			return src;
-		
+
 		char[] s = src.toCharArray();
-		
+
 		int sens = mode.getSens();
 		int caesarshift = 0;
 		for (int i = 0; i < s.length; i++) {
 
-			int index = split.getDicoCharList().indexOf(s[i]);
-		
-			int newIndex = index;
-			if (keyList == null || keyList.size() == 0) {
-				newIndex = index + (sens * DEFAULT_CAESAR_SHIFT);
-				newIndex = checkNewIndex(newIndex);
-				s[i] = split.getDicoCharList().get(newIndex);
-				
-			} else {
-				if (caesarshift >= keyList.size())
-					caesarshift = 0;
-				newIndex = index + (sens *keyList.get(caesarshift++).intValue() );
-				newIndex = checkNewIndex(newIndex);
-				s[i] = split.getDicoCharList().get(newIndex);
-				
+			int index = CryptotronUtils.DEFAULT_DIC_LIST.indexOf(s[i]);
+			if (index != -1) {
+
+				int newIndex = index;
+				if (keyList == null || keyList.size() == 0) {
+					newIndex = index + (sens * DEFAULT_CAESAR_SHIFT);
+					newIndex = checkNewIndex(newIndex);
+					s[i] = CryptotronUtils.DEFAULT_DIC_LIST.get(newIndex);
+
+				} else {
+					if (caesarshift >= keyList.size())
+						caesarshift = 0;
+					newIndex = index
+							+ (sens * keyList.get(caesarshift++).intValue());
+					newIndex = checkNewIndex(newIndex);
+					s[i] = CryptotronUtils.DEFAULT_DIC_LIST.get(newIndex);
+
+				}
 			}
-//			sens = -1 * sens;
 
 		}
 		return new String(s);
@@ -232,26 +221,26 @@ public class Cryptotron {
 
 	/**
 	 * Corrige le nouvelIndex en fonction de la taille du dictionnaire.
+	 * 
 	 * @param newIndex
 	 * @return
 	 */
 	private int checkNewIndex(int newIndex) {
-		if (this.split.getDicoCharList() == null )
+		if (CryptotronUtils.DEFAULT_DIC_LIST == null)
 			return newIndex;
-		if (this.split.getDicoCharList().size()== 0)
-			throw new IllegalStateException("Impossible de corrigé un index si aucun dictionnaire n'est défini.");
-		int max = this.split.getDicoCharList().size() -1;
-		int increment = this.split.getDicoCharList().size();
-		while ( newIndex < 0)
+		if (CryptotronUtils.DEFAULT_DIC_LIST.size() == 0)
+			throw new IllegalStateException(
+					"Impossible de corrigé un index si aucun dictionnaire n'est défini.");
+		int max = CryptotronUtils.DEFAULT_DIC_LIST.size() - 1;
+		int increment = CryptotronUtils.DEFAULT_DIC_LIST.size();
+		while (newIndex < 0)
 			newIndex += increment;
-		while ( newIndex > max)
+		while (newIndex > max)
 			newIndex -= increment;
-		
+
 		return newIndex;
 	}
 
-
-	
 	/**
 	 * @return the keyList
 	 */
@@ -295,7 +284,8 @@ public class Cryptotron {
 	 */
 	public void setSrc(String src) {
 		this.src = src;
-		this.split = CryptotronUtils.splitIntoWordsAndSpaces(this.src, this.mode);
+		this.split = CryptotronUtils.splitIntoWordsAndSpaces(this.src,
+				this.mode);
 	}
 
 	/**
@@ -326,7 +316,8 @@ public class Cryptotron {
 	 */
 	public void setMode(CryptModeEnum mode) {
 		this.mode = mode;
-		this.split = CryptotronUtils.splitIntoWordsAndSpaces(this.src, this.mode);
+		this.split = CryptotronUtils.splitIntoWordsAndSpaces(this.src,
+				this.mode);
 	}
 
 	/**
@@ -343,7 +334,8 @@ public class Cryptotron {
 	public void setCentage(int centage) {
 		this.centage = centage;
 		this.centageBDecimal = new BigDecimal(this.centage);
-		this.centageBDecimal= this.centageBDecimal.divide(BIGDEC_100, 2, RoundingMode.HALF_UP);
+		this.centageBDecimal = this.centageBDecimal.divide(BIGDEC_100, 2,
+				RoundingMode.HALF_UP);
 	}
 
 }

@@ -1,12 +1,24 @@
-package com.radamanth.d20.combat;
+package 	com.radamanth.d20.combat;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.radamanth.dice.DiceRoller;
 
 public class CombatManager {
+	private static final Logger logger = Logger.getLogger(CombatManager.class.getName());
 
+	/**
+	 * Lance une attaque multiple.
+	 * Appel {@link CombatManager#oneAttack(String, int, int)} 
+	 * @param attackCode les attackDice de oneAttack séparé par des / 
+	 * @param defense 
+	 * @param critOn
+	 * @return
+	 * @throws Exception
+	 */
 	public static List<CombatResult> multipleAttackHit(String attackCode, int defense, int critOn) throws Exception {
 		
 		String acode[] = attackCode.split("/");
@@ -16,12 +28,20 @@ public class CombatManager {
 		{
 			CombatResult res = oneAttack(acode[i], defense, critOn);
 			
-			if (res.getNbHit() == 1 ) {
+			if (res.isHit() ) {
 				resList.add(res);
 			}
 		}
 		return resList;
 	}
+	/**
+	 * Lance une attaque contre une défense en fonciton d'un seuil de crit
+	 * @param attackDice cf. {@link DiceRoller#S_DICE_PATTERN}
+	 * @param defense
+	 * @param critOn
+	 * @return
+	 * @throws Exception
+	 */
 	public static CombatResult oneAttack(String attackDice, int defense, int critOn) throws Exception {
 		
 		CombatResult res = new CombatResult();
@@ -31,29 +51,20 @@ public class CombatManager {
 		
 		int resultat= DiceRoller.rollDice(attackDice);
 		if (DiceRoller.isCritical(attackDice, resultat, critOn)) {
-			res.setNbHit(res.getNbHit() +1);
-			res.setCritique(true);
+			res.setHit(Boolean.TRUE);
+			res.setCritique(Boolean.TRUE);
 		}
 		else if (resultat >= defense) {
-			res.setNbHit(res.getNbHit() +1);
+			res.setHit(Boolean.TRUE);
 		}
-		System.out.println(attackDice +" = " + resultat + " vs " + defense + " critical hit : " + res.isCritique());
+		if (logger.isLoggable(Level.INFO) ) 
+			logger.log(Level.INFO, attackDice +" = " + resultat + " vs " + defense + " critical hit : " + res.isCritique());
+		
 		
 		return res;
 	}
 	
 	
 	
-	public static void main(String[]argd) {
-		try {
-			CombatManager.oneAttack("1d20p10", 25, 20);
-			System.out.println("======");
-			CombatManager.multipleAttackHit("1d20p10/1D20p5/1D20", 18, 20);
-			System.out.println("======");
-			CombatManager.multipleAttackHit("1d20p10", 18, 20);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
+	
 }

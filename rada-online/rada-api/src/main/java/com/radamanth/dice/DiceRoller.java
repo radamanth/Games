@@ -18,7 +18,6 @@ public abstract class DiceRoller {
 	/**
 	 * PAttern : ^[0-9]+[dD][0-9]+([pPMm][0-9]*)?([rR][0-9]+)?([bB][0-9]+)?$
 	 */
-
 	public static final String S_DICE_PATTERN = "^[1-9]{1}[0-9]*[dD]{1}[1-9]{1}[0-9]*([\\+-]{1}[1-9]{1}[0-9]*)?([rR]{1}[1-9]{1}[0-9]*)?([bB]{1}[1-9]{1}[0-9]*)?";
 	public static final Pattern DICE_PATTERN = Pattern.compile(S_DICE_PATTERN);
 	public static final String MINUS = "-";

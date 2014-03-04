@@ -15,6 +15,7 @@ import javax.ws.rs.Produces;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.context.WebApplicationContext;
@@ -261,7 +262,30 @@ public class RadaDiceService implements IRadaDiceService  {
 	}
 
 	
-	
+	/**
+	 * 
+	 * @see com.radamanth.service.IRadaDiceService#purgeCypherFiles()
+	 */
+	@Scheduled(cron="0 0 23 * * *")
+	public void purgeCypherFiles() {
+		String realDirectoryPath = webAppCtx.getServletContext().getRealPath(GEN_DIRECTORY);
+		if (realDirectoryPath == null) {
+			logger.log(Level.INFO, "impossible de puger un repetoire dont le realpath est null : " + GEN_DIRECTORY); 
+			return ;
+		}
+		File directoryFile = new File(realDirectoryPath);
+		if (directoryFile.isDirectory() && directoryFile.exists()) {
+			File [] file = directoryFile.listFiles();
+			for (File f:file) {
+				boolean result = f.delete();
+				if(!result) {
+					logger.log(Level.SEVERE, "Impossible de supprimer le fichier : " + f.getName());
+				} else {
+					logger.log(Level.INFO, "Suppression du fichier : " + f.getName());
+				}
+			}
+		}
+	}
 	
 
 }

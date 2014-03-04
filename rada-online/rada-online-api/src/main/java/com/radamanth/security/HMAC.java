@@ -8,33 +8,36 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 public abstract class HMAC {
-		private static enum algorithms { //Enum declaration 3 encryption types here
+//	private static enum algorithms {
+//		// Enum declaration 3 encryption types here
+//
+//		AES, BlowFish, DESede;
+//
+//	}
 
-			AES, BlowFish, DESede;
+	public static String hmacDigest(String msg, String keyString, String algo) {
+		String digest = null;
+		try {
+			SecretKeySpec key = new SecretKeySpec(
+					(keyString).getBytes("UTF-8"), algo);
+			Mac mac = Mac.getInstance(algo);
+			mac.init(key);
 
+			byte[] bytes = mac.doFinal(msg.getBytes("ASCII"));
+
+			StringBuffer hash = new StringBuffer();
+			for (int i = 0; i < bytes.length; i++) {
+				String hex = Integer.toHexString(0xFF & bytes[i]);
+				if (hex.length() == 1) {
+					hash.append('0');
+				}
+				hash.append(hex);
+			}
+			digest = hash.toString();
+		} catch (UnsupportedEncodingException e) {
+		} catch (InvalidKeyException e) {
+		} catch (NoSuchAlgorithmException e) {
 		}
-	 public static String hmacDigest(String msg, String keyString, String algo) {
-		    String digest = null;
-		    try {
-		      SecretKeySpec key = new SecretKeySpec((keyString).getBytes("UTF-8"), algo);
-		      Mac mac = Mac.getInstance(algo);
-		      mac.init(key);
-
-		      byte[] bytes = mac.doFinal(msg.getBytes("ASCII"));
-
-		      StringBuffer hash = new StringBuffer();
-		      for (int i = 0; i < bytes.length; i++) {
-		        String hex = Integer.toHexString(0xFF & bytes[i]);
-		        if (hex.length() == 1) {
-		          hash.append('0');
-		        }
-		        hash.append(hex);
-		      }
-		      digest = hash.toString();
-		    } catch (UnsupportedEncodingException e) {
-		    } catch (InvalidKeyException e) {
-		    } catch (NoSuchAlgorithmException e) {
-		    }
-		    return digest;
-		  }
+		return digest;
+	}
 }

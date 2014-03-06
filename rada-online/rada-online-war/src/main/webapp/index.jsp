@@ -22,7 +22,8 @@
 <body>
 <div data-role="page" id="dice" data-theme="b" data-mini="true">
     <div data-role="header">
-        <h1>Rada Dice Roller</h1> <a href="cypher.jsp" class="ui-btn ui-shadow ui-corner-all">Cypher</a>
+        <h1>Rada Dice Roller</h1>
+        <a href="cypher.jsp" data-ajax="false" class="ui-btn ui-shadow ui-corner-all">Cypher</a>
     </div><!-- /header -->
     <div data-role="panel" id="mailPanel" data-position="left" data-display="overlay"  data-theme="b" data-visible="true">
         <div class="panel-content">

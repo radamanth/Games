@@ -19,7 +19,7 @@
 <div data-role="page" id="cypher" data-theme="b" data-mini="true">
     <div data-role="header">
         <h1>Rada Cypher</h1>
-        <a href="index.jsp" class="ui-btn ui-shadow ui-corner-all">Dice</a>
+        <a href="index.jsp" data-ajax="false" class="ui-btn ui-shadow ui-corner-all">Dice</a>
     </div><!-- /header -->
     
 

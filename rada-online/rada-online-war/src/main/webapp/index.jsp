@@ -15,13 +15,14 @@
    	
     <script src="scripts/libs/knockout-3.0.0.js"></script>
     <script src="scripts/diceRoller.js"></script>
+    <script src="scripts/cypher.js"></script>
 
 </head>
 
 <body>
-<div data-role="page" id="home" data-theme="b" data-mini="true">
+<div data-role="page" id="dice" data-theme="b" data-mini="true">
     <div data-role="header">
-        <h1>Rada Dice Roller</h1>
+        <h1>Rada Dice Roller</h1> <a href="cypher.jsp" class="ui-btn ui-shadow ui-corner-all">Cypher</a>
     </div><!-- /header -->
     <div data-role="panel" id="mailPanel" data-position="left" data-display="overlay"  data-theme="b" data-visible="true">
         <div class="panel-content">
@@ -219,7 +220,8 @@
         </div>
 
     </div><!-- /content -->
-</div><!--  page home -->
+</div><!--  page dice -->
+
 
 </body>
 </html>

@@ -16,9 +16,10 @@
 </head>
 
 <body>
-<div data-role="page" id="home" data-theme="b" data-mini="true">
+<div data-role="page" id="cypher" data-theme="b" data-mini="true">
     <div data-role="header">
         <h1>Rada Cypher</h1>
+        <a href="index.jsp" class="ui-btn ui-shadow ui-corner-all">Dice</a>
     </div><!-- /header -->
     
 
@@ -33,7 +34,7 @@
 				<label for="idResContent" data-theme="b">Résultat : </label>
 				<textarea id="idResContent" name="ResContentName" data-bind="value: data().res" readonly="readonly"></textarea>
 				<!-- ko  if: data().fileRelativePath -->
-            	<a data-bind="attr : {href: data().fileRelativePath}" download>Download txt</a>
+            	<a data-bind="attr : {href: data().fileRelativePath}" target="blank" download>Download txt</a>
             	<!-- /ko -->
         </form>
         <div data-role="controlgroup" data-mini="true">
@@ -42,8 +43,8 @@
         </div>
         
     </div><!-- /content -->
-</div><!--  page home -->
+</div><!--  page cypher -->
 
 </body>
-<iframe id="dldiv" style="display:none"></iframe>
+
 </html>

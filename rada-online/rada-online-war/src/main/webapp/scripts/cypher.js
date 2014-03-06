@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	var myurl = './services/Cryptotron/cryptotron';
 	
 	// {"src":"example","res":"example","key":[1,11,42],"mode":"CRYPT","percentage":100}

@@ -97,17 +97,22 @@ public class RadaDiceService implements IRadaDiceService  {
                     res.add(DiceRoller.rollDice(dice));
                 }
             }
-			oneres.setResults(res);
+            if (!results.isMailOnly()) {
+            	oneres.setResults(res);
+            }
+			
 			oneres.setDice(dice);
 			oneres.setNbRoll(nb);
 			oneres.setComment(one.getComment());
 			results.getRequestedRoll().add(oneres);
         }
         
+        // envoi de mail 
         if (results.getAuthor() != null && StringUtils.isEmail(results.getAuthor()) )  {
         	SimpleMailMessage message = new SimpleMailMessage(preConfiguredMessage);
         	StringBuffer text = new StringBuffer();
         	text.append(START_OF_MAIL);
+        	text.append("Hidden roll : " + results.isMailOnly()+"\n");
         	for (OneRoll one : results.getRequestedRoll() ) {
         		text.append("Roll : " +one.getComment() +"\n");
         		text.append("NB : " + one.getNbRoll() );
@@ -154,6 +159,7 @@ public class RadaDiceService implements IRadaDiceService  {
         		
         	
         }
+      
 		return results;
 	}
 

@@ -3,7 +3,7 @@ $(document).ready(function () {
 	
 	function RequestedRoll (p_comment, p_nbRoll, p_dice, p_results) {
 		var self = this;
-        self.nbRoll = ko.observable(p_nbRoll);
+		self.nbRoll = ko.observable(p_nbRoll);
         self.dice = ko.observable(p_dice);
         self.comment = ko.observable(p_comment);
         // devrait être une Array
@@ -41,6 +41,7 @@ $(document).ready(function () {
     function RollViewModel() {
 		
 		var self = this;
+		self.mailOnly = ko.observable(false);
 		self.rolls=  ko.observableArray([]);
 		var newIndex = 1 ;
 		self.roll1 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
@@ -103,7 +104,7 @@ $(document).ready(function () {
             if (self.roll5().rollData().nbRoll() > 0 ) {
                 jsonData.push(ko.toJS(self.roll5().rollData()));
             }
-            var data = {"author" : self.author, "dest1" : self.dest1, "dest2" : self.dest2, "dest3" : self.dest3, "dest4" : self.dest4, "dest5" : self.dest5, "requestedRoll": jsonData};
+            var data = { "mailOnly" : self.mailOnly(), "author" : self.author, "dest1" : self.dest1, "dest2" : self.dest2, "dest3" : self.dest3, "dest4" : self.dest4, "dest5" : self.dest5, "requestedRoll": jsonData};
             return data;
         }
 		self.rollthedice = function() {
@@ -125,6 +126,9 @@ $(document).ready(function () {
                     var results =  data.requestedRoll;
                     if (!results) {
                         alert("aucun résultats obtenus");
+                    } else if (data.mailOnly) {
+                    	alert("Pas de résultats affichés, eventuels mails envoyés!")
+                    	
                     } else {
                     	
                         if (results.length >= 1) {
@@ -164,12 +168,13 @@ $(document).ready(function () {
                         	model.roll5().rollData().dice(v.dice);
                         	model.roll5().rollData().results(v.results);
                         }
+                        $('#resultsPanel').panel('open');
                     }
 
                     
                     
                     
-                    $('#resultsPanel').panel('open');
+                    
                     
                     $.mobile.loading( 'hide');
                     

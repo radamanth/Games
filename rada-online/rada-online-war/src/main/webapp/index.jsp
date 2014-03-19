@@ -1,21 +1,9 @@
 <html>
 <head>
-    <title>RadaDiceRoller</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="images/d20.ico" />
-    <link rel="stylesheet" href="scripts/libs/jquery.mobile-1.4.2.min.css" />
-
-    <script src="scripts/libs/jquery-1.10.2.min.js" ></script>
-    <script src="scripts/libs/jquery.mobile-1.4.2.min.js"></script>
-   	<script src="scripts/libs/jquery.validate.min.js"></script>
-   	<script src="scripts/libs/jquery.cookie.js"></script>
-   	
-    <script src="scripts/libs/knockout-3.0.0.js"></script>
+    <%@ include file="common.jsp" %>
+         
     <script src="scripts/diceRoller.js"></script>
-    <script src="scripts/cypher.js"></script>
+    
 
 </head>
 
@@ -215,6 +203,9 @@
             </div>
         </form>
         <div data-role="controlgroup" data-mini="true">
+        	<legend>Display results ? </legend>
+			<input type="checkbox" name="displayresult" id="displayresult"   data-bind="checked: mailOnly" data-theme="b"/>
+			<label for="displayresult">No I don't want to know ! </label>
             <a href="#" id="btnRoll" data-theme="b" data-role="button" data-bind="click: rollthedice">Roll the Dice !</a>
             <a href="#resultsPanel" data-theme="b" data-role="button">Open results</a>
             <a href="#mailPanel" data-theme="b" data-role="button">Open mail</a>

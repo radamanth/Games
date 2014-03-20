@@ -60,9 +60,18 @@ $(document).ready(function () {
 		self.dest4 = '';
 		self.dest5 = '';
 		self.verifyMail= ko.observable(new VerifyMail('', '', true, ''));
+		self.showWaiting = function(p_selector, p_message) {
+			$.mobile.loading( 'show', {text : p_message, textVisible: true});
+			$(p_selector).addClass('ui-disabled');
+		};
+		self.hideWaiting = function(p_selector) {
+			$.mobile.loading( 'hide');
+            $(p_selector).removeClass('ui-disabled');
+		};
 		self.checkMailContent= function() {
             $('#checkMailPopup').popup('close');
-            $.mobile.loading( 'show');
+            self.showWaiting('#dice','Verifying suspicious mail ... ');
+            
 			var jsonDataMail = ko.toJS(self.verifyMail());
             var myurl = './services/MailVerifyerRs/mailVerify'
 
@@ -81,11 +90,11 @@ $(document).ready(function () {
 
                 },
                 error: function(jqXHR, textStatus, errorThrown){
-                    $.mobile.loading( 'hide');
+                	self.hideWaiting('#dice');
                     alert('verifyMail ' + textStatus  + ' / ' + errorThrown);
                 }
             });
-            $.mobile.loading( 'hide');
+            self.hideWaiting('#dice');
 		};
         self.getRolls = function() {
             var jsonData = [];
@@ -113,7 +122,8 @@ $(document).ready(function () {
 			$('#diceRollForm').validate();
 			
 			 
-            $.mobile.loading( 'show');
+			self.showWaiting('#dice', 'launching dice ! Alea jacta est ... ');
+			
             $.cookie("roll-data", JSON.stringify(self.getRolls()));
             
             $.ajax({
@@ -176,13 +186,13 @@ $(document).ready(function () {
                     
                     
                     
-                    $.mobile.loading( 'hide');
+                    self.hideWaiting('#dice');
                     
 
 
                 },
                 error: function(jqXHR, textStatus, errorThrown){
-                    $.mobile.loading( 'hide');
+                	self.hideWaiting('#dice');
                     alert('rollthedice ' + textStatus  + ' / ' + errorThrown);
                 }
             });

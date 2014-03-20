@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<div data-role="page" id="dice" data-theme="b" data-mini="true">
+<div data-role="page" id="dice" data-theme="b" data-mini="true" class="ui-loader-background">
     <div data-role="header">
         <h1>Rada Dice Roller</h1>
         <a href="cypher.jsp" data-ajax="false" class="ui-btn ui-shadow ui-corner-all">Cypher</a>

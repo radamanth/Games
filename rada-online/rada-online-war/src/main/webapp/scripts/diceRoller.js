@@ -61,7 +61,7 @@ $(document).ready(function () {
 		self.dest5 = '';
 		self.verifyMail= ko.observable(new VerifyMail('', '', true, ''));
 		self.showWaiting = function(p_selector, p_message) {
-			$.mobile.loading( 'show', {text : p_message, textVisible: true});
+			$.mobile.loading( 'show', {text : p_message, textVisible: true, theme: 'b'});
 			$(p_selector).addClass('ui-disabled');
 		};
 		self.hideWaiting = function(p_selector) {

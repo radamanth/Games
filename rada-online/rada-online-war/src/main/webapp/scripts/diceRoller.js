@@ -3,7 +3,7 @@ $(document).ready(function () {
 	
 	function RequestedRoll (p_comment, p_nbRoll, p_dice, p_results) {
 		var self = this;
-        self.nbRoll = ko.observable(p_nbRoll);
+		self.nbRoll = ko.observable(p_nbRoll);
         self.dice = ko.observable(p_dice);
         self.comment = ko.observable(p_comment);
         // devrait être une Array
@@ -41,6 +41,7 @@ $(document).ready(function () {
     function RollViewModel() {
 		
 		var self = this;
+		self.mailOnly = ko.observable(false);
 		self.rolls=  ko.observableArray([]);
 		self.initRolls = function(){
             var newIndex = 1 ;
@@ -72,9 +73,18 @@ $(document).ready(function () {
 
         }
 		self.verifyMail= ko.observable(new VerifyMail('', '', true, ''));
+		self.showWaiting = function(p_selector, p_message) {
+			$.mobile.loading( 'show', {text : p_message, textVisible: true, theme: 'b'});
+			$(p_selector).addClass('ui-disabled');
+		};
+		self.hideWaiting = function(p_selector) {
+			$.mobile.loading( 'hide');
+            $(p_selector).removeClass('ui-disabled');
+		};
 		self.checkMailContent= function() {
             $('#checkMailPopup').popup('close');
-            $.mobile.loading( 'show');
+            self.showWaiting('#dice','Verifying suspicious mail ... ');
+            
 			var jsonDataMail = ko.toJS(self.verifyMail());
             var myurl = './services/MailVerifyerRs/mailVerify'
 
@@ -82,10 +92,9 @@ $(document).ready(function () {
             jsonDataMail = ko.toJSON(jsonDataMail);
             $.ajax({
                 type: 'POST',
-                contentType: 'application/json',
                 url: myurl,
                 dataType: "json",
-                contentType: "application/json",
+                contentType: "application/json; charset=UTF-8",
                 data: jsonDataMail,
                 success: function(data, textStatus, jqXHR){
                     self.verifyMail = ko.observable(new VerifyMail(data.mailContent, data.key, data.result, data.resultMessage));
@@ -94,11 +103,11 @@ $(document).ready(function () {
 
                 },
                 error: function(jqXHR, textStatus, errorThrown){
-                    $.mobile.loading( 'hide');
+                	self.hideWaiting('#dice');
                     alert('verifyMail ' + textStatus  + ' / ' + errorThrown);
                 }
             });
-            $.mobile.loading( 'hide');
+            self.hideWaiting('#dice');
 		};
         self.getRolls = function() {
             var jsonData = [];
@@ -117,7 +126,7 @@ $(document).ready(function () {
             if (self.roll5().rollData().nbRoll() > 0 ) {
                 jsonData.push(ko.toJS(self.roll5().rollData()));
             }
-            var data = {"author" : self.author, "dest1" : self.dest1, "dest2" : self.dest2, "dest3" : self.dest3, "dest4" : self.dest4, "dest5" : self.dest5, "requestedRoll": jsonData};
+            var data = { "mailOnly" : self.mailOnly(), "author" : self.author, "dest1" : self.dest1, "dest2" : self.dest2, "dest3" : self.dest3, "dest4" : self.dest4, "dest5" : self.dest5, "requestedRoll": jsonData};
             return data;
         }
 		self.rollthedice = function() {
@@ -126,20 +135,23 @@ $(document).ready(function () {
 			$('#diceRollForm').validate();
 			
 			 
-            $.mobile.loading( 'show');
+			self.showWaiting('#dice', 'launching dice ! Alea jacta est ... ');
+			
             $.cookie("roll-data", JSON.stringify(self.getRolls()));
             
             $.ajax({
                 type: 'POST',
-                contentType: 'application/json',
                 url: myurl,
                 dataType: "json",
-                contentType: "application/json",
+                contentType: "application/json; charset=UTF-8",
                 data: JSON.stringify(self.getRolls()),
                 success: function(data, textStatus, jqXHR){
                     var results =  data.requestedRoll;
                     if (!results) {
                         alert("aucun résultats obtenus");
+                    } else if (data.mailOnly) {
+                    	alert("Pas de résultats affichés, eventuels mails envoyés!")
+                    	
                     } else {
 
                         self.resetResults();
@@ -182,20 +194,21 @@ $(document).ready(function () {
                         	model.roll5().rollData().dice(v.dice);
                         	model.roll5().rollData().results(v.results);
                         }
+                        $('#resultsPanel').panel('open');
                     }
 
                     
                     
                     
-                    $('#resultsPanel').panel('open');
                     
-                    $.mobile.loading( 'hide');
+                    
+                    self.hideWaiting('#dice');
                     
 
 
                 },
                 error: function(jqXHR, textStatus, errorThrown){
-                    $.mobile.loading( 'hide');
+                	self.hideWaiting('#dice');
                     alert('rollthedice ' + textStatus  + ' / ' + errorThrown);
                 }
             });

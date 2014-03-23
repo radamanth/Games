@@ -86,4 +86,13 @@ public class DiceRollerTest {
 		
 	}
 
+	
+	@Test
+	public void testBonus() {
+		String s= "10D1+27";
+		Assert.assertTrue(DiceRoller.DICE_PATTERN.matcher(s).matches());
+		int res = DiceRoller.rollDice(s);
+		Assert.assertEquals(37, res);
+		
+	}
 }

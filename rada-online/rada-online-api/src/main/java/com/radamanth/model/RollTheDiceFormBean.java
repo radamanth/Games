@@ -11,6 +11,7 @@ import org.codehaus.jackson.annotate.JsonAutoDetect;
 @JsonAutoDetect
 public class RollTheDiceFormBean {
 
+	private boolean mailOnly = false;
 	
 	private String author = null;
 	
@@ -116,6 +117,20 @@ public class RollTheDiceFormBean {
 	 */
 	public void setDest5(String dest5) {
 		this.dest5 = dest5;
+	}
+
+	/**
+	 * @return the mailOnly
+	 */
+	public boolean isMailOnly() {
+		return mailOnly;
+	}
+
+	/**
+	 * @param mailOnly the mailOnly to set
+	 */
+	public void setMailOnly(boolean mailOnly) {
+		this.mailOnly = mailOnly;
 	}
 }
 

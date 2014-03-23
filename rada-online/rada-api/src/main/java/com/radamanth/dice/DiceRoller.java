@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -17,14 +18,34 @@ public abstract class DiceRoller {
 	/**
 	 * PAttern : ^[0-9]+[dD][0-9]+([pPMm][0-9]*)?([rR][0-9]+)?([bB][0-9]+)?$
 	 */
-
 	public static final String S_DICE_PATTERN = "^[1-9]{1}[0-9]*[dD]{1}[1-9]{1}[0-9]*([\\+-]{1}[1-9]{1}[0-9]*)?([rR]{1}[1-9]{1}[0-9]*)?([bB]{1}[1-9]{1}[0-9]*)?";
 	public static final Pattern DICE_PATTERN = Pattern.compile(S_DICE_PATTERN);
 	public static final String MINUS = "-";
 	public static final String PLUS = "+";
 	public static final String REROLL = "r";
 	public static final String BEST = "b";
+	public static final String DICE= "d";
+	
+	public enum OperateurEnum {
+		
+		DICE(DiceRoller.DICE),MINUS(DiceRoller.MINUS), PLUS(DiceRoller.PLUS), REROLL(DiceRoller.REROLL), BEST(DiceRoller.BEST);
+		private String operateur;
+		private OperateurEnum(String oper) {
+			this.operateur = oper;
+		}
+		
+		public static OperateurEnum forOperateur(String operateur)  {
+			for (OperateurEnum o:OperateurEnum.values()) {
+				if (o.operateur.equalsIgnoreCase(operateur))
+					return o;
+			}
+			return null;
+		}
+	}
 
+	
+	
+	
 	/**
 	 * 
 	 * @param diceStr
@@ -38,8 +59,8 @@ public abstract class DiceRoller {
 
 		if (diceStr != null && DICE_PATTERN.matcher(diceStr).matches()) {
 
-			Integer[] tabint = getTabIntFromDiceStr(diceStr);
-			if ((score - tabint[2]) >= (critThreshold))
+			Roll roll = getRollFromDiceStr(diceStr);
+			if ((score - roll.getBonus()) >= (critThreshold))
 				return true;
 
 		} else
@@ -48,92 +69,161 @@ public abstract class DiceRoller {
 		return false;
 	}
 
-	private static Integer[] getTabIntFromDiceStr(String diceStr) {
+	
+	/**
+	 * Split de la chaine de dé
+	 * @param diceStr diceStr.split("[d\\-\\+rb]");
+	 * @return
+	 */
+	private static Roll getRollFromDiceStr(String diceStr) {
 		diceStr = diceStr.toLowerCase();
 
-		Integer tabint[] = new Integer[5];
-		int indexM = diceStr.indexOf(MINUS);
-		int indexP = diceStr.indexOf(PLUS);
-		int indexR = diceStr.indexOf(REROLL);
-		int indexB = diceStr.indexOf(BEST);
+		
+		Pattern p = Pattern.compile("[d\\-\\+rb]");
+		Matcher m = p.matcher(diceStr);
+		
 
-		String splitStr[] = diceStr.split("[d\\-\\+rb]");
-		// NbDice
-		tabint[0] = Integer.parseInt(splitStr[0]);
-		// diceType
-		tabint[1] = Integer.parseInt(splitStr[1]);
-		int absent = 0;
-		// BONUS
-		if (indexM != -1 || indexP != -1) {
-			tabint[2] = Integer.parseInt(splitStr[2]);
-			if (indexM != -1)
-				tabint[2] = -1 * tabint[2];
-		} else {
-			tabint[2] = 0;
-			absent++;
+		int lastEnd=0;
+		String operateurStr = null;
+		Roll result =  new Roll();
+		OperateurEnum operateur = null;
+		while (m.find()) {
+			int start = m.start();
+			int end = m.end();
+			operateurStr = m.group();
+			String value = diceStr.substring(lastEnd, start);
+			int intValue = -1;
+			try {
+				intValue = Integer.parseInt(value);
+			} catch (Exception e) {
+				throw new IllegalStateException("value : " + value + " devrait être au format nuémric.");
+			}
+			operateur = OperateurEnum.forOperateur(operateurStr);
+			switch (operateur) {
+			case DICE:
+				result.setNbDice(intValue);
+				break;
+			case BEST:
+				// avant B c est soit Reroll soit soit plus soit type de dé
+				
+				if (result.getTypeDice() == -1 )
+					result.setTypeDice(intValue);
+				else if (diceStr.contains(REROLL)) {
+					// si reroll présent dans la chaine alors le précédent est reroll
+					result.setReroll(intValue);
+				} else if (diceStr.contains(PLUS)) {
+					// Sinon ca peut etre + 
+					result.setPlus(intValue);
+				}else if (diceStr.contains(PLUS)) {
+					// Sinon ca peut etre + 
+					result.setMinus(intValue);
+				} else {
+					// Sinon c est le dice type
+					result.setTypeDice(intValue);
+				}
+				break;
+			case MINUS:
+				// Avant - c est toujours le type de dé
+				result.setTypeDice(intValue);
+				break;
+			case PLUS:
+				// Avant + c est toujours le type de dé
+				result.setTypeDice(intValue);
+				break;
+			case REROLL:
+				// Avant R de reroll c est soir + soit - soit diceType
+				if (result.getTypeDice() == -1 )
+					result.setTypeDice(intValue);
+				else if (diceStr.contains(PLUS)) {
+					// Sinon ca peut etre + 
+					result.setPlus(intValue);
+				}else if (diceStr.contains(PLUS)) {
+					// Sinon ca peut etre + 
+					result.setMinus(intValue);
+				} else {
+					// Sinon c est le dice type
+					result.setTypeDice(intValue);
+				}
+				break;
+			default:
+				break;
+			}
+			
+			lastEnd =end;
 		}
-		// REROLL
-		if (indexR != -1) {
-			tabint[3] = Integer.parseInt(splitStr[3 - absent]);
-		} else {
-			tabint[3] = 0;
-			absent++;
+		if (lastEnd < diceStr.length()) {
+			// il rest la dernière partie
+			int lastValue = Integer.parseInt(diceStr.substring(lastEnd));
+					
+			switch (operateur) {
+			case BEST:
+				result.setBest(lastValue);
+				break;
+			case DICE:
+				result.setTypeDice(lastValue);
+				break;
+			case MINUS:
+				result.setMinus(lastValue);
+				break;
+			case PLUS:
+				result.setPlus(lastValue);
+				break;
+			case REROLL:
+				result.setReroll(lastValue);
+				break;
+			default:
+				break;
+			}
 		}
+		
+		
+		
 
-		if (indexB != -1) {
-			tabint[4] = Integer.parseInt(splitStr[4 - absent]);
-		} else {
-			// Dans la cas du BEST ALL
-			tabint[4] = tabint[0];
-		}
-
-		return tabint;
+		return result;
 	}
 
 	/**
 	 * 
 	 * @param diceStr
 	 *            - Un chaine du type 3D6+12R1
-	 * @return - Le resultat du jet de d�s ou renvoit une erreur
+	 * @return - Le resultat du jet de dés ou renvoit une erreur
 	 */
 	public static int rollDice(String diceStr) throws IllegalArgumentException {
 		if (diceStr != null) {
 
 			if (DICE_PATTERN.matcher(diceStr).matches()) {
 
-				Integer[] tabint = getTabIntFromDiceStr(diceStr);
+				Roll roll = getRollFromDiceStr(diceStr);
 				try {
-					int nbDice = tabint[0];
-					int diceType = tabint[1];
-					int bonus = tabint[2];
-					int rerollValue = tabint[3];
-					int bestof = tabint[4];
+					int nbDice = roll.getNbDice();
+					int diceType = roll.getTypeDice();
+					int bonus = roll.getBonus();
+					int rerollValue = roll.getReroll();
+					if (rerollValue == -1)
+						rerollValue= 0;
+					int bestof = roll.getBest();
 
 					int resultat = 0;
 					LinkedList<Integer> tempdiceResult = new LinkedList<Integer>();
 					// (int)(Math.random() * (higher-lower)) + lower
 					// valeurs comprises en lower(inclus) et higher(exclus)
 					for (int i = 0; i < nbDice; i++) {
-						int tmpIntValue = (int) (Math.random() * ((diceType + 1) - (1 + rerollValue)))
-								+ (1 + rerollValue);
+                        // Min + (int)(Math.random() * ((Max - Min) + 1))
+						int tmpIntValue = ( rerollValue +1 ) + (int) (Math.random() * ((diceType  - ( rerollValue+ 1 ))+1) );
 						// System.out.println(tmpIntValue);
 						tempdiceResult.add(tmpIntValue);
 					}
-
+					if (bestof == -1)
+						bestof = tempdiceResult.size();
 					Collections.sort(tempdiceResult);
 					Collections.reverse(tempdiceResult);
-					// for (Integer ii : tempdiceResult) {
-					// System.out.println(ii);
-					// }
+					
 					Collection<Integer> subset = tempdiceResult.subList(0,
 							(int) bestof);
 					for (Integer best : subset) {
-						// System.out.println("++" + best);
 						resultat += best;
 					}
-					// System.out.println("++"+bonus);
 					resultat += (int) bonus;
-					// System.out.println(resultat);
 					return resultat;
 
 				} catch (Exception e) {
@@ -164,14 +254,5 @@ public abstract class DiceRoller {
 		pw.println("3D6B1R2 ne fonctionne pas alors que 3D6R1B2 oui. ");
 		return sw.toString();
 	}
-
-	public static void main(String[] a) {
-
-		System.out.println(DiceRoller.rollDice("1D20-21"));
-		// System.out.println(DiceRoller.rollDice("1D20+1"));
-		// System.out.println(DiceRoller.rollDice("1D20-10"));
-		// System.out.println(DiceRoller.rollDice("1D20+10"));
-		// System.out.println(DiceRoller.rollDice("1D20+15"));
-
-	}
+	
 }

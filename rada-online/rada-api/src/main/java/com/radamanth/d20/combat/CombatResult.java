@@ -3,8 +3,8 @@ package com.radamanth.d20.combat;
 public class CombatResult {
 
 	private String attackcode;
-	private int nbHit = 0;
-	private boolean critique = false;
+	private boolean hit = Boolean.FALSE;
+	private boolean critique = Boolean.FALSE;
 	private int defense = 0;
 	public String getAttackcode() {
 		return attackcode;
@@ -12,12 +12,7 @@ public class CombatResult {
 	public void setAttackcode(String attackcode) {
 		this.attackcode = attackcode;
 	}
-	public int getNbHit() {
-		return nbHit;
-	}
-	public void setNbHit(int nbHit) {
-		this.nbHit = nbHit;
-	}
+	
 	public boolean isCritique() {
 		return critique;
 	}
@@ -29,6 +24,18 @@ public class CombatResult {
 	}
 	public void setDefense(int defense) {
 		this.defense = defense;
+	}
+	/**
+	 * @return the hit
+	 */
+	public boolean isHit() {
+		return hit;
+	}
+	/**
+	 * @param hit the hit to set
+	 */
+	public void setHit(boolean hit) {
+		this.hit = hit;
 	}
 	
 	

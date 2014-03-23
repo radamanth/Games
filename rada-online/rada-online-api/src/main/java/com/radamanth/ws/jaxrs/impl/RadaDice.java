@@ -1,13 +1,19 @@
 package com.radamanth.ws.jaxrs.impl;
 
+import java.util.ArrayList;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.radamanth.model.OneRoll;
 import com.radamanth.model.RollTheDiceFormBean;
 import com.radamanth.service.IRadaDiceService;
 import com.radamanth.ws.jaxrs.IRadaDiceJaxrs;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.ws.rs.*;
-import java.util.ArrayList;
 
 
 @Path(value="diceSession")
@@ -21,8 +27,8 @@ public class RadaDice implements IRadaDiceJaxrs{
 	 */
 	@Override
 	@GET
-	@Produces("application/json")
-	@Consumes("application/json")
+	@Produces("application/json; charset=UTF-8")
+	@Consumes("application/json; charset=UTF-8")
 	public RollTheDiceFormBean usage() {
 		RollTheDiceFormBean res = new RollTheDiceFormBean();
 		ArrayList<OneRoll> requestedRoll = new ArrayList<OneRoll>();
@@ -42,8 +48,8 @@ public class RadaDice implements IRadaDiceJaxrs{
 
 	@Override
 	@POST
-	@Produces("application/json")
-	@Consumes("application/json")
+	@Produces("application/json; charset=UTF-8")
+	@Consumes("application/json; charset=UTF-8")
 	public RollTheDiceFormBean rollTheRoller(RollTheDiceFormBean request) {
 		return serviceDice.rollTheRoller(request);
 	}

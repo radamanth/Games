@@ -42,22 +42,35 @@ $(document).ready(function () {
 		
 		var self = this;
 		self.rolls=  ko.observableArray([]);
-		var newIndex = 1 ;
-		self.roll1 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
-		newIndex ++;
-		self.roll2 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
-		newIndex ++;
-		self.roll3 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
-		newIndex ++;
-		self.roll4 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
-		newIndex ++;
-		self.roll5 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+		self.initRolls = function(){
+            var newIndex = 1 ;
+            self.roll1 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+            newIndex ++;
+            self.roll2 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+            newIndex ++;
+            self.roll3 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+            newIndex ++;
+            self.roll4 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+            newIndex ++;
+            self.roll5 = ko.observable(new Roll('Roll ' + newIndex, 'roll' + newIndex + 'Title', 'roll' + newIndex + 'Title', 'roll' + newIndex, 'roll' + newIndex, 'nbRoll' + newIndex, 'nbRoll' + newIndex));
+        }   ;
+        self.initRolls();
 		self.author = '';
+        self.subject= '';
 		self.dest1 = '';
 		self.dest2 = '';
 		self.dest3 = '';
 		self.dest4 = '';
 		self.dest5 = '';
+        self.resetResults = function () {
+
+                model.roll1().rollData().results =  ko.observable(new Array());
+                model.roll2().rollData().results =  ko.observable(new Array());
+                model.roll3().rollData().results =  ko.observable(new Array());
+                model.roll4().rollData().results =  ko.observable(new Array());
+                model.roll5().rollData().results =  ko.observable(new Array());
+
+        }
 		self.verifyMail= ko.observable(new VerifyMail('', '', true, ''));
 		self.checkMailContent= function() {
             $('#checkMailPopup').popup('close');
@@ -128,7 +141,10 @@ $(document).ready(function () {
                     if (!results) {
                         alert("aucun résultats obtenus");
                     } else {
-                    	
+
+                        self.resetResults();
+
+
                         if (results.length >= 1) {
                         	var v= results[0];
                         	model.roll1().rollData().comment(v.comment);

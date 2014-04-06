@@ -65,11 +65,11 @@ $(document).ready(function () {
 		self.dest5 = '';
         self.resetResults = function () {
 
-                model.roll1().rollData().results =  ko.observable(new Array());
-                model.roll2().rollData().results =  ko.observable(new Array());
-                model.roll3().rollData().results =  ko.observable(new Array());
-                model.roll4().rollData().results =  ko.observable(new Array());
-                model.roll5().rollData().results =  ko.observable(new Array());
+                model.roll1().rollData().results([]);
+                model.roll2().rollData().results([]);
+                model.roll3().rollData().results([]);
+                model.roll4().rollData().results([]);
+                model.roll5().rollData().results([]);
 
         }
 		self.verifyMail= ko.observable(new VerifyMail('', '', true, ''));
@@ -154,7 +154,7 @@ $(document).ready(function () {
                     	
                     } else {
 
-                        self.resetResults();
+                        model.resetResults();
 
 
                         if (results.length >= 1) {

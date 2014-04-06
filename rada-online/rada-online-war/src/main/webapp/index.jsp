@@ -15,17 +15,17 @@
     </div><!-- /header -->
     <div data-role="panel" id="mailPanel" data-position="left" data-display="overlay"  data-theme="b" data-visible="true">
         <div class="panel-content">
-            <label for="idAuthor" data-theme="b">Auteur</label>
+            <label for="idAuthor" data-theme="b">To</label>
             <input id="idAuthor" type="email" data-bind="value: author" data-theme="b" />
-            <label for="idDest1" data-theme="b">Destinataire 1</label>
+            <label for="idDest1" data-theme="b">CC 1</label>
             <input id="idDest1" type="email" data-bind="value: dest1"   data-theme="b" />
-            <label for="idDest2" data-theme="b">Destinataire 2</label>
+            <label for="idDest2" data-theme="b">CC 2</label>
             <input id="idDest2" type="email" data-bind="value: dest2"   data-theme="b" />
-            <label for="idDest3" data-theme="b">Destinataire 3</label>
+            <label for="idDest3" data-theme="b">CC 3</label>
             <input id="idDest3" type="email" data-bind="value: dest3"   data-theme="b" />
-            <label for="idDest4" data-theme="b">Destinataire 4</label>
+            <label for="idDest4" data-theme="b">CC 4</label>
             <input id="idDest4" type="email" data-bind="value: dest4"   data-theme="b" />
-            <label for="idDest5" data-theme="b">Destinataire 5</label>
+            <label for="idDest5" data-theme="b">CC 5</label>
             <input id="idDest5" type="email" data-bind="value: dest5"   data-theme="b" />
             <a href="#checkMailPopup" id="checkMailButton" data-theme="b" data-role="button" data-rel="popup" data-position-to="window" data-mini="true" >Check Mail</a>
             <a href="#mailPanel" data-theme="b" data-role="button" data-mini="true" >Close</a>

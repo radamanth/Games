@@ -212,6 +212,7 @@
         </div>
 
     </div><!-- /content -->
+    <%@ include file="footer.jsp" %>    
 </div><!--  page dice -->
 
 
